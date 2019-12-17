@@ -1,0 +1,7 @@
+home:
+    title: 'Shakespeare Plays'
+    intro: 'Intro to Shakespeare Plays'
+    description: 'In fountain format, from http://opensourceshakespeare.com/'
+work_index:
+    title: List of Plays
+    description: Full list of works

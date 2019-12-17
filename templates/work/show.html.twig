@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Work{% endblock %}
+
+{% block body %}
+    <h1>Work</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ work.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ work.title }}</td>
+            </tr>
+            <tr>
+                <th>LongTitle</th>
+                <td>{{ work.longTitle }}</td>
+            </tr>
+            <tr>
+                <th>ShortTitle</th>
+                <td>{{ work.shortTitle }}</td>
+            </tr>
+            <tr>
+                <th>Source</th>
+                <td>{{ work.source }}</td>
+            </tr>
+            <tr>
+                <th>TotalWords</th>
+                <td>{{ work.totalWords }}</td>
+            </tr>
+            <tr>
+                <th>TotalParagraphs</th>
+                <td>{{ work.totalParagraphs }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ol>
+
+    {% for chapter in work.chapters %}
+        <li>
+            <h2>{{ chapter }}</h2>
+
+            <ol>
+                {% for paragraph in chapter.paragraphs %}
+                    <li>{{ paragraph.charId }} ({{ paragraph.type }}): {{ paragraph|split('[p]')|join('<br />')|raw }}</li>
+                {% endfor %}
+            </ol>
+
+        </li>
+    {% endfor %}
+    </ol>
+
+    <a href="{{ path('work_index') }}">back to list</a>
+
+{% endblock %}

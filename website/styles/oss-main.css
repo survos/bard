@@ -1,0 +1,199 @@
+.copyright {
+	font-family: "Courier New", Courier, mono;
+	font-size: 11px;
+	text-align: center;
+}
+p {  font-family: "Courier New", Courier, mono; font-size: 13px;}
+a:visited {  text-decoration: none}
+a:link {
+	text-decoration: none;
+	color: #000099;
+}
+a:active {  text-decoration: none}
+a:hover {  text-decoration: underline}
+h1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+}
+.stagedir {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: italic;
+}
+.normalsans {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+.playtext {
+	list-style-position: outside;
+	list-style-image: none;
+	list-style-type: none;
+	text-indent: -20px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+.playtextsmall {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+}
+h2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+}
+h3 {
+	font-family: "Courier New", Courier, mono;
+	font-size: 18px;
+	font-weight: bold;
+}
+.playtitle {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+}
+.playsubhead {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+}
+.navlinks {
+	font-family: "Courier New", Courier, mono;
+	font-size: 14px;
+	font-weight: bold;
+}
+.charhighlight {
+	background-color: #FF9999;
+	border: thin solid #000000;
+}
+li {
+	list-style-position: outside;
+	list-style-type: square;
+}
+body { 
+scrollbar-base-color: #663366; 
+scrollbar-face-color: #FEF3DE; 
+scrollbar-track-color: #770A0A; 
+scrollbar-arrow-color: #770A0A;
+scrollbar-highlight-color: #FFFFFF; 
+scrollbar-3dlight-color: #CCCCCC; 
+scrollbar-shadow-color: #663366;
+scrollbar-darkshadow-color: #770A0A; 
+} 
+input {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background-color: #FEF3DE;
+	border-top: 1px none #770A0A;
+	border-right: 1px none #770A0A;
+	border-bottom: 1px solid #770A0A;
+	border-left: 1px none #770A0A;
+}
+select {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+option {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background-color: #FFFFFF;
+	border: 1px groove #770A0A;
+}
+.formbutton {
+	font-family: "Courier New", Courier, mono;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FEF3DE;
+	background-color: #770A0A;
+	border: 2px outset;
+}
+.searchtermlabel {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #770A0A;
+}
+.keywordlabel {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FEF3DE;
+	background-color: #770A0A;
+	padding: 3px;
+}
+.searchtermnote {
+	font-size: 10px;
+	font-weight: normal;
+}
+.notfoundtitle {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 36px;
+	font-style: italic;
+	font-weight: bold;
+	color: #FF0000;
+}.datehighlight {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #000000;
+	padding: 1px 2px 2px 1px;
+	width: 1px;
+}
+.charnames {
+	font-family: "Courier New", Courier, mono;
+	list-style-position: outside;
+	list-style-image: none;
+	list-style-type: none;
+	text-indent: -40px;
+	font-size: 13px;
+	line-height: 13px;
+	padding-bottom: 7px;
+}
+.scenelist {
+	font-family: "Courier New", Courier, mono; font-size: 10px;
+	list-style-position: outside;
+	list-style-image: none;
+	list-style-type: none;
+	text-indent: -20px;
+	font-size: 13px;
+	line-height: 11px;
+}
+.sitecategory {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	font-style: italic;
+	font-weight: bold;
+	text-transform: none;
+}
+.sitetitle {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	height: 25px;
+	list-style-type: circle;
+	margin-left: 40px;
+}
+.sitedescription {
+	width: 550px;
+	margin-left: 70px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.sonnetname {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-bottom-style: solid;
+}.letterlist {
+	font-family: "Courier New", Courier, mono;
+	font-size: 24px;
+	font-weight: bold;
+}
+.plainbutton {
+	border: none;
+}
