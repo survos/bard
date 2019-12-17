@@ -6,6 +6,7 @@ use App\Entity\Work;
 use App\Form\WorkType;
 use App\Repository\ParagraphRepository;
 use App\Repository\WorkRepository;
+use App\Services\AppService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -69,17 +70,40 @@ class WorkController extends AbstractController
         }
         return $work;
     }
+
     /**
-     * @Route("/{id}", name="work_show", methods={"GET"})
+     * @Route("/show/{id}", name="work_show", methods={"GET"})
      */
-    public function show(Work $work): Response
+    public function show(Work $work, AppService $appService): Response
     {
         $work = $this->fix($work);
+
+        $fountain = $appService->workToFountain($work);
 
 
         return $this->render('work/show.html.twig', [
             'work' => $work,
+            'fountain' => $fountain
         ]);
+    }
+
+    /**
+     * @Route("/fountain/{id}.{_format}", name="work_fountain", methods={"GET"})
+     */
+    public function fountain(Work $work, AppService $appService, $_format='txt'): Response
+    {
+        $work = $this->fix($work);
+        $fountain = $appService->workToFountain($work);
+
+        $response = new Response(
+            $fountain,
+            Response::HTTP_OK,
+            ['content-type' => 'text/plain']
+        );
+
+        return $response;
+
+
     }
 
     /**

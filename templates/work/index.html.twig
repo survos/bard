@@ -30,6 +30,7 @@
                 <td>{{ work.totalParagraphs }}</td>
                 <td>
                     <a href="{{ path('work_show', {'id': work.id}) }}">show</a>
+                    <a target="_blank" href="{{ path('work_fountain', {_format: 'txt', 'id': work.id}) }}">.fountain</a>
                     <a href="{{ path('work_edit', {'id': work.id}) }}">edit</a>
                 </td>
             </tr>
