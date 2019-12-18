@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d574e7b3979c752eabaef5495e98d82",
+    "content-hash": "90a0a614db3fef97794689bae155523f",
     "packages": [
         {
             "name": "api-platform/api-pack",
@@ -587,16 +587,16 @@
         },
         {
             "name": "doctrine/doctrine-bundle",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "651107e96680f8c600ea54f6389bf907a9f558f0"
+                "reference": "fd15f1854e477fd4628bfe9c034130513d23f1f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/651107e96680f8c600ea54f6389bf907a9f558f0",
-                "reference": "651107e96680f8c600ea54f6389bf907a9f558f0",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/fd15f1854e477fd4628bfe9c034130513d23f1f5",
+                "reference": "fd15f1854e477fd4628bfe9c034130513d23f1f5",
                 "shasum": ""
             },
             "require": {
@@ -673,7 +673,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2019-12-18T14:10:47+00:00"
+            "time": "2019-12-18T16:07:48+00:00"
         },
         {
             "name": "doctrine/doctrine-migrations-bundle",
@@ -1471,21 +1471,24 @@
         },
         {
             "name": "fig/link-util",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/link-util.git",
-                "reference": "1a07821801a148be4add11ab0603e4af55a72fac"
+                "reference": "47f55860678a9e202206047bc02767556d298106"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/link-util/zipball/1a07821801a148be4add11ab0603e4af55a72fac",
-                "reference": "1a07821801a148be4add11ab0603e4af55a72fac",
+                "url": "https://api.github.com/repos/php-fig/link-util/zipball/47f55860678a9e202206047bc02767556d298106",
+                "reference": "47f55860678a9e202206047bc02767556d298106",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5.0",
                 "psr/link": "~1.0@dev"
+            },
+            "provide": {
+                "psr/link-implementation": "1.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^5.1",
@@ -1521,7 +1524,7 @@
                 "psr-13",
                 "rest"
             ],
-            "time": "2016-10-17T18:31:11+00:00"
+            "time": "2019-12-18T15:40:05+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -2900,10 +2903,16 @@
         {
             "name": "survos/landing-bundle",
             "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/survos/LandingBundle.git",
+                "reference": "45a4633108bb64e62fd2874a5922496f24f4beb9"
+            },
             "dist": {
-                "type": "path",
-                "url": "../Survos/LandingBundle",
-                "reference": "ec8d174e7ac058ced295d6ad8398bef49f206531"
+                "type": "zip",
+                "url": "https://api.github.com/repos/survos/LandingBundle/zipball/45a4633108bb64e62fd2874a5922496f24f4beb9",
+                "reference": "45a4633108bb64e62fd2874a5922496f24f4beb9",
+                "shasum": ""
             },
             "require": {
                 "ext-json": "*",
@@ -2936,6 +2945,7 @@
                     "Survos\\LandingBundle\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2947,11 +2957,12 @@
             ],
             "description": "Add some tools and resources to a Symfony4.4/Symfony5 application",
             "keywords": [
+                "Skeleton",
                 "generator",
-                "skeleton",
                 "symfony4",
                 "symfony5"
-            ]
+            ],
+            "time": "2019-12-18T18:21:45+00:00"
         },
         {
             "name": "symfony/asset",
