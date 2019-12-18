@@ -123,8 +123,8 @@ class Chapter
 
     public function __toString()
     {
+        // return $this->getId();
         return sprintf("%s-%s %s", $this->getSection(), $this->getScene(), $this->getDescription());
-        // TODO: Implement __toString() method.
     }
 
     public function getDescription(): ?string

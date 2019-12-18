@@ -1,4 +1,13 @@
 easy_admin:
+    design:
+        menu:
+            - { label: 'Homepage', route: 'app_homepage', rel: 'index' }
+            - { entity: Work }
+            - { entity: Chapter }
+            - { entity: Paragraph }
+            - { entity: Character }
+        # ...
+
     entities:
         # List the entity class name you want to manage
         - App\Entity\Work

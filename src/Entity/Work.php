@@ -6,11 +6,16 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Survos\LandingBundle\Entity\SurvosBaseEntity;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\WorkRepository")
  * @ORM\Table(name="Works")
- */
+ * @ApiResource(
+ *     normalizationContext={"groups"={"read"}},
+ *     denormalizationContext={"groups"={"write"}}
+ * ) */
 class Work extends SurvosBaseEntity
 {
     /**
@@ -63,6 +68,9 @@ class Work extends SurvosBaseEntity
      * @ORM\Column(name="Date", type="string", length=10)
      */
     private $year;
+
+    // not persisted
+    private $fountainUrl;
 
     public function __construct()
     {
@@ -211,5 +219,18 @@ class Work extends SurvosBaseEntity
         return $this;
     }
 
+    public function getFountainUrl(): ?string
+    {
+        // hack, need an event subscriber to set properly
+        return sprintf('/fountain/%s.fountain', $this->getId());
+        return $this->fountainUrl;
+    }
+
+    public function setFountainUrl(string $fountainUrl): self
+    {
+        $this->fountainUrl = $fountainUrl;
+
+        return $this;
+    }
 
 }

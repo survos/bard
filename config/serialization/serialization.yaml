@@ -1,0 +1,8 @@
+App\Entity\Work:
+  attributes:
+    id:
+      groups: ['read', 'Default']
+    shortTitle:
+      groups: ['read', 'Default']
+    fountainUrl:
+      groups: ['read', 'Default']

@@ -6,10 +6,13 @@ use App\Entity\Work;
 use App\Form\WorkType;
 use App\Repository\ParagraphRepository;
 use App\Repository\WorkRepository;
+use App\Services\AppService;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 /**
  * @Route("/work")
@@ -29,10 +32,26 @@ class WorkController extends AbstractController
     /**
      * @Route("/", name="work_index", methods={"GET"})
      */
-    public function index(WorkRepository $workRepository): Response
+    public function index(Request $request, EntityManagerInterface $em, WorkRepository $workRepository): Response
     {
+        $works = $workRepository->findAll();
+        if ($request->get('fix')) {
+            foreach ($works as $work) {
+                $this->fix($work);
+                $em->flush();
+            }
+        }
+
+        if ($request->get('fix')) {
+            foreach ($works as $work) {
+                $this->fixWorkText($work);
+                $em->flush();
+            }
+        }
+
+
         return $this->render('work/index.html.twig', [
-            'works' => $workRepository->findAll(),
+            'works' => $works,
         ]);
     }
 
@@ -59,27 +78,37 @@ class WorkController extends AbstractController
         ]);
     }
 
-    // fix the bad chapter references
-    public function fix(Work $work) {
-        foreach ($work->getChapters() as $chapter) {
-            foreach ($this->paragraphRepository->findByChapter($chapter) as $paragraph) {
-                $chapter->addParagraph($paragraph);
-                // $paragraph->setScene($chapter);
-            }
-        }
-        return $work;
-    }
-    /**
-     * @Route("/{id}", name="work_show", methods={"GET"})
-     */
-    public function show(Work $work): Response
-    {
-        $work = $this->fix($work);
 
+
+    /**
+     * @Route("/show/{id}", name="work_show", methods={"GET"})
+     */
+    public function show(Work $work, AppService $appService): Response
+    {
+        $fountain = $appService->workToFountain($work);
 
         return $this->render('work/show.html.twig', [
             'work' => $work,
+            'fountain' => $fountain
         ]);
+    }
+
+    /**
+     * @Route("/fountain/{id}.{_format}", name="work_fountain", methods={"GET"})
+     */
+    public function fountain(Work $work, AppService $appService, $_format='txt'): Response
+    {
+        $fountain = $appService->workToFountain($work);
+
+        $response = new Response(
+            $fountain,
+            Response::HTTP_OK,
+            ['content-type' => 'text/plain']
+        );
+
+        return $response;
+
+
     }
 
     /**
