@@ -35,20 +35,6 @@ class WorkController extends AbstractController
     public function index(Request $request, EntityManagerInterface $em, WorkRepository $workRepository): Response
     {
         $works = $workRepository->findAll();
-        if ($request->get('fix')) {
-            foreach ($works as $work) {
-                $this->fix($work);
-                $em->flush();
-            }
-        }
-
-        if ($request->get('fix')) {
-            foreach ($works as $work) {
-                $this->fixWorkText($work);
-                $em->flush();
-            }
-        }
-
 
         return $this->render('work/index.html.twig', [
             'works' => $works,
@@ -77,8 +63,6 @@ class WorkController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
-
 
     /**
      * @Route("/show/{id}", name="work_show", methods={"GET"})
