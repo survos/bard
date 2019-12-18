@@ -4,7 +4,8 @@
 
 {% block body %}
     <h1>Work index</h1>
-
+    <a href="{{ path('work_index', {fix: true}) }}">Fix</a>
+    <a href="{{ path('work_index', {fixText: true}) }}">Fix Text</a>
     <table class="table">
         <thead>
             <tr>
@@ -13,6 +14,7 @@
                 <th>LongTitle</th>
                 <th>Year</th>
                 <th>Source</th>
+                <th>Chapters</th>
                 <th>TotalWords</th>
                 <th>TotalParagraphs</th>
                 <th>actions</th>
@@ -26,10 +28,19 @@
                 <td>{{ work.longTitle }}</td>
                 <td>{{ work.year  }}</td>
                 <td>{{ work.source }}</td>
+
+                <td>
+                    {{ work.chapters.count }}
+                </td>
                 <td>{{ work.totalWords }}</td>
                 <td>{{ work.totalParagraphs }}</td>
                 <td>
                     <a href="{{ path('work_show', {'id': work.id}) }}">show</a>
+                    {% set url = url('work_fountain', work.rp({_format: 'fountain'}) ) %}
+                    <a target="_blank" href="{{ url }}">.fountain</a>
+
+                    {% set tcUrl = 'https://tc.survos.com/admin/import' %}
+                    <a target="_blank" href="{{ path('work_fountain', {_format: 'txt', 'id': work.id}) }}">SA Import</a>
                     <a href="{{ path('work_edit', {'id': work.id}) }}">edit</a>
                 </td>
             </tr>
