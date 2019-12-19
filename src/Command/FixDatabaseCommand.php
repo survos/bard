@@ -86,7 +86,7 @@ class FixDatabaseCommand extends Command
                 array_push($sceneParagraphs, $paragraph);
             }
 
-            // store json paragraphs to Chapter if sqlite won't work on heroku, to avoid 10K line limitgit 
+            // store json paragraphs to Chapter if sqlite won't work on heroku, to avoid 10K line limit
 
         }
         return $work;
