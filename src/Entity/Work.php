@@ -233,4 +233,16 @@ class Work extends SurvosBaseEntity
         return $this;
     }
 
+    public function getChapterCount(): int
+    {
+        return $this->getChapters()->count();
+    }
+
+    /* @todo
+    public function getCharacterCount(): int
+    {
+        return $this->getCha()->count();
+    }
+     * */
+
 }

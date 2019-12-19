@@ -4,5 +4,11 @@ App\Entity\Work:
       groups: ['read', 'Default']
     shortTitle:
       groups: ['read', 'Default']
+    longTitle:
+      groups: ['read', 'Default']
+    title:
+      groups: ['read', 'Default']
+    chapterCount:
+      groups: ['read', 'Default']
     fountainUrl:
       groups: ['read', 'Default']

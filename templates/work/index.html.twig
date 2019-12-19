@@ -39,8 +39,6 @@
                     {% set url = url('work_fountain', work.rp({_format: 'fountain'}) ) %}
                     <a target="_blank" href="{{ url }}">.fountain</a>
 
-                    {% set tcUrl = 'https://tc.survos.com/admin/import' %}
-                    <a target="_blank" href="{{ path('work_fountain', {_format: 'txt', 'id': work.id}) }}">SA Import</a>
                     <a href="{{ path('work_edit', {'id': work.id}) }}">edit</a>
                 </td>
             </tr>
