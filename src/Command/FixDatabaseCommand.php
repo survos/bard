@@ -79,10 +79,15 @@ class FixDatabaseCommand extends Command
     public function fix(Work $work) {
         $this->logger->info(' fixing ' . $work->getShortTitle());
         foreach ($work->getChapters() as $chapter) {
+            $sceneParagraphs = [];
             foreach ($this->paragraphRepository->findByChapter($chapter) as $paragraph) {
                 // $chapter->addParagraph($paragraph);
                 $paragraph->setScene($chapter);
+                array_push($sceneParagraphs, $paragraph);
             }
+
+            // store json paragraphs to Chapter if sqlite won't work on heroku, to avoid 10K line limitgit 
+
         }
         return $work;
     }
