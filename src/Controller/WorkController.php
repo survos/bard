@@ -42,6 +42,17 @@ class WorkController extends AbstractController
     }
 
     /**
+     * @Route("/datatable", name="work_datatable", methods={"GET"})
+     */
+    public function datatable(Request $request, EntityManagerInterface $em, WorkRepository $workRepository): Response
+    {
+
+        return $this->render('work/datatable.html.twig', [
+
+        ]);
+    }
+
+    /**
      * @Route("/new", name="work_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response

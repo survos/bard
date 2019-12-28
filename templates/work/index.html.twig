@@ -1,12 +1,16 @@
 {% extends 'base.html.twig' %}
 
+{% block javascripts %}
+{{ parent() }}
+    {{ encore_entry_script_tags('works-datatable') }}
+{% endblock %}
 {% block title %}Work index{% endblock %}
 
 {% block body %}
     <h1>Work index</h1>
     <a href="{{ path('work_index', {fix: true}) }}">Fix</a>
     <a href="{{ path('work_index', {fixText: true}) }}">Fix Text</a>
-    <table class="table">
+    <table class="table" id="works-html-table">
         <thead>
             <tr>
                 <th>Id</th>

@@ -126,14 +126,30 @@ And create a basic controller to display the works
   
  Create the methods in AppController, and add the links in index.
  
- Add the API
+ ## Add the API
  
+     composer req api
+     
+ Update the Work.php entity with ApiPlatform
+
+```php
+  * @ApiResource(
+  *     normalizationContext={"groups"={"read"}},
+  *     denormalizationContext={"groups"={"write"}}
+  * ) */
+
+```
+ 
+ ## Add DataTables
+ 
+     yarn add datatables.net-bs4
  
  ## Deploying to Heroku
  
 Modify composer.json to enable pdo sqlite (not just ext-sqlite, which is enabled by default):
  
     composer req ext-pdo_sqlite:"*"
+    composer req ext-sqlite3:"*"
 
  
  We now have 
