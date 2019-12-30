@@ -4,6 +4,8 @@ require('datatables.net-bs4');
 require('datatables.net-scroller-bs4');
 
 import SurvosDataTable from "./SurvosDataTable";
+// import SurvosDataTable from "./../../vendor/survos/landing-bundle/src/Resources/js/SurvosDataTable";
+// const SurvosDataTable = require('');
 
 let columns = [
     {title: 'ID', data: '@id'},
