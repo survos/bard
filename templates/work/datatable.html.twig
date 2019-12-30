@@ -24,7 +24,7 @@
     <div class="row">
         <div class="col-md-4">
             {% set route = 'api_works_get_collection' %}
-            {% set hydraUrl = url(route) %}
+            {% set hydraUrl = path(route) %}
             {% set dtUrl = path('api_passthru', {apiRoute: route, path: hydraUrl}) %}
             <a target="_blank" href="{{ hydraUrl }}">{{ hydraUrl }}</a>
 
@@ -33,7 +33,7 @@
 
         <div class="col-md-8">
             {% set route = 'api_characters_get_collection' %}
-            {% set hydraUrl = url(route) %}
+            {% set hydraUrl = path(route) %}
             {% set dtUrl = path('api_passthru', {apiRoute: route, path: hydraUrl}) %}
 
             <a target="_blank" href="{{ hydraUrl }}">{{ hydraUrl }}</a>

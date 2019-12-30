@@ -1,5 +1,3 @@
-require('datatables.net-bs4');
-require('datatables.net-scroller-bs4');
 const _ = require('underscore');
 
 export default class SurvosDataTable {
