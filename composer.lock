@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ac9e621122dad6432a3249fbe21dbf3",
+    "content-hash": "0f2f6779fac0461da37527ff5598b517",
     "packages": [
         {
             "name": "api-platform/api-pack",
@@ -1466,27 +1466,26 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.12",
+            "version": "2.1.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "a6255605af39f2db7f5cb62e672bd8a7bad8d208"
+                "reference": "834593d5900615639208417760ba6a17299e2497"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/a6255605af39f2db7f5cb62e672bd8a7bad8d208",
-                "reference": "a6255605af39f2db7f5cb62e672bd8a7bad8d208",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/834593d5900615639208417760ba6a17299e2497",
+                "reference": "834593d5900615639208417760ba6a17299e2497",
                 "shasum": ""
             },
             "require": {
                 "doctrine/lexer": "^1.0.1",
-                "php": ">= 5.5"
+                "php": ">=5.5"
             },
             "require-dev": {
-                "dominicsayers/isemail": "dev-master",
-                "phpunit/phpunit": "^4.8.35||^5.7||^6.0",
-                "satooshi/php-coveralls": "^1.0.1",
-                "symfony/phpunit-bridge": "^4.4@dev"
+                "dominicsayers/isemail": "^3.0.7",
+                "phpunit/phpunit": "^4.8.36|^7.5.15",
+                "satooshi/php-coveralls": "^1.0.1"
             },
             "suggest": {
                 "ext-intl": "PHP Internationalization Libraries are required to use the SpoofChecking validation"
@@ -1520,7 +1519,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2019-12-20T12:49:39+00:00"
+            "time": "2019-12-30T08:14:25+00:00"
         },
         {
             "name": "fig/link-util",
@@ -2170,6 +2169,52 @@
                 "single sign on"
             ],
             "time": "2018-11-22T18:33:57+00:00"
+        },
+        {
+            "name": "meyfa/php-svg",
+            "version": "v0.9.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/meyfa/php-svg.git",
+                "reference": "34401edef1f724898f468f71b85505fbcc8351bb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/meyfa/php-svg/zipball/34401edef1f724898f468f71b85505fbcc8351bb",
+                "reference": "34401edef1f724898f468f71b85505fbcc8351bb",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "ext-simplexml": "*",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "meyfa/phpunit-assert-gd": "^1.1",
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SVG\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabian Meyer",
+                    "homepage": "http://meyfa.net"
+                }
+            ],
+            "description": "Read, edit, write, and render SVG files with PHP",
+            "homepage": "https://github.com/meyfa/php-svg",
+            "keywords": [
+                "svg"
+            ],
+            "time": "2019-07-30T18:41:25+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -3870,11 +3915,6 @@
         {
             "name": "survos/landing-bundle",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/survos/LandingBundle.git",
-                "reference": "184fe2adb6665f785b732b9dbfe694a64be59cc9"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/survos/LandingBundle/zipball/184fe2adb6665f785b732b9dbfe694a64be59cc9",
@@ -3887,6 +3927,7 @@
                 "knplabs/knp-menu": "^3.0",
                 "knplabs/knp-menu-bundle": "^3.0@dev",
                 "knpuniversity/oauth2-client-bundle": "^1.0",
+                "meyfa/php-svg": "^0.9.1",
                 "symfony/mailer": "*",
                 "symfony/orm-pack": "*",
                 "symfony/webpack-encore-bundle": "^1.6|^2",
