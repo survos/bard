@@ -76,7 +76,7 @@ class WorkController extends AbstractController
     }
 
     /**
-     * @Route("/show/{id}", name="work_show", methods={"GET"})
+     * @Route("/show/{id}", name="work_show", methods={"GET"}, options={"expose": true})
      */
     public function show(Work $work, AppService $appService): Response
     {
