@@ -1,5 +1,3 @@
-const _ = require('underscore');
-
 export default class SurvosDataTable {
     constructor($el, columns, options) {
         if (!options) {
@@ -9,6 +7,8 @@ export default class SurvosDataTable {
         this.columns = columns;
         this.url = options.url || $el.data('dtAjax');
         console.log("Setting up " + $el.attr('id') + ' with ' + this.url);
+
+        this.debug = false;
 
     }
 
@@ -25,11 +25,9 @@ export default class SurvosDataTable {
             apiData.itemsPerPage = params.length;
         }
 
-        console.log('------',apiData.itemsPerPage, params.length);
         if (params.start) {
             apiData.page = Math.floor(params.start / params.length) + 1;
         }
-        console.log(params, apiData);
 
         return apiData;
     }
@@ -41,11 +39,14 @@ export default class SurvosDataTable {
                 url: options
             };
         }
-        _.defaults(options, {
+
+        // this was _.defaults(), changed to remove the _ dependency, BUT this may be problematic!!
+        //  must be a better way!  https://www.sitepoint.com/es6-default-parameters/
+        $.extend(options, {
             headers: {},
             dataType: 'json',
         });
-        _.defaults(options.headers, {
+        $.extend(options.headers, {
             Authorization: 'Bearer ' + this.getAccessToken(),
             Accept: 'application/ld+json'
         });
@@ -60,8 +61,7 @@ export default class SurvosDataTable {
         let that = this;
         return function ( params, callback, settings ) {
             var out = [];
-            console.log(params);
-            console.warn(settings);
+            // console.log(params);
             options.data = that.dataTableParamsToApiPlatformParams(params);
 
 
@@ -71,7 +71,7 @@ export default class SurvosDataTable {
                 })
                 .done(function (hydraData, textStatus, jqXHR) {
                 var total = hydraData['hydra:totalItems'];
-                    if ( console && console.log ) {
+                    if (this.debug &&  console && console.log ) {
                         console.log(total + " Sample of data:", hydraData['hydra:member'].slice( 0, 3 ) );
                     }
                 // console.log(params, hydraData, total);
@@ -103,8 +103,8 @@ export default class SurvosDataTable {
             dom: 'iBft',
             scroller: {}
         });
-        console.warn(this.el.attr('id') + ' rendered!');
-        console.log(this.url, this.el.data());
+        this.debug && console.warn(this.el.attr('id') + ' rendered!');
+        this.debug && console.log(this.url, this.el.data());
     }
 
 }
