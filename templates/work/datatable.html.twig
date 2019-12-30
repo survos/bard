@@ -1,10 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Work index{% endblock %}
+{% block title %}Works via json-ld{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('works-datatable') }}
+{% endblock %}
 
 {% block body %}
-<h1>Work index</h1>
+<h1>Work index via JSON-LD</h1>
 
-    <table name="work-table"></table>
+    <table id="example-table" class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <div class="row">
+        <div class="col-md-4">
+            {% set route = 'api_works_get_collection' %}
+            {% set hydraUrl = url(route) %}
+            {% set dtUrl = path('api_passthru', {apiRoute: route, path: hydraUrl}) %}
+            <a target="_blank" href="{{ hydraUrl }}">{{ hydraUrl }}</a>
+
+            <table id="work-table" data-dt-ajax="{{ hydraUrl }}"></table>
+        </div>
+
+        <div class="col-md-8">
+            {% set route = 'api_characters_get_collection' %}
+            {% set hydraUrl = url(route) %}
+            {% set dtUrl = path('api_passthru', {apiRoute: route, path: hydraUrl}) %}
+
+            <a target="_blank" href="{{ hydraUrl }}">{{ hydraUrl }}</a>
+            <a target="_blank" href="{{ dtUrl }}">{{ dtUrl }}</a>
+
+            <table id="character-table" class="table" data-dt-ajax="{{ hydraUrl }}"></table>
+        </div>
+
+    </div>
+
+
+
 
 {% endblock %}
+

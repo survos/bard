@@ -2,11 +2,16 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CharacterRepository")
  * @ORM\Table(name="Characters")
+ * @ApiResource(attributes={"pagination_client_items_per_page"=true}))
+ *     normalizationContext={"groups"={"read"}},
+ *     denormalizationContext={"groups"={"write"}}
+ *
  */
 class Character
 {

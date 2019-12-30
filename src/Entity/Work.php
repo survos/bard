@@ -15,7 +15,8 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
  * @ApiResource(
  *     normalizationContext={"groups"={"read"}},
  *     denormalizationContext={"groups"={"write"}}
- * ) */
+ * )
+ */
 class Work extends SurvosBaseEntity
 {
     /**
