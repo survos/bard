@@ -55,12 +55,14 @@ class FixDatabaseCommand extends Command
         /** @var $work Work */
         foreach ($repo->findAll() as $work) {
 
+            // fix the relationship between paragraphs and chapters
             if ($input->getOption('chapters')) {
                 $io->note("Updating chapter paragraphs");
                 $this->fix($work);
                 $this->em->flush();
             }
 
+            // fix the html characters, mostly quotes
             foreach ($work->getChapters() as $chapter) {
                 $chapter->setDescription($this->fixText($chapter->getDescription()));
                 foreach ($chapter->getParagraphs() as $paragraph) {
