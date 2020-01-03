@@ -120,6 +120,9 @@
             "config/routes/easy_admin.yaml"
         ]
     },
+    "easyrdf/easyrdf": {
+        "version": "0.9.1"
+    },
     "egulias/email-validator": {
         "version": "2.1.11"
     },

@@ -47,13 +47,11 @@ Now we no longer need the Paragraphs table, nor the word tables.
     bin/console doctrine:query:sql "DROP TABLE WordForms" 
     bin/console doctrine:query:sql "DROP TABLE Paragraphs" 
        
-Now dump the MySQL database and import it to heroku.  Or dump the fountain files and publish them.  Or maybe someday SceneJson?
-
 ## Step-by-Step Rebuilding Tutorial
 
 Here are the steps to rebuild this application from scratch.  Note that Survos/LandingBundle does a lot of the setup.  Follow the README there to get to the point of having a Symfony application with a landing page.
 
-Then follow the instructions to convert the database to SQLite and set the .env DATABASE_URL to the sqlite file.
+Then follow the instructions above to convert the database to SQLite and set the .env DATABASE_URL to the sqlite file.
 
 At this point, you can run
 
@@ -143,6 +141,17 @@ And create a basic controller to display the works
  ## Add DataTables
  
      yarn add datatables.net-bs4
+     
+Other sources
+
+http://www.gutenberg.org/files/53734/53734-0.txt
+
+http://www.gutenberg.org/ebooks/subject/3360
+http://www.gutenberg.org/wiki/Gutenberg:Terms_of_Use
+https://www.hesherman.com/2018/12/20/setting-free-the-plays-of-1923/
+https://library.owu.edu/playsinthepublicdomain
+http://es.feedbooks.com/books?category=FBDRA000000
+https://www.systemeyescomputerstore.com/scripts/Children_of_Eden/index.html
  
  ## Deploying to Heroku
  

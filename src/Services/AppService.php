@@ -84,6 +84,85 @@ class AppService
         return $text;
     }
 
+    function extractBz2( $zipFile = '', $dirFromZip = '' )
+    {
+
+        define(DIRECTORY_SEPARATOR, '/');
+
+        $zipDir = getcwd() . DIRECTORY_SEPARATOR;
+        $fn = $zipDir . $zipFile;
+        $phar = new \PharData($fn);
+
+        foreach (new \RecursiveIteratorIterator($phar) as $file) {
+            // $file is a PharFileInfo class, and inherits from SplFileInfo
+            echo $file->getFileName() . "\n";
+            echo file_get_contents($file->getPathName()) . "\n"; // display contents;
+            dd($file);
+        }
+
+        foreach ($phar as $p) {
+            dd($p);
+        }
+        $content = $phar->count();
+        dd($content);
+    }
+
+    function extractZip( $zipFile = '', $dirFromZip = '' )
+{
+
+    define(DIRECTORY_SEPARATOR, '/');
+
+    $zipDir = getcwd() . DIRECTORY_SEPARATOR;
+    $zip = zip_open($zipDir.$zipFile);
+
+    if ($zip)
+    {
+        while ($zip_entry = zip_read($zip))
+        {
+            $completePath = $zipDir . dirname(zip_entry_name($zip_entry));
+            $completeName = $zipDir . zip_entry_name($zip_entry);
+
+
+            // Walk through path to create non existing directories
+            // This won't apply to empty directories ! They are created further below
+            if(!file_exists($completePath) && preg_match( '#^' . $dirFromZip .'.*#', dirname(zip_entry_name($zip_entry)) ) )
+            {
+                $tmp = '';
+                foreach(explode('/',$completePath) AS $k)
+                {
+                    $tmp .= $k.'/';
+                    if(!file_exists($tmp) )
+                    {
+                        dd($zip_entry, $completeName, $completePath, $tmp);
+                        @mkdir($tmp, 0777);
+                    }
+                }
+            }
+
+            if (zip_entry_open($zip, $zip_entry, "r"))
+            {
+                if( preg_match( '#^' . $dirFromZip .'.*#', dirname(zip_entry_name($zip_entry)) ) )
+                {
+                    if ($fd = @fopen($completeName, 'w+'))
+                    {
+                        fwrite($fd, zip_entry_read($zip_entry, zip_entry_filesize($zip_entry)));
+                        fclose($fd);
+                    }
+                    else
+                    {
+                        // We think this was an empty directory
+                        mkdir($completeName, 0777);
+                    }
+                    zip_entry_close($zip_entry);
+                }
+            }
+        }
+        zip_close($zip);
+    }
+    return true;
+}
+
+
 
 
 }

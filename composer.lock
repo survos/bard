@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5de2315e6d45d51b6538314085b93db0",
+    "content-hash": "9a20924e018a0b1e593d0a88fc19e195",
     "packages": [
         {
             "name": "api-platform/api-pack",
@@ -1463,6 +1463,68 @@
                 "generator"
             ],
             "time": "2019-12-07T09:28:24+00:00"
+        },
+        {
+            "name": "easyrdf/easyrdf",
+            "version": "0.9.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/njh/easyrdf.git",
+                "reference": "acd09dfe0555fbcfa254291e433c45fdd4652566"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/njh/easyrdf/zipball/acd09dfe0555fbcfa254291e433c45fdd4652566",
+                "reference": "acd09dfe0555fbcfa254291e433c45fdd4652566",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "ext-pcre": "*",
+                "php": ">=5.2.8"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.5",
+                "sami/sami": "~1.4",
+                "squizlabs/php_codesniffer": "~1.4.3"
+            },
+            "suggest": {
+                "ml/json-ld": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "EasyRdf_": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nicholas Humfrey",
+                    "email": "njh@aelius.com",
+                    "homepage": "http://www.aelius.com/njh/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Alexey Zakhlestin",
+                    "email": "indeyets@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "EasyRdf is a PHP library designed to make it easy to consume and produce RDF.",
+            "homepage": "http://www.easyrdf.org/",
+            "keywords": [
+                "Linked Data",
+                "RDF",
+                "Semantic Web",
+                "Turtle",
+                "rdfa",
+                "sparql"
+            ],
+            "time": "2015-02-27T09:45:49+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -8309,6 +8371,7 @@
                 "code",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-code",
             "time": "2019-12-10T19:21:15+00:00"
         },
         {
@@ -8376,6 +8439,7 @@
                 "psr",
                 "psr-7"
             ],
+            "abandoned": "laminas/laminas-diactoros",
             "time": "2019-11-13T19:16:13+00:00"
         },
         {
@@ -8430,6 +8494,7 @@
                 "events",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-eventmanager",
             "time": "2018-04-25T15:33:34+00:00"
         }
     ],

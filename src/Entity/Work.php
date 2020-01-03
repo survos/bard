@@ -8,14 +8,27 @@ use Doctrine\ORM\Mapping as ORM;
 use Survos\LandingBundle\Entity\SurvosBaseEntity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\RangeFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\NumericFilter;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\WorkRepository")
  * @ORM\Table(name="Works")
  * @ApiResource(
+ *     attributes={
+ *          "pagination_items_per_page"=10,
+ *          "pagination_client_items_per_page"=true
+ *     },
+ *
  *     normalizationContext={"groups"={"read"}},
  *     denormalizationContext={"groups"={"write"}}
  * )
+ * @ApiFilter(SearchFilter::class, properties={"title": "partial", "longTitle": "partial"})
+ * @ApiFilter(RangeFilter::class, properties={"chapterCount", "year"})
+ * @ApiFilter(NumericFilter::class, properties={"totalWords", "year"})
  */
 class Work extends SurvosBaseEntity
 {
@@ -27,6 +40,7 @@ class Work extends SurvosBaseEntity
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read"})
      */
     private $title;
 
@@ -66,7 +80,7 @@ class Work extends SurvosBaseEntity
     private $genreType;
 
     /**
-     * @ORM\Column(name="Date", type="string", length=10)
+     * @ORM\Column(name="Date", type="integer")
      */
     private $year;
 

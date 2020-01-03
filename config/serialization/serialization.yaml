@@ -10,5 +10,9 @@ App\Entity\Work:
       groups: ['read', 'Default']
     chapterCount:
       groups: ['read', 'Default']
+    year:
+      groups: ['read', 'Default']
+    totalWords:
+      groups: ['read']
     fountainUrl:
       groups: ['read', 'Default']
