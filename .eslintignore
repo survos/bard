@@ -1,4 +1,6 @@
 vendor
 !vendor/survos/landing-bundle
 var
-
+public
+assets/js/scratch.js
+assets/js/Components/DTApi.js
