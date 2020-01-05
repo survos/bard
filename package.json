@@ -18,6 +18,7 @@
         "dev-server": "encore dev-server",
         "dev": "encore dev",
         "watch": "encore dev --watch",
+        "lint": "eslint .",
         "build": "encore production --progress"
     },
     "dependencies": {
