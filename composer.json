@@ -11,7 +11,7 @@
         "ext-zip": "*",
         "api-platform/api-pack": "^1.2",
         "easycorp/easyadmin-bundle": "^2.3",
-        "easyrdf/easyrdf": "^0.9.1",
+        "easyrdf/easyrdf": "dev-master",
         "friendsofsymfony/jsrouting-bundle": "^2.5",
         "knplabs/knp-menu-bundle": "^3.0",
         "sensio/framework-extra-bundle": "^5.1",

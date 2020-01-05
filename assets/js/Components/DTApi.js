@@ -2,6 +2,12 @@ const $ = require('jquery');
 const _ = require('underscore');
 require('datatables.net-bs4'); // do we even need this?  Do we extend DataTable?  Or provide utilities for it?
 
+// This used to be SurvosApp, it is now a class with things like thruway removed.  It does not work currently.
+
+// it should be part of SurvosLandingBundle or an independent bundle or javascript package.
+
+// It requires api-platform (composer req api), and datatables+bootstrap (yarn add datatables.net-bs4, plus buttons, etc.
+
 export default class DTApi {
 // the constructor should be
 // initObjectDatatable: function ($tableEl, columns, options) {

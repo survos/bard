@@ -4,12 +4,15 @@ require('datatables.net-bs4');
 require('datatables.net-scroller-bs4');
 require('datatables.net-buttons-bs4');
 
-import SurvosDataTable from "./Components/SurvosDataTable";
-
 const routes = require('../../public/js/fos_js_routes.json');
+
+import SurvosDataTable from '../../vendor/survos/landing-bundle/src/Resources/js/Su';
+
+
 import Routing from '../../vendor/friendsofsymfony/jsrouting-bundle/Resources/public/js/router.min.js';
 
 Routing.setRoutingData(routes);
+
 
 // import SurvosDataTable from "../../vendor/survos/landing-bundle/src/Resources/js/SurvosDataTable.js";
 // import SurvosDataTable from "/var/www/Survos/LandingBundle/src/Resources/js/SurvosDataTable";

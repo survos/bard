@@ -12,6 +12,10 @@ Unzip the mysql database, convert it to sqlite sql and import it.
     bin/mysqltosqlite ~/Downloads/oss-db-full.sql > bard.sql
     sqlite3 var/data.db < bard.sql
 
+####  Configure .env.local
+
+    DATABASE_URL=sqlite:///%kernel.project_dir%/var/data.db
+
 ### MySQL/MariaDB
 
 Alternatively, load it to a local MySQL database
@@ -26,26 +30,27 @@ Create a mysql database and load the .sql
     
      mysql -u william -p -D bard < data/oss-db-full.sql
      
-##  Configure .env.local
+####  Configure .env.local
 
-    # DATABASE_URL=sqlite:///%kernel.project_dir%/var/data.db
       DATABASE_URL=mysql://william:hamlet@127.0.0.1:3306/bard?serverVersion=5.7
        
 ## Reset chapter reference
 
 The database isn't properly normalized for Chapters, so this utility fixes that.
 
+    bin/console doctrine:schema:update --dump-sql --force
     bin/console app:fix-database --chapters
     
 Heroku doesn't support sqlite, and the free databases are limited to 10,000 rows.  There are over 35000 paragraphs, so we need to merge those paragraphs into each chapter (a "scene" in other systems).
 
+  @removed since sqlite works 
+  
     bin/console app:fix-database --paragraphs
     
-Now we no longer need the Paragraphs table, nor the word tables.
+Now we no longer need the Word tables
 
     bin/console doctrine:query:sql "DROP TABLE Words"    
     bin/console doctrine:query:sql "DROP TABLE WordForms" 
-    bin/console doctrine:query:sql "DROP TABLE Paragraphs" 
        
 ## Step-by-Step Rebuilding Tutorial
 

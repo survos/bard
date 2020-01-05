@@ -25,7 +25,7 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('works-datatable', './assets/js/works.js')
-//    .addEntry('survos-datatable', './vendor/survos/landing-bundle/src/Resources/js/SurvosDataTable.js')
+  //  .addEntry('survos-datatable', './vendor/survos/landing-bundle/src/Resources/js/SurvosDataTable.js')
     //.addEntry('page2', './assets/js/page2.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.

@@ -1,11 +1,12 @@
 easy_admin:
     design:
         menu:
-            - { label: 'Homepage', route: 'app_homepage', rel: 'index' }
+            - { label: 'Bard Home', route: 'app_homepage' }
             - { entity: Work }
             - { entity: Chapter }
             - { entity: Paragraph }
             - { entity: Character }
+            - { entity: GutenbergBook }
         # ...
 
     entities:
@@ -14,3 +15,4 @@ easy_admin:
         - App\Entity\Chapter
         - App\Entity\Paragraph
         - App\Entity\Character
+        - App\Entity\GutenbergBook
