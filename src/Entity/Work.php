@@ -13,10 +13,11 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\RangeFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\NumericFilter;
 use Symfony\Component\Serializer\Annotation\Groups;
-
+use ONGR\ElasticsearchBundle\Annotation as ES;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\WorkRepository")
  * @ORM\Table(name="Works")
+ * @ES\Index(alias="works", default=true)
  * @ApiResource(
  *     attributes={
  *          "pagination_items_per_page"=10,
@@ -32,25 +33,30 @@ use Symfony\Component\Serializer\Annotation\Groups;
  */
 class Work extends SurvosBaseEntity
 {
+
     /**
      * @ORM\Id()
+     * @ES\Id()
      * @ORM\Column(name="WorkID", type="string")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @ES\Property(type="text", analyzer="eNgramAnalyzer")
      * @Groups({"read"})
      */
     private $title;
 
     /**
      * @ORM\Column(name="LongTitle", type="string", length=255, nullable=true)
+     * @ ES\Property(type="text", analyzer="eNgramAnalyzer")
      */
     private $longTitle;
 
     /**
      * @ORM\Column(name="ShortTitle", type="string", length=255)
+     * @ ES\Property(type="text", analyzer="eNgramAnalyzer")
      */
     private $shortTitle;
 
@@ -66,6 +72,7 @@ class Work extends SurvosBaseEntity
 
     /**
      * @ORM\Column(type="integer")
+     * @ ES\Property(type="integer")
      */
     private $totalParagraphs;
 
