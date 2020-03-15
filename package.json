@@ -19,7 +19,7 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "lint": "eslint .",
-        "postinstall": "./bin/heroku_install.sh",
+        "postinstall": "bin/heroku_install.sh",
         "build": "encore production --progress"
     },
     "dependencies": {
