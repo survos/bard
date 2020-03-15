@@ -5,3 +5,7 @@ home:
 work_index:
     title: List of Plays
     description: Full list of works
+
+survos_landing: home
+survos_landing_credits: libraries
+app_typography: Boostrap
