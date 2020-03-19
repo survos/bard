@@ -41,7 +41,7 @@ The database isn't properly normalized for Chapters, so this utility fixes that.
     bin/console doctrine:schema:update --dump-sql --force
     bin/console app:fix-database --chapters
     
-Heroku doesn't support sqlite, and the free databases are limited to 10,000 rows.  There are over 35000 paragraphs, so we need to merge those paragraphs into each chapter (a "scene" in other systems).
+Heroku doesn't support sqlite, and the free databases are limited to 10,000 rows.  There are over 35,000 paragraphs, so we need to merge those paragraphs into each chapter (a "scene" in other systems).
 
   @removed since sqlite works 
   
@@ -51,6 +51,18 @@ Now we no longer need the Word tables
 
     bin/console doctrine:query:sql "DROP TABLE Words"    
     bin/console doctrine:query:sql "DROP TABLE WordForms" 
+    
+## Full-text search
+
+For full-text search, we'll use ElasticSearch, since it's free on Heroku.  Unforunately, FOSElasticBundle doesn't work with ES7, so we'll use the lower-level runfin/elastica library.  Good opportunity to exercise the new features!
+
+    composer require ruflin/elastica:dev-master
+    
+Of course, we should be using docker at this point, to install ElasticSearch.  Someday.  For now, install ES7 locally. (https://linuxize.com/post/how-to-install-elasticsearch-on-ubuntu-18-04/)
+
+### Building the index
+
+Quick and Easy: Use a controller to go through the works and index them.    
        
 ## Step-by-Step Rebuilding Tutorial
 

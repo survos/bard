@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "08f31ff177c08b44a4a545bcc71d5903",
+    "content-hash": "9d861eee73a603bea9c6d5a0c355fe07",
     "packages": [
         {
             "name": "api-platform/api-pack",
@@ -2400,16 +2400,16 @@
         },
         {
             "name": "knpuniversity/oauth2-client-bundle",
-            "version": "v1.33.0",
+            "version": "v1.34.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/knpuniversity/oauth2-client-bundle.git",
-                "reference": "4f71b8a3e6696bc5aafccbb2ce51928e4d2d0794"
+                "reference": "fd892fe2d4752116f09c85d1a3a34af91e1ddade"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/knpuniversity/oauth2-client-bundle/zipball/4f71b8a3e6696bc5aafccbb2ce51928e4d2d0794",
-                "reference": "4f71b8a3e6696bc5aafccbb2ce51928e4d2d0794",
+                "url": "https://api.github.com/repos/knpuniversity/oauth2-client-bundle/zipball/fd892fe2d4752116f09c85d1a3a34af91e1ddade",
+                "reference": "fd892fe2d4752116f09c85d1a3a34af91e1ddade",
                 "shasum": ""
             },
             "require": {
@@ -2453,7 +2453,7 @@
                 "oauth",
                 "oauth2"
             ],
-            "time": "2020-02-07T13:20:48+00:00"
+            "time": "2020-03-19T10:26:26+00:00"
         },
         {
             "name": "laminas/laminas-code",
@@ -2999,129 +2999,6 @@
                 "service proxies"
             ],
             "time": "2020-02-08T19:22:03+00:00"
-        },
-        {
-            "name": "ongr/elasticsearch-bundle",
-            "version": "v7.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ongr-io/ElasticsearchBundle.git",
-                "reference": "7678794c23f71bb555af10db00a23f3bded9fe53"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ongr-io/ElasticsearchBundle/zipball/7678794c23f71bb555af10db00a23f3bded9fe53",
-                "reference": "7678794c23f71bb555af10db00a23f3bded9fe53",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/annotations": "^1.6",
-                "doctrine/cache": "^1.7",
-                "doctrine/collections": "^1.5",
-                "doctrine/inflector": "^1.3",
-                "elasticsearch/elasticsearch": "^7.0",
-                "monolog/monolog": "^1.24",
-                "ongr/elasticsearch-dsl": "^7.0",
-                "php": "^7.1",
-                "symfony/cache": "^4.4|^5.0",
-                "symfony/console": "^4.4|^5.0",
-                "symfony/dependency-injection": "^4.4|^5.0",
-                "symfony/finder": "^4.4|^5.0",
-                "symfony/framework-bundle": "^4.4|^5.0",
-                "symfony/property-access": "^4.4|^5.0",
-                "symfony/serializer": "^4.4|^5.0",
-                "symfony/stopwatch": "^4.4|^5.0"
-            },
-            "require-dev": {
-                "mikey179/vfsstream": "~1.6",
-                "phpunit/phpunit": "^7.0",
-                "squizlabs/php_codesniffer": "^3.0",
-                "symfony/browser-kit": "^4.4|^5.0",
-                "symfony/expression-language": "^4.4|^5.0",
-                "symfony/options-resolver": "^4.4|^5.0",
-                "symfony/twig-bundle": "^4.4|^5.0",
-                "symfony/validator": "^4.4|^5.0",
-                "symfony/yaml": "^4.4|^5.0"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "7.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "ONGR\\ElasticsearchBundle\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "ONGR team",
-                    "homepage": "http://www.ongr.io"
-                }
-            ],
-            "description": "Elasticsearch bundle for Symfony.",
-            "homepage": "http://ongr.io",
-            "time": "2020-02-20T21:16:43+00:00"
-        },
-        {
-            "name": "ongr/elasticsearch-dsl",
-            "version": "v7.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ongr-io/ElasticsearchDSL.git",
-                "reference": "b7653ed32d6d5b65aeef3b7ef4f46e7ac069c393"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ongr-io/ElasticsearchDSL/zipball/b7653ed32d6d5b65aeef3b7ef4f46e7ac069c393",
-                "reference": "b7653ed32d6d5b65aeef3b7ef4f46e7ac069c393",
-                "shasum": ""
-            },
-            "require": {
-                "elasticsearch/elasticsearch": "^7.0",
-                "paragonie/random_compat": "*",
-                "php": "^7.2",
-                "symfony/serializer": "^5.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^7.0",
-                "squizlabs/php_codesniffer": "^3.0"
-            },
-            "suggest": {
-                "elasticsearch/elasticsearch": "This library is for elasticsearch/elasticsearch client to enhance it with DSL functionality."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "7.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "ONGR\\ElasticsearchDSL\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "ONGR team",
-                    "homepage": "http://www.ongr.io"
-                }
-            ],
-            "description": "Elasticsearch DSL library",
-            "homepage": "http://ongr.io",
-            "time": "2020-02-20T20:35:10+00:00"
         },
         {
             "name": "pagerfanta/pagerfanta",
@@ -4240,6 +4117,65 @@
             "time": "2019-01-07T21:25:54+00:00"
         },
         {
+            "name": "ruflin/elastica",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ruflin/Elastica.git",
+                "reference": "80157d723d091fa8c43d00c91587bbd0725cd156"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/80157d723d091fa8c43d00c91587bbd0725cd156",
+                "reference": "80157d723d091fa8c43d00c91587bbd0725cd156",
+                "shasum": ""
+            },
+            "require": {
+                "elasticsearch/elasticsearch": "^7.1.1 !=7.4.0",
+                "ext-json": "*",
+                "php": "^7.2",
+                "psr/log": "^1.0"
+            },
+            "require-dev": {
+                "aws/aws-sdk-php": "^3.0",
+                "guzzlehttp/guzzle": "^6.3"
+            },
+            "suggest": {
+                "aws/aws-sdk-php": "Allow using IAM authentication with Amazon ElasticSearch Service",
+                "egeloen/http-adapter": "Allow using httpadapter transport",
+                "guzzlehttp/guzzle": "Allow using guzzle 6 as the http transport",
+                "monolog/monolog": "Logging request"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "7.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Elastica\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Ruflin",
+                    "homepage": "http://ruflin.com/"
+                }
+            ],
+            "description": "Elasticsearch Client",
+            "homepage": "http://elastica.io/",
+            "keywords": [
+                "client",
+                "search"
+            ],
+            "time": "2020-03-12T10:08:42+00:00"
+        },
+        {
             "name": "sensio/framework-extra-bundle",
             "version": "v5.5.3",
             "source": {
@@ -4523,12 +4459,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/LandingBundle.git",
-                "reference": "703bfe76068d47ff0353c449cfc6220d50224277"
+                "reference": "ceb7dcace237b1e0d3e689c83285de8e7460907b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/LandingBundle/zipball/703bfe76068d47ff0353c449cfc6220d50224277",
-                "reference": "703bfe76068d47ff0353c449cfc6220d50224277",
+                "url": "https://api.github.com/repos/survos/LandingBundle/zipball/ceb7dcace237b1e0d3e689c83285de8e7460907b",
+                "reference": "ceb7dcace237b1e0d3e689c83285de8e7460907b",
                 "shasum": ""
             },
             "require": {
@@ -4581,7 +4517,7 @@
                 "generator",
                 "symfony5"
             ],
-            "time": "2020-03-09T13:50:39+00:00"
+            "time": "2020-03-18T14:50:08+00:00"
         },
         {
             "name": "symfony/asset",
@@ -9548,6 +9484,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "easyrdf/easyrdf": 20,
+        "ruflin/elastica": 20,
         "sentry/sentry-symfony": 20,
         "survos/landing-bundle": 20
     },

@@ -15,7 +15,7 @@
         "friendsofsymfony/jsrouting-bundle": "^2.5",
         "knplabs/knp-menu-bundle": "^3.0",
         "monolog/monolog": "^1.22",
-        "ongr/elasticsearch-bundle": "^7.0",
+        "ruflin/elastica": "dev-master",
         "sensio/framework-extra-bundle": "^5.1",
         "sentry/sentry-symfony": "dev-master",
         "survos/landing-bundle": "dev-master",
