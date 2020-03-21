@@ -16,3 +16,7 @@ App\Entity\Work:
       groups: ['read']
     fountainUrl:
       groups: ['read', 'Default']
+    fullText:
+      groups: ['read', 'Default']
+    GenreType:
+      groups: ['read', 'Default']

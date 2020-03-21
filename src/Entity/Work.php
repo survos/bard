@@ -12,8 +12,14 @@ use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\RangeFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\NumericFilter;
+
+use ApiPlatform\Core\Bridge\Elasticsearch\DataProvider\Filter\MatchFilter;
+use ApiPlatform\Core\Bridge\Elasticsearch\DataProvider\Filter\TermFilter;
+
 use Symfony\Component\Serializer\Annotation\Groups;
 use ONGR\ElasticsearchBundle\Annotation as ES;
+
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\WorkRepository")
  * @ORM\Table(name="Works")
@@ -26,9 +32,11 @@ use ONGR\ElasticsearchBundle\Annotation as ES;
  *     normalizationContext={"groups"={"read"}},
  *     denormalizationContext={"groups"={"write"}}
  * )
- * @ApiFilter(SearchFilter::class, properties={"title": "partial", "longTitle": "partial"})
+ * @ApiFilter(SearchFilter::class, properties={"longTitle": "partial"})
  * @ApiFilter(RangeFilter::class, properties={"chapterCount", "year"})
  * @ApiFilter(NumericFilter::class, properties={"totalWords", "year"})
+ * @ApiFilter(MatchFilter::class, properties={"title"})
+ *
  */
 class Work extends SurvosBaseEntity
 {
@@ -82,6 +90,7 @@ class Work extends SurvosBaseEntity
 
     /**
      * @ORM\Column(name="Date", type="integer")
+     * @var integer
      */
     private $year;
 
@@ -223,9 +232,9 @@ class Work extends SurvosBaseEntity
         return $this;
     }
 
-    public function getYear(): ?string
+    public function getYear(): ?int
     {
-        return $this->year;
+        return (int) $this->year;
     }
 
     public function setYear(string $year): self
@@ -252,6 +261,45 @@ class Work extends SurvosBaseEntity
     public function getChapterCount(): int
     {
         return $this->getChapters()->count();
+    }
+
+    // hack...
+    private $lines = [];
+    private function push($string, $addBlank=false) {
+
+        $string = trim($string);
+        array_push($this->lines, $string);
+        if ($addBlank) {
+            array_push($this->lines, '');
+        }
+    }
+
+    public function getFullText(): ?string
+    {
+        // @todo: title, copyright, etc.
+        foreach ($this->getChapters() as $chapter) {
+
+            $this->push('.' . $chapter->getDescription(), true);
+            foreach ($chapter->getParagraphs() as $paragraph) {
+                $this->push(strtoupper($paragraph->getCharId()));
+
+                // if [p], assume lyrics
+                $stanza = explode('[p]', $paragraph->getPlainText());
+                if (count($stanza) > 1) {
+                    foreach ($stanza as $line) {
+                        $this->push('~' . $line);
+                    }
+                    // blank at end
+                    $this->push('');
+                } else {
+                    $this->push($paragraph->getPlainText(), true);
+                }
+            }
+        }
+
+        $text = join("\n", $this->lines);
+
+        return $text;
     }
 
     /* @todo

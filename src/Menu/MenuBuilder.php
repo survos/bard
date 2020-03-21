@@ -19,6 +19,7 @@ $menu->addChild('survos_landing_credits', ['route' => 'survos_landing_credits'])
 $menu->addChild('app_typography', ['route' => 'app_typography'])->setAttribute('icon', 'fab fa-bootstrap');
 
 $menu->addChild('work_index.title', ['route' => 'work_index'])->setAttribute('icon', 'fas fa-theater-masks');
+$menu->addChild('search.title', ['route' => 'search_dashboard'])->setAttribute('icon', 'fas fa-search');
 
 // $menu->addChild('test_rdf', ['route' => 'test_rdf'])->setAttribute('icon', 'fas fa-sync');
 $menu->addChild('datatable', ['route' => 'work_datatable'])->setAttribute('icon', 'fas fa-table');

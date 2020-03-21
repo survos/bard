@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SearchController!{% endblock %}
+{% block title %}Search Dashboard{% endblock %}
 
 {% block body %}
 <style>
@@ -9,12 +9,53 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>ElasticaSearch Test</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/tac/bard/src/Controller/SearchController.php'|file_link(0) }}">src/Controller/SearchController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/tac/bard/templates/search/index.html.twig'|file_link(0) }}">templates/search/index.html.twig</a></code></li>
-    </ul>
+    <a href="{{ path('search_create_index') }}" class="btn btn-primary">(Re-)Create Index</a>
+    {{ form(form) }}
+
+    Results
+
+    Mapping?
+
+    {% if mapping %}
+        {{ block('mappingTable') }}
+    {% endif %}
+
 </div>
+{% endblock %}
+
+{% block mappingTable %}
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Code</th>
+        <th>Map</th>
+        <th>Keyword</th>
+        <th>Ignore</th>
+        <th>Dump</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for code, m in mapping.properties %}
+        <tr>
+            <td>{{ code }}</td>
+            <td>{{ m.type }}</td>
+            <td>{{ m.fields.keyword.type|default('') }}</td>
+            <td>{{ m.fields.keyword.ignore_above|default('') }}</td>
+
+            <td>
+                {#
+                {{ dump(m.fields|default([])) }}
+                {% for var, val  in m.fields|default([]) %}
+                    <li>{{ var }}: {{ dump(val) }}</li>
+                {% endfor %}
+                #}
+            </td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
 {% endblock %}

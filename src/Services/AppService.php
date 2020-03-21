@@ -60,6 +60,8 @@ class AppService
             array_push($this->lines, '');
         }
     }
+
+    //
     public function workToFountain(Work $work): string
     {
         // @todo: title, copyright, etc.
