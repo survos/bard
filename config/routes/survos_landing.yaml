@@ -3,8 +3,6 @@ survos_landing_bundle_oauth:
     prefix: /
     type: annotation
 
-survos_landing: {path: /, controller: 'Survos\LandingBundle\Controller\LandingController::landing'}
-app_homepage: {path: /, controller: 'Survos\LandingBundle\Controller\LandingController::landing'}
 app_logo: {path: /logo, controller: 'Survos\LandingBundle\Controller\LandingController::logo'}
 app_profile: {path: /profile, controller: 'Survos\LandingBundle\Controller\LandingController::profile'}
 profile: {path: /profile, controller: 'Survos\LandingBundle\Controller\LandingController::profile'}
