@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\DataTransformer\WorkOutputDataTransformer;
+use App\Dto\WorkOutput;
 use App\Entity\Work;
 use App\Form\SearchFormType;
 use App\Repository\WorkRepository;
@@ -40,7 +42,7 @@ class SearchController extends AbstractController
     }
 
     private $client;
-    const INDEX_NAME='bard';
+    const INDEX_NAME='work_output';
     public function getClient(): Client
     {
         if (empty($this->client)) {
@@ -72,14 +74,19 @@ class SearchController extends AbstractController
         $search = new Work();
 
         if ($term = $request->get('q')) {
+            // $index = $this->getIndex();
             $index = $this->getIndex();
             $resultSet = $index->search($term);
             dump($resultSet->getResults());
             foreach ($resultSet->getResults() as $result) {
                 dump($result);
+
+                $data = $result->getHit()['_source'];
+                dd($data);
                 $data = json_encode($result->getHit()['_source']);
 
-                $work = $this->serializer->deserialize($data, Work::class, 'json');
+
+                $work = $this->serializer->deserialize($data, WorkOutput::class, 'json');
                 dd($work, $data);
             }
 
@@ -91,20 +98,6 @@ class SearchController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             if ($term = $form->get('q')->getData()) {
                 return $this->redirectToRoute('search_dashboard', ['q'=> $term]);
-                $index = $this->getIndex();
-                $resultSet = $index->search($term);
-
-                // eventually, we'll use API platform with Elastica on the back end, which should return the populated entities
-                dump($resultSet->getResults());
-                foreach ($resultSet->getResults() as $result) {
-                    dump($result);
-                    $data = $result->getHit()['_source'];
-
-                    $work = $this->serializer->deserialize($data, Work::class, 'array');
-                    dd($work, $data);
-                }
-
-                dd($resultSet->getResponse()->getData());
             }
         }
 
@@ -131,7 +124,7 @@ class SearchController extends AbstractController
 
         $mapping = new Mapping([
                 'chapterCount' => ['type' => 'integer'],
-                'fullText' => ['type' => 'text'],
+                'full_text' => ['type' => 'text'],
                 'fountainUrl' => ['type' => 'keyword'],
                 'GenreType' => ['type' => 'keyword'],
                 'id' => ['type' => 'keyword'],
@@ -149,16 +142,18 @@ class SearchController extends AbstractController
             $index->addDocument($doc);
 
             // let's try it with the 'play'
-            $playIndex = $this->getIndex('play');
-            $doc = new Document($work->getId(), [
-                'id' => $idx,
-                'play_id' => $work->getId(),
-                'title' => $work->getLongTitle()]);
+            $playIndex = $this->getIndex();
+
+            $workOutput = (new WorkOutputDataTransformer())
+                ->transform($work, WorkOutput::class, []);
+            $workOutputData = $normalizer->normalize($workOutput, 'json', ['groups' => ['read', 'full_text']]);
+            // dd($workOutput, $workOutputData);
+            $doc = new Document($idx, $workOutputData);
             $playIndex->addDocument($doc);
         }
 
         $this->addFlash('notice', "Index created");
-        return $this->redirectToRoute('search_dashboard');
+        return $this->redirectToRoute('search_dashboard', ['q' => 'henry']);
 
     }
 

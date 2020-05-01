@@ -12,7 +12,6 @@ import Routing from '../../vendor/friendsofsymfony/jsrouting-bundle/Resources/pu
 Routing.setRoutingData(routes);
 
 const $workTable = $('#work-table');
-
 const workColumns = [
     {title: 'ID', data: '@id'},
     {title: 'Title', data: 'longTitle', xfilter: 'partial'},

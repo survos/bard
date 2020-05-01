@@ -17,25 +17,28 @@ use ApiPlatform\Core\Bridge\Elasticsearch\DataProvider\Filter\MatchFilter;
 use ApiPlatform\Core\Bridge\Elasticsearch\DataProvider\Filter\TermFilter;
 
 use Symfony\Component\Serializer\Annotation\Groups;
-use ONGR\ElasticsearchBundle\Annotation as ES;
-
+use App\Dto\WorkInput;
+use App\Dto\WorkOutput;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\WorkRepository")
  * @ORM\Table(name="Works")
  * @ApiResource(
+ *     input=WorkInput::class,
+ *     output=WorkOutput::class,
  *     attributes={
  *          "pagination_items_per_page"=10,
  *          "pagination_client_items_per_page"=true
  *     },
  *
- *     normalizationContext={"groups"={"read"}},
+ *     normalizationContext={"groups"={"read","fulltext"}},
  *     denormalizationContext={"groups"={"write"}}
  * )
  * @ApiFilter(SearchFilter::class, properties={"longTitle": "partial"})
+ * @ApiFilter(SearchFilter::class, properties={"title": "partial"})
  * @ApiFilter(RangeFilter::class, properties={"chapterCount", "year"})
  * @ApiFilter(NumericFilter::class, properties={"totalWords", "year"})
- * @ApiFilter(MatchFilter::class, properties={"title"})
+ * @  ApiFilter(MatchFilter::class, properties={"title"})
  *
  */
 class Work extends SurvosBaseEntity
@@ -43,7 +46,7 @@ class Work extends SurvosBaseEntity
 
     /**
      * @ORM\Id()
-     * @ORM\Column(name="WorkID", type="string")
+     * @ORM\Column(name="WorkID", type="string", options={"comment": "String identifier from MySQL database"})
      */
     private $id;
 

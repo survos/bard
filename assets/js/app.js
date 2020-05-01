@@ -11,6 +11,7 @@ require('@fortawesome/fontawesome-free/js/all.js');
 require('datatables.net-bs4');
 
 $('.works-datatable').DataTable();
+$('#works-html-table').DataTable();
 
 /**
 \u0040fortawesome\/fontawesome\u002Dfree

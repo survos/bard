@@ -135,13 +135,13 @@ And create a basic controller to display the works
             foreach ($chapter->getParagraphs() as $paragraph) {
                 $this->push(strtoupper($paragraph->getCharId()));
 
-         etc
+         etc.
 
 ```
   
  Create the methods in AppController, and add the links in index.
  
- ## Add the API
+## Add the API
  
      composer req api
      
@@ -155,9 +155,14 @@ And create a basic controller to display the works
 
 ```
  
- ## Add DataTables
+## Add DataTables
  
      yarn add datatables.net-bs4
+     
+### DataTables + API Platform + ElasticSearch
+
+* [Configuring Search ](docs/search.md)
+
      
 Other sources
 

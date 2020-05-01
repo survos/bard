@@ -1,7 +1,5 @@
-App\Entity\Work:
+App\Entity\XXWork:
   attributes:
-    id:
-      groups: ['read', 'Default']
     shortTitle:
       groups: ['read', 'Default']
     longTitle:
@@ -20,3 +18,18 @@ App\Entity\Work:
       groups: ['read', 'Default']
     GenreType:
       groups: ['read', 'Default']
+
+App\Dto\WorkOutput:
+  attributes:
+    id:
+      groups: ['read', 'Default']
+    title:
+      groups: ['read', 'write', 'Default']
+    longTitle:
+      groups: ['read', 'write', 'Default']
+    year:
+      groups: ['read', 'Default', 'write']
+    totalWords:
+      groups: ['read', 'Default']
+    full_text:
+      groups: ['full_text']

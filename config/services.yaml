@@ -23,5 +23,14 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+
+# api/config/services.yaml
+    # ...
+#    'App\DataTransformer\WorkInputDataTransformer': ~
+#    'App\DataTransformer\WorkoutputDataTransformer': ~
+      # Uncomment only if autoconfiguration is disabled
+    #tags: [ 'api_platform.data_transformer' ]
+
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

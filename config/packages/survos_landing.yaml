@@ -1,11 +1,18 @@
 services:
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+    bind:
+#      $factory: "@knp_menu.factory"
+
   survos.landing_menu_builder:
-    class: Survos\LandingBundle\Menu\LandingMenuBuilder
     arguments:
       - "@knp_menu.factory"
       - "@security.authorization_checker"
       - "@security.token_storage"
       - "@knpu.oauth2.registry"
+    class: Survos\LandingBundle\Menu\LandingMenuBuilder
     tags:
       #      - { name: knp_menu.menu_builder, method: createMainMenu, alias: landing_menu } # The alias is what is used to retrieve the menu
       - { name: knp_menu.menu_builder, method: createSocialMenu, alias: social_menu }

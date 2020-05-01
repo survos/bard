@@ -8,8 +8,8 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Bridge\Elasticsearch\DataProvider\Filter\MatchFilter;
 
 /**
- * @ApiResource
- * @ApiFilter(MatchFilter::class, properties={"title"})
+ * @ ApiResource
+ * @ ApiFilter(MatchFilter::class, properties={"title"})
  */
 
 class Play
