@@ -1,15 +1,10 @@
-const $ = require('jquery');
-require('popper.js');
-require('bootstrap');
-
 // any CSS you require will output into a single css file (app.css in this case)
+
 require('../css/app.css');
-
-require('@fortawesome/fontawesome-free/css/all.min.css');
-require('@fortawesome/fontawesome-free/js/all.js');
-
 require('datatables.net-bs4');
 
+const $ = require('jquery');
+// const $ = global.$;
 $('.works-datatable').DataTable();
 $('#works-html-table').DataTable();
 

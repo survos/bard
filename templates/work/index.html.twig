@@ -1,16 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block javascripts %}
-{{ parent() }}
-    {{ encore_entry_script_tags('works-datatable') }}
+    {{ parent() }}
 {% endblock %}
-{% block title %}Work index{% endblock %}
+
+
+{% block page_title %}Works{% endblock %}
+
+{% block page_subtitle %}
+        Super-simple HTML table, created by make:crud and .DataTable() call.
+{% endblock %}
 
 {% block body %}
-    <h1>Work index</h1>
-    <a href="{{ path('work_index', {fix: true}) }}">Fix</a>
-    <a href="{{ path('work_index', {fixText: true}) }}">Fix Text</a>
-    <table class="table works-datatable" id="works-html-table">
+    <table class="table table-striped works-datatable" id="works-html-table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -54,5 +56,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('work_new') }}">Create new</a>
+    <hr />
+    Admin?
+    <a href="{{ path('work_index', {fix: true}) }}">Fix</a>
+    <a href="{{ path('work_index', {fixText: true}) }}">Fix Text</a>
+
 {% endblock %}

@@ -1,4 +1,4 @@
-App\Entity\XXWork:
+App\Entity\Work:
   attributes:
     shortTitle:
       groups: ['read', 'Default']

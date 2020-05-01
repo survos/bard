@@ -48,7 +48,7 @@ const buttons = [
 ];
  */
 
-if (0) {
+if (1) {
     const $table = $('#character-table');
     const ct = new SurvosDataTable($table, columns);
     ct.initFooter(); // add the search filters, pass params here from columns?
