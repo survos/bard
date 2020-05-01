@@ -13,6 +13,7 @@
         "easycorp/easyadmin-bundle": "^2.3|^3.0",
         "easyrdf/easyrdf": "dev-master",
         "friendsofsymfony/jsrouting-bundle": "^2.5",
+        "kevinpapst/adminlte-bundle": "^3",
         "knplabs/knp-menu-bundle": "^3.0",
         "monolog/monolog": "^1.22",
         "ongr/elasticsearch-bundle": "^7.0",

@@ -15,6 +15,7 @@ class AppController extends AbstractController
 {
     /**
      * @Route("/app", name="app")
+     * @Route("/home", name="home")
      */
     public function index(WorkRepository $workRepository)
     {

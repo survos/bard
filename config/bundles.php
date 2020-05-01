@@ -22,4 +22,5 @@ return [
     Sentry\SentryBundle\SentryBundle::class => ['all' => true],
     FOS\JsRoutingBundle\FOSJsRoutingBundle::class => ['all' => true],
     ONGR\ElasticsearchBundle\ONGRElasticsearchBundle::class => ['all' => true],
+    KevinPapst\AdminLTEBundle\AdminLTEBundle::class => ['all' => true],
 ];
