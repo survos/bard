@@ -17,7 +17,7 @@ class Paragraph
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Work")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Work", fetch="EAGER")
      * @ORM\JoinColumn(name="WorkID", referencedColumnName="WorkID", nullable=false)
      */
     private $work;
@@ -28,7 +28,7 @@ class Paragraph
     private $plainText;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Chapter", inversedBy="paragraphs")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Chapter", inversedBy="paragraphs", fetch="EAGER")
      * @ORM\JoinColumn(name="Chapter", referencedColumnName="ChapterID")
      */
     private $scene;

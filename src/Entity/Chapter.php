@@ -19,7 +19,7 @@ class Chapter
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Work", inversedBy="chapters")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Work", inversedBy="chapters", fetch="EAGER")
      * @ORM\JoinColumn(name="WorkID", referencedColumnName="WorkID", nullable=false)
      */
     private $work;
@@ -35,7 +35,7 @@ class Chapter
     private $scene;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Paragraph", mappedBy="scene", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Paragraph", mappedBy="scene", orphanRemoval=true, fetch="EAGER")
      */
     private $paragraphs;
 
