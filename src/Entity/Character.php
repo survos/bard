@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Survos\LandingBundle\Entity\SurvosBaseEntity;
 use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
@@ -23,13 +24,15 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
  * @ApiFilter(SearchFilter::class, properties={"name": "partial", "description": "partial"})
  *
  */
-class Character
+class Character extends SurvosBaseEntity
 {
+    const ICON = 'fas fa-user';
     /**
      * @ORM\Id()
      * @ORM\Column(name="CharID", type="string")
      */
     private $id;
+
 
     /**
      * @ORM\Column(name="CharName", type="string", length=48)
@@ -43,9 +46,15 @@ class Character
      */
     private $description;
 
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
+    }
+
+    public function setId($charId): self
+    {
+        $this->id = $charId;
+        return $this;
     }
 
     public function getName(): ?string
@@ -70,5 +79,10 @@ class Character
         $this->description = $description;
 
         return $this;
+    }
+
+    function getUniqueIdentifiers()
+    {
+        return ['characterId' => $this->getId()];
     }
 }

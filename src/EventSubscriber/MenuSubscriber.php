@@ -29,21 +29,25 @@ class MenuSubscriber implements EventSubscriberInterface
 
         $menu->addChild('survos_landing', ['route' => 'app_homepage'])->setAttribute('icon', 'fas fa-home');
 
+
         $worksMenu = $this->addMenuItem($menu, ['menu_code' => 'works_header']);
         $this->addMenuItem($worksMenu, ['route' => 'work_index', 'icon' => 'fas fa-list']);
         $this->addMenuItem($worksMenu, ['route' => 'work_datatable', 'icon' => 'fas fa-table']);
+//        $menu->addChild('work_index.title', ['route' => 'work_index'])->setAttribute('icon', 'fas fa-theater-masks');
+//        $menu->addChild('datatable', ['route' => 'work_datatable'])->setAttribute('icon', 'fas fa-table');
 
-        $menu->addChild('work_index.title', ['route' => 'work_index'])->setAttribute('icon', 'fas fa-theater-masks');
-        $menu->addChild('datatable', ['route' => 'work_datatable'])->setAttribute('icon', 'fas fa-table');
+        $charactersMenu = $this->addMenuItem($menu, ['menu_code' => 'characters_header']);
+        $this->addMenuItem($charactersMenu, ['route' => 'character_index', 'icon' => 'fas fa-list']);
+        $this->addMenuItem($charactersMenu, ['route' => 'character_new', 'icon' => 'fas fa-plus']);
 
-
+        
 
         $menu->addChild('survos_landing_credits', ['route' => 'survos_landing_credits'])->setAttribute('icon', 'fas fa-trophy');
         $menu->addChild('app_typography', ['route' => 'app_typography'])->setAttribute('icon', 'fab fa-bootstrap');
 
 
 // $menu->addChild('test_rdf', ['route' => 'test_rdf'])->setAttribute('icon', 'fas fa-sync');
-        $menu->addChild('api', ['route' => 'api_entrypoint'])->setAttribute('icon', 'fas fa-exchange-alt');
+        $menu->addChild('api', ['route' => 'api_entrypoint', 'target' => '_blank'])->setAttribute('icon', 'fas fa-exchange-alt');
         $menu->addChild('easyadmin', ['route' => 'easyadmin'])->setAttribute('icon', 'fas fa-database');
 
         /** @var Work $work */

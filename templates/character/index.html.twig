@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}Characters{% endblock %}
+{% block page_subtitle %}index (via make:crud){% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for character in characters %}
+            <tr>
+                <td><sm>{{ character.id }}</sm></td>
+                <td><a href="{{ path('character_show', character.rp) }}">{{ character.name }}</a></td>
+                <td>{{ character.description }}</td>
+                <td>
+                    <a href="{{ path('character_show', character.rp) }}">show</a>
+                    <a href="{{ path('character_edit', character.rp) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('character_new') }}">Create new</a>
+{% endblock %}
