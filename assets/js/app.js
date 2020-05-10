@@ -5,8 +5,13 @@ require('datatables.net-bs4');
 
 const $ = require('jquery');
 // const $ = global.$;
-$('.works-datatable').DataTable();
-$('#works-html-table').DataTable();
+$('.table-DataTable').DataTable({
+    scroller: true,
+    scrollY: '50vh',
+    scrollX: true,
+    autoWidth: true,
+    dom: 'fti',
+});
 
 /**
 \u0040fortawesome\/fontawesome\u002Dfree

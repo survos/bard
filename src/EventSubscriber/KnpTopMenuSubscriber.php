@@ -53,13 +53,11 @@ class KnpTopMenuSubscriber implements EventSubscriberInterface
             $this->addMenuItem($workMenu, ['route' => 'work_show', 'rp' => $work]);
             // too similar right now$this->addMenuItem($workMenu, ['route' => 'admin_work_show', 'rp' => $work]);
             $this->addMenuItem($workMenu, ['route' => 'work_characters', 'rp' => $work]);
+            $this->addMenuItem($workMenu, ['route' => 'work_chapters', 'rp' => $work]);
+            $this->addMenuItem($workMenu, ['route' => 'work_text', 'rp' => $work]);
             if ($this->isGranted('WORK_ADMIN', $work)) {
                 $this->addMenuItem($workMenu, ['route' => 'work_edit', 'rp' => $work]);
             }
-            $this->addMenuItem($workMenu, ['route' => 'work_slideshow', 'rp' => $work]);
-            $this->addMenuItem($workMenu, ['route' => 'work_actions', 'rp' => $work]);
-            // if I'm a team admin, then I can produce this
-            $this->addMenuItem($workMenu, ['route' => 'work_produce', 'rp' => $work]);
 
         }
 
@@ -69,12 +67,6 @@ class KnpTopMenuSubscriber implements EventSubscriberInterface
             $this->addMenuItem($menu, ['route' => 'character_show', 'rp' => $character]);
             $this->addMenuItem($menu, ['route' => 'character_scenes', 'rp' => $character]);
             $this->addMenuItem($menu, ['route' => 'character_edit', 'rp' => $character]);
-        }
-
-        if ($this->security->isGranted('ROLE_ADMIN')) {
-            $menu->addChild('ez', ['route' => 'easyadmin']);
-            $menu->addChild('files', ['route' => 'admin_list_scripts', 'label' => 'Files'])->setAttribute('icon', 'fa fa-file-code');
-            $menu->addChild('dropbox', ['route' => 'app_dropbox', 'label' => 'DropBox'])->setAttribute('icon', 'fab fa-dropbox');
         }
 
     }

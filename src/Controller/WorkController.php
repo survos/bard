@@ -8,6 +8,7 @@ use App\Repository\ParagraphRepository;
 use App\Repository\WorkRepository;
 use App\Services\AppService;
 use Doctrine\ORM\EntityManagerInterface;
+use Survos\LandingBundle\Controller\BaseController;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/work")
  */
-class WorkController extends AbstractController
+class WorkController extends BaseController
 {
     /**
      * @var ParagraphRepository
@@ -76,6 +77,28 @@ class WorkController extends AbstractController
     }
 
     /**
+     * @Route("/characters/{id}", name="work_characters", methods={"GET"}, options={"expose": true})
+     */
+    public function characters(Work $work, AppService $appService): Response
+    {
+        return $this->render('work/characters.html.twig', [
+            'work' => $work,
+            'characters' =>  $appService->getCharacters($work)
+        ]);
+    }
+
+    /**
+     * @Route("/chapters/{id}", name="work_chapters", methods={"GET"}, options={"expose": true})
+     */
+    public function chapters(Work $work): Response
+    {
+        return $this->render('work/chapters.html.twig', [
+            'work' => $work,
+            'chapters' => $work->getChapters()
+        ]);
+    }
+
+    /**
      * @Route("/show/{id}", name="work_show", methods={"GET"}, options={"expose": true})
      */
     public function show(Work $work, AppService $appService): Response
@@ -85,6 +108,16 @@ class WorkController extends AbstractController
         return $this->render('work/show.html.twig', [
             'work' => $work,
             'fountain' => $fountain
+        ]);
+    }
+
+    /**
+     * @Route("/text/{id}", name="work_text", methods={"GET"})
+     */
+    public function text(Work $work, AppService $appService): Response
+    {
+        return $this->render('work/text.html.twig', [
+            'work' => $work,
         ]);
     }
 

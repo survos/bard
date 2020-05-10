@@ -1,12 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% if member is defined and team is not defined %}
-{% set team = member.team %}
-{% endif %}
-
-{% block title %}Team{% endblock %}
-{% block page_title %}Team: {{ team }}{% endblock %}
-{% block page_subtitle %}Team: {{ app.request.get('_route') }}{% endblock %}
+{% block title %}Character{% endblock %}
+{% block page_title %}Character: {{ character }}{% endblock %}
+{% block page_subtitle %}Character: {{ app.request.get('_route') }}{% endblock %}
 
 {% block page_content_start %}
             {% embed '@AdminLTE/Widgets/box-widget.html.twig' %}
@@ -15,13 +11,6 @@
                 {% endblock %}
                 {% block box_body %}
                 {% endblock %}
-                {% block xxbox_footer %}
-                    <div class="pull-right">
-                        <button type="reset" class="btn btn-warning "><i class="fa fa-times"></i> {{ 'Return to List'|trans }}</button>
-                        <button type="submit" class="btn btn-primary "><i class="fa fa-check-square"></i> {{ 'Submit'|trans }}</button>
-                    </div>
-                {% endblock %}
-
                 {% block box_after %}{% endblock %}
             {% endembed %}
 {% endblock %}

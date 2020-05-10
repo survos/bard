@@ -40,7 +40,6 @@ class MenuSubscriber implements EventSubscriberInterface
         $this->addMenuItem($charactersMenu, ['route' => 'character_index', 'icon' => 'fas fa-list']);
         $this->addMenuItem($charactersMenu, ['route' => 'character_new', 'icon' => 'fas fa-plus']);
 
-        
 
         $menu->addChild('survos_landing_credits', ['route' => 'survos_landing_credits'])->setAttribute('icon', 'fas fa-trophy');
         $menu->addChild('app_typography', ['route' => 'app_typography'])->setAttribute('icon', 'fab fa-bootstrap');
@@ -49,13 +48,6 @@ class MenuSubscriber implements EventSubscriberInterface
 // $menu->addChild('test_rdf', ['route' => 'test_rdf'])->setAttribute('icon', 'fas fa-sync');
         $menu->addChild('api', ['route' => 'api_entrypoint', 'target' => '_blank'])->setAttribute('icon', 'fas fa-exchange-alt');
         $menu->addChild('easyadmin', ['route' => 'easyadmin'])->setAttribute('icon', 'fas fa-database');
-
-        /** @var Work $work */
-        if ($work = $request->get('work')) {
-            $workMenu = $this->addMenuItem($menu, ['menu_code' => 'work_header']);
-            $this->addMenuItem($workMenu, ['route' => 'work_show', 'rp' => $work->getRP()]);
-            $this->addMenuItem($workMenu, ['route' => 'work_edit', 'rp' => $work->getRP()]);
-        }
 
         // ...
     }

@@ -61,6 +61,23 @@ class AppService
         }
     }
 
+
+    //
+    public function getCharacters(Work $work): array
+    {
+        $seen = [];
+        // why isn't this a relationship in the database already?
+        foreach ($work->getChapters() as $chapter) {
+            foreach ($chapter->getParagraphs() as $paragraph) {
+                if ( !key_exists($paragraph->getCharId(), $seen )) {
+                    $seen[$paragraph->getCharId()] = 0;
+                }
+                $seen[$paragraph->getCharId()]++;
+            }
+        }
+        return $seen;
+    }
+
     //
     public function workToFountain(Work $work): string
     {
