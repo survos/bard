@@ -1,0 +1,22 @@
+{% extends "work/base.html.twig" %}
+
+{% block body %}
+    <ol>
+
+        {% for chapter in work.chapters %}
+            <li>
+                <h2>{{ chapter }}</h2>
+
+                <ol>
+                    {% for paragraph in chapter.paragraphs %}
+                        <li>{{ paragraph.charId }} ({{ paragraph.type }}): {{ paragraph|split('[p]')|join('<br />')|raw }}</li>
+                    {% endfor %}
+                </ol>
+
+            </li>
+        {% endfor %}
+    </ol>
+
+
+{% endblock %}
+
