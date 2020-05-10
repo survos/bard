@@ -1,0 +1,32 @@
+{% extends "chapter/base.html.twig" %}
+
+{% block body %}
+    <h1>Chapter</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ chapter.id }}</td>
+            </tr>
+            <tr>
+                <th>Section</th>
+                <td>{{ chapter.section }}</td>
+            </tr>
+            <tr>
+                <th>Scene</th>
+                <td>{{ chapter.scene }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ chapter.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('chapter_index') }}">back to list</a>
+
+    <a class="btn btn-primary" href="{{ path('chapter_edit', chapter.rp) }}">edit</a>
+
+    {{ include('chapter/_delete_form.html.twig') }}
+{% endblock %}
