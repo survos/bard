@@ -10,6 +10,10 @@ survos_landing: home
 survos_landing_credits: libraries
 app_typography: Boostrap
 
+works_header: Works
+characters_header: Characters
+
+
 pages:
     character_datatable_via_api: |
         The table element is empty in the page, and the data is loaded via API-Platform.

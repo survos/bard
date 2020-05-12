@@ -168,6 +168,9 @@
             "config/packages/admin_lte.yaml"
         ]
     },
+    "knplabs/knp-markdown-bundle": {
+        "version": "1.8.1"
+    },
     "knplabs/knp-menu": {
         "version": "v3.1.0"
     },
@@ -194,6 +197,9 @@
     },
     "meyfa/php-svg": {
         "version": "v0.9.1"
+    },
+    "michelf/php-markdown": {
+        "version": "1.9.0"
     },
     "monolog/monolog": {
         "version": "2.0.1"
@@ -370,6 +376,9 @@
     "symfony/dependency-injection": {
         "version": "v5.0.1"
     },
+    "symfony/deprecation-contracts": {
+        "version": "v2.1.0"
+    },
     "symfony/doctrine-bridge": {
         "version": "v5.0.1"
     },
@@ -542,6 +551,9 @@
     },
     "symfony/polyfill-php73": {
         "version": "v1.13.1"
+    },
+    "symfony/polyfill-php80": {
+        "version": "v1.16.0"
     },
     "symfony/polyfill-uuid": {
         "version": "v1.13.1"

@@ -22,3 +22,4 @@ admin_lte:
         adminlte_welcome: home
         adminlte_login: login
         adminlte_profile: profile
+
