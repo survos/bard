@@ -2,21 +2,35 @@
 
 require('../css/app.css');
 require('datatables.net-bs4');
+require('datatables.net-scroller-bs4');
 
-const $ = require('jquery');
+// const $ = require('jquery');
 // const $ = global.$;
-$('.table-DataTable').DataTable({
-    scroller: true,
-    scrollY: '50vh',
-    scrollX: true,
-    autoWidth: true,
-    dom: 'fti',
+const dataTableElements = $('.table-datatable');
+const survosDataTableElements = $('.survos-datatable');
+
+
+console.log('init table-datatable: ' + dataTableElements.length);
+
+// basic initialation
+dataTableElements.each(function (index) {
+    const options = $(this).data();
+    console.log(options);
+
+    let o = {
+        dom: 'ft',
+        scroller: true,
+        scrollX: true,
+        scrollY: '100vh',
+        autoWidth: true,
+    };
+
+    $.extend(o, options);
+
+    console.log(o);
+    // eslint-disable-next-line new-cap
+    $(this).DataTable(o);
+
+    // console.log(index, .text());
 });
 
-/**
-\u0040fortawesome\/fontawesome\u002Dfree
-bootstrap
-fontawesome
-jquery
-popper.js
-**/

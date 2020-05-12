@@ -17,11 +17,25 @@ class CharacterController extends AbstractController
 {
     /**
      * @Route("/", name="character_index", methods={"GET"})
+     * @Route("/datatable", name="character_datatable", methods={"GET"})
      */
-    public function index(CharacterRepository $characterRepository): Response
+    public function index(Request $request, CharacterRepository $characterRepository): Response
     {
         return $this->render('character/index.html.twig', [
+            'datatable' => 'character_datatable'===$request->get('_route'),
             'characters' => $characterRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/api-datatable", name="character_datatable_via_api", methods={"GET"})
+     */
+    public function dt(Request $request, CharacterRepository $characterRepository): Response
+    {
+        return $this->render('character/index.html.twig', [
+            'js' => $request->get('_route'),
+            'api' => true
+
         ]);
     }
 

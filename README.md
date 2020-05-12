@@ -1,56 +1,22 @@
-# bard
-http://opensourceshakespeare.com/ rewritten to use Symfony5 and SQLite, in order to produce the plays in .fountain format
+# Shakespeare Database
+
+Data from [Open Source Shakesepeare](http://opensourceshakespeare.com/ "GMU"), in a Symfony application using AdminLTE, API Platform, Encore and other tools and bundles.  
 
 ## Local Setup
 
-### SQLite
+To run this locally:
 
-Unzip the mysql database, convert it to sqlite sql and import it.
+    git clone ... && cd bard
+    // check system requirements, esp pdo_sqlite
+    wget s3://survos...bard.zip
+    composer install && yarn install
+    symfony server:start -d
 
-    unzip ~/Downloads/shakespeare-oss-db-full.zip 
-    # source: https://stackoverflow.com/questions/3890518/convert-mysql-to-sqlite
-    bin/mysqltosqlite ~/Downloads/oss-db-full.sql > bard.sql
-    sqlite3 var/data.db < bard.sql
+## Database
 
-####  Configure .env.local
+The data comes from a [MySQL database](http://opensourceshakespeare.com/downloads/).  Since Heroku only supports free databases of up to 10,000 rows, the database was converted to SQLite, after some tweaks and modifications.  See [Converting from MySQL to Doctrine Entities](/docs/database.md). 
 
-    DATABASE_URL=sqlite:///%kernel.project_dir%/var/data.db
 
-### MySQL/MariaDB
-
-Alternatively, load it to a local MySQL database
-
-Create a mysql database and load the .sql
-
-    mysql -u root
-    create database bard;
-    CREATE USER 'william'@'localhost' IDENTIFIED BY 'hamlet';
-    grant ALL on *.* to 'william'@'localhost';
-    \q
-    
-     mysql -u william -p -D bard < data/oss-db-full.sql
-     
-####  Configure .env.local
-
-      DATABASE_URL=mysql://william:hamlet@127.0.0.1:3306/bard?serverVersion=5.7
-       
-## Reset chapter reference
-
-The database isn't properly normalized for Chapters, so this utility fixes that.
-
-    bin/console doctrine:schema:update --dump-sql --force
-    bin/console app:fix-database --chapters
-    
-Heroku doesn't support sqlite, and the free databases are limited to 10,000 rows.  There are over 35,000 paragraphs, so we need to merge those paragraphs into each chapter (a "scene" in other systems).
-
-  @removed since sqlite works 
-  
-    bin/console app:fix-database --paragraphs
-    
-Now we no longer need the Word tables
-
-    bin/console doctrine:query:sql "DROP TABLE Words"    
-    bin/console doctrine:query:sql "DROP TABLE WordForms" 
     
 ## Full-text search
 

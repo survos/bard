@@ -909,16 +909,16 @@
         },
         {
             "name": "doctrine/inflector",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "ab5de36233a1995f9c776c741b803eb8207aebef"
+                "reference": "4111f6853aea6f28b2b1dcfdde83d12dd3d5e6e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/ab5de36233a1995f9c776c741b803eb8207aebef",
-                "reference": "ab5de36233a1995f9c776c741b803eb8207aebef",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/4111f6853aea6f28b2b1dcfdde83d12dd3d5e6e3",
+                "reference": "4111f6853aea6f28b2b1dcfdde83d12dd3d5e6e3",
                 "shasum": ""
             },
             "require": {
@@ -997,7 +997,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-05-06T11:01:57+00:00"
+            "time": "2020-05-09T15:09:09+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -4604,12 +4604,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/LandingBundle.git",
-                "reference": "8c6c56dd38c8bc4d7c20fdc1514f5f2d1c987abe"
+                "reference": "5b5a62e3e5ae88238f4b1eeb7735a6a47165781a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/LandingBundle/zipball/8c6c56dd38c8bc4d7c20fdc1514f5f2d1c987abe",
-                "reference": "8c6c56dd38c8bc4d7c20fdc1514f5f2d1c987abe",
+                "url": "https://api.github.com/repos/survos/LandingBundle/zipball/5b5a62e3e5ae88238f4b1eeb7735a6a47165781a",
+                "reference": "5b5a62e3e5ae88238f4b1eeb7735a6a47165781a",
                 "shasum": ""
             },
             "require": {
@@ -4662,7 +4662,7 @@
                 "generator",
                 "symfony5"
             ],
-            "time": "2020-05-03T14:07:16+00:00"
+            "time": "2020-05-12T09:25:21+00:00"
         },
         {
             "name": "symfony/asset",

@@ -3,35 +3,47 @@
 {% block page_title %}Characters{% endblock %}
 {% block page_subtitle %}index (via make:crud){% endblock %}
 
+{% block page_content_before %}
+    <div class="well-sm">
+        {{ "pages.%s"|format(app.request.get('_route'))|trans }}
+    </div>
+{% endblock %}
+
 {% block body %}
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for character in characters %}
-            <tr>
-                <td><sm>{{ character.id }}</sm></td>
-                <td><a href="{{ path('character_show', character.rp) }}">{{ character.name }}</a></td>
-                <td>{{ character.description }}</td>
-                <td>
-                    <a href="{{ path('character_show', character.rp) }}">show</a>
-                    <a href="{{ path('character_edit', character.rp) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    {% if api|default(false) %}
+        <table id="character_table" class="survos-datatable" data-url="{{ path('api_characters_get_collection') }}">
 
-    <a href="{{ path('character_new') }}">Create new</a>
+        </table>
+    {% else %}
+    {{ block('html_table') }}
+    {% endif %}
+
+{% endblock %}
+
+{% block html_table %}
+<table class="table {{ datatable|default(false) ? 'table-Datatable table-datatable' }}"
+       data-scroll-y="30vh"
+       id="character_table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for character in characters %}
+        <tr>
+            <td><sm>{{ character.id }}</sm></td>
+            <td><a href="{{ path('character_show', character.rp) }}">{{ character.name }}</a></td>
+            <td>{{ character.description }}</td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="4">no records found</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

@@ -16,12 +16,20 @@ class AppController extends AbstractController
     /**
      * @Route("/app", name="app")
      * @Route("/home", name="home")
-     * @Route("/", name="app_homepage")
      */
     public function index(WorkRepository $workRepository)
     {
         return $this->render('app/index.html.twig', [
             'works' => $workRepository->findAll()
+        ]);
+    }
+
+    /**
+     * @Route("/", name="app_homepage")
+     */
+    public function homepage(WorkRepository $workRepository)
+    {
+        return $this->render('app/homepage.html.twig', [
         ]);
     }
 
