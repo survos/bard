@@ -1,13 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Works via json-ld{% endblock %}
 {% block javascripts %}
     {{ parent() }}
     {{ encore_entry_script_tags('works-datatable') }}
 {% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+{% endblock %}
+
+
+{% block page_subtitle %}
+    json-ld call (hyrda) to ElasticSearch!!, rendering by SurvosDataTable Component
+{% endblock %}
+
 {% block body %}
-<h1>Work index via JSON-LD</h1>
+    <div class="container">
+
 
     <div class="row">
         <div class="col">
@@ -18,7 +28,6 @@
             <table id="work-table" data-dt-ajax="{{ hydraUrl }}"></table>
         </div>
 
-        {#
         <div class="col">
             <h3>Characters</h3>
             {% set route = 'api_characters_get_collection' %}
@@ -28,10 +37,10 @@
 
             <table id="character-table" class="table"  data-dt-ajax="{{ hydraUrl }}"></table>
         </div>
-        #}
 
     </div>
 
+    </div>
 
 
 
