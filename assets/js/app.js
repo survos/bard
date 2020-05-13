@@ -1,8 +1,8 @@
 // any CSS you require will output into a single css file (app.css in this case)
 
 require('../css/app.css');
-require('datatables.net-bs4');
-require('datatables.net-scroller-bs4');
+require('datatables.net-bs');
+require('datatables.net-scroller-bs');
 
 // const $ = require('jquery');
 // const $ = global.$;
@@ -23,7 +23,6 @@ dataTableElements.each(function (index) {
         'scroller': true,
         'scrollX': true,
         'scrollY': '100vh',
-        'scrolllower': '90vh',
         'autoWidth': true,
     };
 

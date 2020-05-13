@@ -1,12 +1,12 @@
 const $ = require('jquery');
 
-require('datatables.net-bs4');
-require('datatables.net-scroller-bs4');
-require('datatables.net-buttons-bs4');
+require('datatables.net-bs');
+require('datatables.net-scroller-bs');
+require('datatables.net-buttons-bs');
 
 const routes = require('../../public/js/fos_js_routes.json');
 
-import SurvosDataTable from '../../vendor/survos/landing-bundle/src/Resources/public/js/SurvosDataTable';
+// import SurvosDataTable from '../../vendor/survos/landing-bundle/src/Resources/public/js/SurvosDataTable';
 import Routing from '../../vendor/friendsofsymfony/jsrouting-bundle/Resources/public/js/router.min.js';
 
 Routing.setRoutingData(routes);

@@ -53,7 +53,8 @@ class MenuSubscriber implements EventSubscriberInterface
         $this->addMenuItem($charactersMenu, ['label' => 'DataTable(API)', 'route' => 'character_datatable_via_api', 'icon' => 'fas fa-exchange-alt']);
         $this->addMenuItem($charactersMenu, ['route' => 'character_new', 'icon' => 'fas fa-plus']);
 
-        $this->addMenuItem($menu, ['route' => 'app_typography', 'icon' => 'fab fa-bootstrap']);
+        $this->addMenuItem($menu, ['route' => 'app_typography', 'label' => 'Bootstrap 4', 'icon' => 'fab fa-bootstrap']);
+        $this->addMenuItem($menu, ['route' => 'survos_bootstrap3', 'label' => 'Bootstrap 3', 'icon' => 'fab fa-bootstrap']);
         $this->addMenuItem($menu, ['route' => 'survos_landing_credits', 'icon' => 'fas fa-trophy']);
 
 

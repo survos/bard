@@ -98,7 +98,7 @@
         }
     },
     "minimum-stability": "beta",
-    "prefer-stable": false,
+    "prefer-stable": true,
     "repositories": {
     }
 }

@@ -13,6 +13,25 @@ app_typography: Boostrap
 works_header: Works
 characters_header: Characters
 
+bard.intro: |
+    This site is a repository of Shakespeare's works.  The data comes from Open Source Shakepeare.
+
+    So why another site?  First, I wanted to get Shakepeare in the Fountain screenplay format, so it could be used with other tools.
+    For example, the characters are listed as a regular HTML table, the same HTML table with the DataTable library applied, and
+    finally using dynamic loading with API Platform.  Someday we'll add full-text search via ElasticSearch.
+
+site.intro: |
+    The *real* reason for this site is a playground for testing tools, with a database that wasn't complicated to understand, but wasn't so simple as to be trivial.
+    The tools that are tested here:
+
+        * Symfony 5.1: The latest version of the best PHP framework.
+        * AdminLTEBundle: A terrific bundle for integrating bootstrap and styling the pages and menus.
+        * DataTables: A slick library for easily displaying tabular data.
+        * API Platform:
+
+        See the bundles and versions used on this site under <a href="{{ path('survos_landing_credits') }}">Credits</a>
+
+
 
 pages:
     character_datatable_via_api: |

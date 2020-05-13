@@ -9,13 +9,15 @@ use Survos\LandingBundle\Entity\SurvosBaseEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ChapterRepository")
- * @ORM\Table(name="Chapters")
+ * @ORM\Table(name="Chapters",
+ *      indexes={@ORM\Index(name="chapter_idx", columns={"ChapterId"})}
+ *     )
  */
 class Chapter extends SurvosBaseEntity
 {
     /**
      * @ORM\Id()
-     * @ORM\Column(name="ChapterID", type="string")
+     * @ORM\Column(name="ChapterID", type="string", unique=true)
      */
     private $id;
 
