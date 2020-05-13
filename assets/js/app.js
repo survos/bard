@@ -14,20 +14,24 @@ console.log('init table-datatable: ' + dataTableElements.length);
 
 // basic initialation
 dataTableElements.each(function (index) {
+    console.log($(this));
     const options = $(this).data();
-    console.log(options);
+    console.log('data is ', options);
 
-    let o = {
+    const o = {
         dom: 'ft',
-        scroller: true,
-        scrollX: true,
-        scrollY: '100vh',
-        autoWidth: true,
+        'scroller': true,
+        'scrollX': true,
+        'scrollY': '100vh',
+        'scrolllower': '90vh',
+        'autoWidth': true,
     };
 
-    $.extend(o, options);
+    console.log('options', options);
+    console.log('o', o);
+    Object.assign(o, options);
 
-    console.log(o);
+    console.log('extended o', o);
     // eslint-disable-next-line new-cap
     $(this).DataTable(o);
 
