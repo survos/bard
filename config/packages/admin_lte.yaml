@@ -16,8 +16,10 @@ admin_lte:
 
     knp_menu:
         enable: true
+        breadcrumb_menu: true
 
     routes:
         adminlte_welcome: home
         adminlte_login: login
         adminlte_profile: profile
+

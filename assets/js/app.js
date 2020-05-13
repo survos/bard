@@ -1,17 +1,40 @@
 // any CSS you require will output into a single css file (app.css in this case)
+require('../css/app.css');
 
 require('../css/app.css');
-require('datatables.net-bs4');
+require('datatables.net-bs');
+require('datatables.net-scroller-bs');
 
-const $ = require('jquery');
+// const $ = require('jquery');
 // const $ = global.$;
-$('.works-datatable').DataTable();
-$('#works-html-table').DataTable();
+const dataTableElements = $('.table-datatable');
+// const survosDataTableElements = $('.survos-datatable');
 
-/**
-\u0040fortawesome\/fontawesome\u002Dfree
-bootstrap
-fontawesome
-jquery
-popper.js
-**/
+
+console.log('init table-datatable: ' + dataTableElements.length);
+
+// basic initialation
+dataTableElements.each(function (index) {
+    console.log($(this));
+    const options = $(this).data();
+    console.log('data is ', options);
+
+    const o = {
+        dom: 'ft',
+        'scroller': true,
+        'scrollX': true,
+        'scrollY': '100vh',
+        'autoWidth': true,
+    };
+
+    console.log('options', options);
+    console.log('o', o);
+    Object.assign(o, options);
+
+    console.log('extended o', o);
+    // eslint-disable-next-line new-cap
+    $(this).DataTable(o);
+
+    // console.log(index, .text());
+});
+

@@ -1,0 +1,11 @@
+{% extends 'work/base.html.twig' %}
+
+{% block body %}
+
+    <ul>
+        {% for c, paraCount in characters %}
+            <li>{{ c }}, {{ paraCount  }} Paragraphs</li>
+        {% endfor %}
+
+    </ul>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'work/base.html.twig' %}
+
+{% block body %}
+
+
+    <ul>
+        {% for chapter in chapters %}
+            <li>{{ chapter }}
+                <ul>
+                    {% for p in chapter.paragraphs|slice(0,9) %}
+                        <li>{{ p.charId }}: {{ p.plainText|u.truncate(90, '...') }}</li>
+                    {% endfor %}
+
+                </ul>
+            </li>
+        {% endfor %}
+
+    </ul>
+{% endblock %}

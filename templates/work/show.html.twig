@@ -1,11 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'work/base.html.twig' %}
 
 {% block title %}Work{% endblock %}
 
 {% block body %}
     <h1>Work</h1>
 
-    <table class="table">
+    <table class="table table-condensed">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -36,28 +36,18 @@
                 <td>{{ work.totalParagraphs }}</td>
             </tr>
             <tr>
-                <th>Chapters</th>
-                <td>{{ work.chapterCount }}</td>
+                <th>{{ work.chapterCount }} Chapters</th>
+                <td>
+                    {% for chapter in work.chapters %}
+                        <a href="{{ path('chapter_show', chapter.rp) }}">
+                            <li>{{ chapter }}</li>
+                        </a>
+                    {% endfor %}
+                </td>
             </tr>
         </tbody>
     </table>
 
-    <ol>
 
-    {% for chapter in work.chapters %}
-        <li>
-            <h2>{{ chapter }}</h2>
-
-            <ol>
-                {% for paragraph in chapter.paragraphs %}
-                    <li>{{ paragraph.charId }} ({{ paragraph.type }}): {{ paragraph|split('[p]')|join('<br />')|raw }}</li>
-                {% endfor %}
-            </ol>
-
-        </li>
-    {% endfor %}
-    </ol>
-
-    <a href="{{ path('work_index') }}">back to list</a>
 
 {% endblock %}

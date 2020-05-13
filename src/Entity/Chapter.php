@@ -5,16 +5,19 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Survos\LandingBundle\Entity\SurvosBaseEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ChapterRepository")
- * @ORM\Table(name="Chapters")
+ * @ORM\Table(name="Chapters",
+ *      indexes={@ORM\Index(name="chapter_idx", columns={"ChapterId"})}
+ *     )
  */
-class Chapter
+class Chapter extends SurvosBaseEntity
 {
     /**
      * @ORM\Id()
-     * @ORM\Column(name="ChapterID", type="string")
+     * @ORM\Column(name="ChapterID", type="string", unique=true)
      */
     private $id;
 
@@ -49,9 +52,15 @@ class Chapter
         $this->paragraphs = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function getId(): ?string
     {
         return $this->id;
+    }
+
+    public function setId($id): self
+    {
+        $this->id = $id;
+        return $this;
     }
 
     public function getWork(): ?Work
@@ -137,5 +146,10 @@ class Chapter
         $this->description = $description;
 
         return $this;
+    }
+
+    function getUniqueIdentifiers()
+    {
+        return ['chapterId' => $this->getId()];
     }
 }

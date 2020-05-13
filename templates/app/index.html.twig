@@ -11,15 +11,20 @@
     <table id="works_table" class="works-datatable table table-striped">
         <thead>
         <tr>
-            <th>Title</th>
             <th>Fountain</th>
+            <th>Title</th>
         </tr>
         </thead>
         <tbody>
         {% for work in works %}
             <tr>
-                <td>{{ work.title }}</td>
-                <td>{{ path('work_fountain', work.rp) }}</td>
+                <td><a target="_blank" href="{{ path('work_fountain', work.rp) }}"><span class="fas fa-pen-fancy"></span> </a>
+                </td>
+                <td>
+                    <a href="{{ path('work_show', work.rp) }}">
+                        {{ work.title }}
+                    </a>
+                </td>
             </tr>
 
         {% endfor %}

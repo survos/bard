@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chapter index{% endblock %}
+
+
+{% block body %}
+    <h1>Chapter index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>actions</th>
+                <th>Id</th>
+                <th>Section</th>
+                <th>Scene</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for chapter in chapters %}
+            <tr>
+                <td>
+                    <a href="{{ path('chapter_show', chapter.rp) }}">
+                        <span class="fas fa-file-invoice"></span></a>
+
+                    </a>
+                    <a href="{{ path('chapter_edit', chapter.rp) }}">
+                        <span class="fas fa-edit"></span></a>
+                </td>
+
+                                <td>{{ chapter.id }}</td>
+                <td>{{ chapter.section }}</td>
+                <td>{{ chapter.scene }}</td>
+                <td>{{ chapter.description }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('chapter_new') }}">Create new</a>
+{% endblock %}

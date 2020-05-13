@@ -23,6 +23,13 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+    app.top_menu_builder:
+        class: App\Menu\TopMenuBuilder
+        arguments:
+            - "@knp_menu.factory"
+            - "@event_dispatcher"
+        tags:
+            - { name: knp_menu.menu_builder, method: createTopMenu, alias: top_menu }
 
 # api/config/services.yaml
     # ...

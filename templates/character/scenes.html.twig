@@ -1,0 +1,12 @@
+{% extends 'character/base.html.twig' %}
+
+{% block page_subtitle %}Scenes{% endblock %}
+
+{% block body %}
+
+    <ul>
+        {% for scene in character.scenes %}
+            <li>{{ scene }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

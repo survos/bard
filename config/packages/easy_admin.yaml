@@ -1,4 +1,9 @@
 easy_admin:
+    site_name: 'Shakespeare'
+    edit:
+        actions: ['show', '-delete']
+    list:
+        actions: ['search', 'show', '-edit', '-delete']
     design:
         menu:
             - { label: 'Bard Home', route: 'app_homepage' }
