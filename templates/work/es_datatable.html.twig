@@ -5,10 +5,10 @@
     {{ encore_entry_script_tags('works-datatable') }}
 {% endblock %}
 
-{% set api_route = 'api_work_get_collection' %}
+{% set api_route = 'api_work_outputs_get_collection' %}
 
 {% block page_subtitle %}
-    json-ld call (hyrda) to Doctrine (via {{ api_route }}!!!, rendering by SurvosDataTable Component
+    json-ld call (hyrda), using {{ api_route }} (WorkOutput, Elastica)
 {% endblock %}
 
 {% block body %}
@@ -18,8 +18,7 @@
         <div class="col">
             {% set hydraUrl = path(api_route) %}
             <a target="_blank" href="{{ hydraUrl }}">{{ hydraUrl }}</a>
-
-            <table id="work-table" class="table table-bordered thead-dark table-condensed" data-dt-ajax="{{ hydraUrl }}"></table>
+            <table id="work-output-table" data-dt-ajax="{{ hydraUrl }}"></table>
         </div>
 
     </div>

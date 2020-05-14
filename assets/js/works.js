@@ -1,15 +1,20 @@
-const $ = require('jquery');
+// const $ = global.$;
+// const $ = require('jquery');
+console.log('hello, works.js');
 
+/*
 require('datatables.net-bs');
 require('datatables.net-scroller-bs');
 require('datatables.net-buttons-bs');
-
+*/
 const routes = require('../../public/js/fos_js_routes.json');
 import Routing from '../../vendor/friendsofsymfony/jsrouting-bundle/Resources/public/js/router.min.js';
 Routing.setRoutingData(routes);
 
-import SurvosDataTable from '../../vendor/survos/landing-bundle/src/Resources/public/js/SurvosDataTable';
+// import SurvosDataTable from '../../vendor/survos/landing-bundle/src/Resources/public/js/SurvosDataTable';
+import SurvosDataTable from './Components/SurvosDataTable';
 
+// not sure if we use this for both ElasticSearch and for Doctrine.  Both are API platform.
 const $workTable = $('#work-table');
 const workColumns = [
     {title: 'ID', data: '@id'},
@@ -36,23 +41,12 @@ wt.initFooter(); // add the search filters, pass params here from columns?
 wt.render();
 
 
-const columns = [
-    {title: 'ID', data: '@id'},
-    {title: 'Name', data: 'name'},
-    {title: 'Description', data: 'description'},
-];
-/*
-const buttons = [
-
-];
- */
-
 if (0) {
-    const $table = $('#character-table');
-    const ct = new SurvosDataTable($table, columns);
-    ct.initFooter(); // add the search filters, pass params here from columns?
-    ct.render();
-
+    $workTable.DataTable({
+        columns: workColumns,
+    });
 }
+
+
 
 

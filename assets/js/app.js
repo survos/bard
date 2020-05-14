@@ -1,9 +1,10 @@
 // any CSS you require will output into a single css file (app.css in this case)
 require('../css/app.css');
 
-require('../css/app.css');
 require('datatables.net-bs');
 require('datatables.net-scroller-bs');
+require('datatables.net-buttons-bs');
+require('datatables.net-select-bs');
 
 // const $ = require('jquery');
 // const $ = global.$;
@@ -20,10 +21,10 @@ dataTableElements.each(function (index) {
     console.log('data is ', options);
 
     const o = {
-        dom: 'ft',
+        dom: 'ftir',
         'scroller': true,
         'scrollX': true,
-        'scrollY': '100vh',
+        'scrollY': '30vh',
         'autoWidth': true,
     };
 

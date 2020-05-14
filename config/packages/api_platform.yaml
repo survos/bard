@@ -19,6 +19,6 @@ api_platform:
 
     collection:
         pagination:
-            items_per_page: 3 # Default value
-            client_items_per_page: true # Disabled by default
+            items_per_page: 10 # Default value
+            client_items_per_page: true # Disabled by default.  Idea: double the range, find the start page, get the results and return the slice to the API call
             items_per_page_parameter_name: itemsPerPage # Default value

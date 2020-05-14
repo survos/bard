@@ -31,23 +31,34 @@ class WorkController extends BaseController
     }
 
     /**
-     * @Route("/", name="work_index", methods={"GET"})
+     * @Route("/html-only", name="work_html_index", methods={"GET"})
+     * @Route("/html-plus-datatable", name="work_index", methods={"GET"})
      */
     public function index(Request $request, EntityManagerInterface $em, WorkRepository $workRepository): Response
     {
         $works = $workRepository->findAll();
-
         return $this->render('work/index.html.twig', [
             'works' => $works,
+            'apply_basic_datatable' => $request->get('_route') === 'work_index'
         ]);
     }
 
     /**
-     * @Route("/datatable", name="work_datatable", methods={"GET"})
+     * @Route("/doctrine-datatable", name="work_doctrine_datatable", methods={"GET"})
      */
-    public function datatable(Request $request, EntityManagerInterface $em, WorkRepository $workRepository): Response
+    public function doctrineDatatable(Request $request, EntityManagerInterface $em, WorkRepository $workRepository): Response
     {
         return $this->render('work/datatable.html.twig', [
+
+        ]);
+    }
+
+    /**
+     * @Route("/es-datatable", name="work_es_datatable", methods={"GET"})
+     */
+    public function esDatatable(Request $request): Response
+    {
+        return $this->render('work/es_datatable.html.twig', [
 
         ]);
     }

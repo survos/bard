@@ -1,5 +1,15 @@
 {% extends 'base.html.twig' %}
 
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('characters') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+{% endblock %}
+
 {% block page_title %}Characters{% endblock %}
 {% block page_subtitle %}index (via make:crud){% endblock %}
 
@@ -12,18 +22,32 @@
 {% block body %}
 
     {% if api|default(false) %}
-        <table id="character_table" class="survos-datatable" data-url="{{ path('api_characters_get_collection') }}">
+        <h3>Character Table, survos_datatable</h3>
+        {% set api_route = 'api_characters_get_collection' %}
+        <a href="{{ path(api_route) }}">{{ api_route }}</a>
 
+        <table id="character_table" class="xxsurvos-datatable" data-dt-ajax="{{ path(api_route)}}">
         </table>
     {% else %}
-    {{ block('html_table') }}
+        {{ block('html_table') }}
     {% endif %}
 
 {% endblock %}
 
 {% block html_table %}
-<table class="table {{ datatable|default(false) ? 'table-Datatable tables-bordered table-striped table-hover table-datatable' }}"
-       data-scroll-y="80vh"
+
+    <div class="col">
+        <h3>{{ characters|length }} Characters (via HTML {{ datatable ? '+basic .DataTable()' }})</h3>
+        {% set route = 'api_characters_get_collection' %}
+        {% set hydraUrl = path(route) %}
+
+        <a target="_blank" href="{{ hydraUrl }}">{{ hydraUrl }}</a>
+
+        <table id="character-table" class="table"  data-dt-ajax="{{ hydraUrl }}"></table>
+    </div>
+
+    <table class="table {{ datatable|default(false) ? 'table-datatable tables-bordered table-striped table-hover table-datatable' }}"
+       data-xxscroll-y="80vh"
        id="character_table">
     <thead>
     <tr>

@@ -42,13 +42,14 @@ class MenuSubscriber implements EventSubscriberInterface
 
         $this->addMenuItem($menu, ['route' => 'app_homepage', 'label' => 'Home', 'icon' => 'fas fa-home']);
         $worksMenu = $this->addMenuItem($menu, ['menu_code' => 'works_header', 'icon' => 'fas fa-theater-masks']);
-        $this->addMenuItem($worksMenu, ['route' => 'work_index', 'icon' => 'fas fa-list']);
-        $this->addMenuItem($worksMenu, ['route' => 'work_datatable', 'icon' => 'fas fa-table']);
+        $this->addMenuItem($worksMenu, ['route' => 'work_html_index', 'label' => 'HTML', 'icon' => 'fas fa-list']);
+        $this->addMenuItem($worksMenu, ['route' => 'work_index', 'label' => 'HTML+DT', 'icon' => 'fas fa-list']);
+        $this->addMenuItem($worksMenu, ['route' => 'work_doctrine_datatable', 'label' => 'Doctrine Search', 'icon' => 'fas fa-table']);
 
         $worksMenu = $this->addMenuItem($menu, ['menu_code' => 'search', 'icon' => 'fas fa-search']);
         $this->addMenuItem($worksMenu, ['route' => 'search_dashboard', 'icon' => 'fas fa-list']);
         $this->addMenuItem($worksMenu, ['route' => 'search_create_index', 'icon' => 'fas fa-plus']);
-        $this->addMenuItem($worksMenu, ['route' => 'work_datatable', 'icon' => 'fas fa-table']);
+        $this->addMenuItem($worksMenu, ['route' => 'work_es_datatable', 'label'=>'ElasticSearch', 'icon' => 'fas fa-table']);
 
         $this->addMenuItem($worksMenu, ['route' => 'search_dashboard', 'icon' => 'fas fa-search']);
 //        $menu->addChild('work_index.title', ['route' => 'work_index'])->setAttribute('icon', 'fas fa-theater-masks');

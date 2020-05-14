@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block body %}
-    {% include "work/_table.html.twig" with {works: works} %}
+    {% include "work/_table.html.twig" with {works: works, apply_basic_datatable: apply_basic_datatable } only %}
 
     {% if is_granted('ROLE_ADMIN') %}
     <hr />
