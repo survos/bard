@@ -11,6 +11,7 @@ use Elastica\Client;
 use Elastica\Document;
 use Elastica\Index;
 use Elastica\Mapping;
+use Elastica\Result;
 use Elastica\Search;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -67,29 +68,40 @@ class SearchController extends AbstractController
     }
 
     /**
+     * @Route("/api-dt", name="search_api_dt")
+     */
+    public function apiDataTable(Request $request)
+    {
+        // uses api platform with ElasticSearch.
+
+
+    }
+
+    /**
      * @Route("/search", name="search_dashboard")
      */
-    public function index(Request $request)
+    public function search(Request $request)
     {
         $search = new Work();
+        $works = [];
+        $rawResults = [];
 
         if ($term = $request->get('q')) {
             // $index = $this->getIndex();
             $index = $this->getIndex();
+            // manual way, where we call the search directly.  We call elasticSearch elsewhere.
             $resultSet = $index->search($term);
-            dump($resultSet->getResults());
-            foreach ($resultSet->getResults() as $result) {
-                dump($result);
+            $rawResults = array_map(function (Result $result) { return $result->getHit(); }, $resultSet->getResults());
 
+            $works = array_map(function (Result $result) use ($rawResults) {
                 $data = $result->getHit()['_source'];
-                dd($data);
+                array_push($rawResults, $data);
+
                 $data = json_encode($result->getHit()['_source']);
 
-
                 $work = $this->serializer->deserialize($data, WorkOutput::class, 'json');
-                dd($work, $data);
-            }
-
+                return $work;
+            }, $resultSet->getResults());
         }
 
 
@@ -110,6 +122,9 @@ class SearchController extends AbstractController
         return $this->render('search/index.html.twig', [
             'form' => $form->createView(),
             'mapping' => $mapping,
+            'works' => $works,
+            'q' => $term,
+            'rawResults' => $rawResults,
             'controller_name' => 'SearchController',
         ]);
     }
@@ -122,11 +137,13 @@ class SearchController extends AbstractController
         $index = $this->getIndex();
         $index->create([], true);
 
+        // @todo, automatic this from annotations
         $mapping = new Mapping([
                 'chapterCount' => ['type' => 'integer'],
                 'full_text' => ['type' => 'text'],
                 'fountainUrl' => ['type' => 'keyword'],
                 'GenreType' => ['type' => 'keyword'],
+                'source' => ['type' => 'keyword'],
                 'id' => ['type' => 'keyword'],
 
                 ]
@@ -135,15 +152,20 @@ class SearchController extends AbstractController
         // return $this->redirectToRoute('search_dashboard');
         // dd($mapping, $index);
 
-        foreach ($workRepository->findBy([], [], 10) as $idx => $work) {
+        // let's try it with the 'play'
+        $playIndex = $index; // $this->getIndex();
+
+        foreach ($workRepository->findBy([], [], 100) as $idx => $work) {
+            // defined by the serializer, the read group of 'Work'
+
+            /* Option 1: serialize 'Work' and index it.  The problem is that this may not work with API Platform
             $data = $normalizer->normalize($work, 'json', ['groups' => ['read']]);
             $doc = new Document($work->getId(), $data);
             // dd($data);
             $index->addDocument($doc);
+            */
 
-            // let's try it with the 'play'
-            $playIndex = $this->getIndex();
-
+            // Option 2: transform the data to WorkOutput, index it.  Then use API Platform to READ
             $workOutput = (new WorkOutputDataTransformer())
                 ->transform($work, WorkOutput::class, []);
             $workOutputData = $normalizer->normalize($workOutput, 'json', ['groups' => ['read', 'full_text']]);

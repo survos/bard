@@ -50,6 +50,12 @@ final class WorkOutput {
 
     /**
      * @var string
+     * @ApiFilter(TermFilter::class)
+     */
+    public $source;
+
+    /**
+     * @var string
      * @ApiFilter(MatchFilter::class)
      */
     public $full_text;

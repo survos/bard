@@ -1,3 +1,4 @@
+# we in
 App\Entity\Work:
   attributes:
     shortTitle:
@@ -12,12 +13,15 @@ App\Entity\Work:
       groups: ['read', 'Default']
     totalWords:
       groups: ['read']
+    source:
+      groups: ['source']
     fountainUrl:
       groups: ['read', 'Default']
     fullText:
       groups: ['read', 'Default']
     GenreType:
       groups: ['read', 'Default']
+
 
 App\Dto\WorkOutput:
   attributes:

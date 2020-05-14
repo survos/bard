@@ -47,7 +47,6 @@ class WorkController extends BaseController
      */
     public function datatable(Request $request, EntityManagerInterface $em, WorkRepository $workRepository): Response
     {
-
         return $this->render('work/datatable.html.twig', [
 
         ]);

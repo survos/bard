@@ -14,12 +14,14 @@ final class WorkOutputDataTransformer implements DataTransformerInterface
      */
     public function transform($data, string $to, array $context = [])
     {
+        // transforms data (a Work entity) to a Plain Php Object, which will serialized for indexing
         $output = new WorkOutput();
 
         /** @var Work $data */
         $output->title = $data->getTitle();
         $output->year = $data->getYear();
         $output->id = $data->getId();
+        $output->source = $data->getSource();
         $output->longTitle = $data->getLongTitle();
         $output->totalWords = $data->getTotalWords();
         $output->full_text = substr($data->getFullText(), 0, 500);

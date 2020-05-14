@@ -44,6 +44,13 @@ class MenuSubscriber implements EventSubscriberInterface
         $worksMenu = $this->addMenuItem($menu, ['menu_code' => 'works_header', 'icon' => 'fas fa-theater-masks']);
         $this->addMenuItem($worksMenu, ['route' => 'work_index', 'icon' => 'fas fa-list']);
         $this->addMenuItem($worksMenu, ['route' => 'work_datatable', 'icon' => 'fas fa-table']);
+
+        $worksMenu = $this->addMenuItem($menu, ['menu_code' => 'search', 'icon' => 'fas fa-search']);
+        $this->addMenuItem($worksMenu, ['route' => 'search_dashboard', 'icon' => 'fas fa-list']);
+        $this->addMenuItem($worksMenu, ['route' => 'search_create_index', 'icon' => 'fas fa-plus']);
+        $this->addMenuItem($worksMenu, ['route' => 'work_datatable', 'icon' => 'fas fa-table']);
+
+        $this->addMenuItem($worksMenu, ['route' => 'search_dashboard', 'icon' => 'fas fa-search']);
 //        $menu->addChild('work_index.title', ['route' => 'work_index'])->setAttribute('icon', 'fas fa-theater-masks');
 //        $menu->addChild('datatable', ['route' => 'work_datatable'])->setAttribute('icon', 'fas fa-table');
 

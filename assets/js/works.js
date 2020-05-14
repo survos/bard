@@ -5,11 +5,10 @@ require('datatables.net-scroller-bs');
 require('datatables.net-buttons-bs');
 
 const routes = require('../../public/js/fos_js_routes.json');
-
-// import SurvosDataTable from '../../vendor/survos/landing-bundle/src/Resources/public/js/SurvosDataTable';
 import Routing from '../../vendor/friendsofsymfony/jsrouting-bundle/Resources/public/js/router.min.js';
-
 Routing.setRoutingData(routes);
+
+import SurvosDataTable from '../../vendor/survos/landing-bundle/src/Resources/public/js/SurvosDataTable';
 
 const $workTable = $('#work-table');
 const workColumns = [
@@ -48,7 +47,7 @@ const buttons = [
 ];
  */
 
-if (1) {
+if (0) {
     const $table = $('#character-table');
     const ct = new SurvosDataTable($table, columns);
     ct.initFooter(); // add the search filters, pass params here from columns?

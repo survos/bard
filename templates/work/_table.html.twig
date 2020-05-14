@@ -1,0 +1,40 @@
+<table class="table table-striped works-datatable" id="works-html-table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Full Title</th>
+        <th>Year</th>
+        <th>Source</th>
+        <th>#Chapters</th>
+        <th>#Paragraphs</th>
+        <th>#Words</th>
+        <th>actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for work in works %}
+        <tr>
+            <td>{{ work.id }}</td>
+            <td> <a href="{{ path('work_show', {'id': work.id}) }}">{{ work.title }}</a></td>
+            <td>{{ work.longTitle }}</td>
+            <td>{{ work.year  }}</td>
+            <td>{{ work.source }}</td>
+
+            <td style="text-align: right;">
+                {{ work.chapters.count }}
+            </td>
+            <td style="text-align: right;">{{ work.totalParagraphs|number_format }}</td>
+            <td style="text-align: right;">{{ work.totalWords|number_format }}</td>
+            <td>
+                {% set url = url('work_fountain', work.rp({_format: 'fountain'}) ) %}
+                <a target="_blank" href="{{ url }}">.fountain</a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="8">no records found</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
