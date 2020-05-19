@@ -367,8 +367,10 @@ export default class SurvosDataTable {
             // paging: false,
             scrollCollapse: true,
             infoCallback: function( settings, start, end, max, total, pre ) {
-                console.log(settings, start, end, max, total, pre);
-                return start +" to "+ end;
+                console.log(start, end, max, total, pre);
+
+                $('#max').html(max); // hack, should be reletive to the table
+                return start +" to "+ end + ` (of ${max})`;
             }
         };
 

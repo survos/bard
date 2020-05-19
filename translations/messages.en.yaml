@@ -5,6 +5,22 @@ home:
 work_index:
     title: List of Plays
     description: Full list of works
+    notes: |
+        HTML table generated from a php call to fetch the doctrine entities.  Rendered in twig.  Exactly what make:crud produces.
+        Advantages: Simple
+        Disadvantages: no search, no sorting.
+
+work_html_plus_datatable:
+  notes: |
+    HTML table generated in Twig, datatables applied to the twig table.
+    Advantages: Searching, sorting.
+    Disadvantages: large HTML page.
+
+work_doctrine_api_platform:
+  title: API Platform (Doctrine)
+  notes: |
+    Empty HTML page, javascript calls datatable with API Platform standard get call for the collection.
+    Advantages: For a small result swork_doctrine_datatable
 
 survos_landing: home
 survos_landing_credits: libraries
@@ -30,7 +46,6 @@ site.intro: |
         * API Platform:
 
         See the bundles and versions used on this site under <a href="{{ path('survos_landing_credits') }}">Credits</a>
-
 
 
 pages:

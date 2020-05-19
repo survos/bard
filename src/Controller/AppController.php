@@ -25,6 +25,15 @@ class AppController extends AbstractController
     }
 
     /**
+     * @Route("/debug-menus", name="app_debug_menus")
+     */
+    public function debugMenus()
+    {
+        return $this->render('app/debug-menus.html.twig', [
+        ]);
+    }
+
+    /**
      * @Route("/", name="app_homepage")
      */
     public function homepage(WorkRepository $workRepository)

@@ -41,17 +41,23 @@ class MenuSubscriber implements EventSubscriberInterface
         $request = $this->requestStack->getCurrentRequest();
 
         $this->addMenuItem($menu, ['route' => 'app_homepage', 'label' => 'Home', 'icon' => 'fas fa-home']);
+
         $worksMenu = $this->addMenuItem($menu, ['menu_code' => 'works_header', 'icon' => 'fas fa-theater-masks']);
-        $this->addMenuItem($worksMenu, ['route' => 'work_html_index', 'label' => 'HTML', 'icon' => 'fas fa-list']);
-        $this->addMenuItem($worksMenu, ['route' => 'work_index', 'label' => 'HTML+DT', 'icon' => 'fas fa-list']);
-        $this->addMenuItem($worksMenu, ['route' => 'work_doctrine_datatable', 'label' => 'Doctrine Search', 'icon' => 'fas fa-table']);
+        $this->addMenuItem($worksMenu, ['route' => 'work_index', 'label' => 'HTML', 'icon' => 'fas fa-list']);
+        $this->addMenuItem($worksMenu, ['route' => 'work_html_plus_datatable', 'label' => 'HTML+DT', 'icon' => 'fas fa-list']);
+        $this->addMenuItem($worksMenu, ['route' => 'work_doctrine_api_platform', 'label' => 'Doctrine Search', 'icon' => 'fas fa-table']);
+        // @todo: pass ROLE to addMenuItem and only display if permitted?  Or pass a boolean?
+        if ($this->isGranted('ROLE_ADMIN')) {
+            $this->addMenuItem($menu, ['route' => 'app_debug_menus', 'label' => 'Debug Menu', 'icon' => 'fas fa-bug']);
 
-        $worksMenu = $this->addMenuItem($menu, ['menu_code' => 'search', 'icon' => 'fas fa-search']);
-        $this->addMenuItem($worksMenu, ['route' => 'search_dashboard', 'icon' => 'fas fa-list']);
-        $this->addMenuItem($worksMenu, ['route' => 'search_create_index', 'icon' => 'fas fa-plus']);
-        $this->addMenuItem($worksMenu, ['route' => 'work_es_datatable', 'label'=>'ElasticSearch', 'icon' => 'fas fa-table']);
+            $worksMenu = $this->addMenuItem($menu, ['menu_code' => 'search']);
+            $this->addMenuItem($worksMenu, ['route' => 'search_dashboard', 'icon' => 'fas fa-list']);
+            $this->addMenuItem($worksMenu, ['route' => 'search_create_index', 'icon' => 'fas fa-plus']);
+            $this->addMenuItem($worksMenu, ['route' => 'work_es_datatable', 'label'=>'ElasticSearch', 'icon' => 'fas fa-table']);
 
-        $this->addMenuItem($worksMenu, ['route' => 'search_dashboard', 'icon' => 'fas fa-search']);
+        }
+
+
 //        $menu->addChild('work_index.title', ['route' => 'work_index'])->setAttribute('icon', 'fas fa-theater-masks');
 //        $menu->addChild('datatable', ['route' => 'work_datatable'])->setAttribute('icon', 'fas fa-table');
 
@@ -62,12 +68,11 @@ class MenuSubscriber implements EventSubscriberInterface
         $this->addMenuItem($charactersMenu, ['route' => 'character_new', 'icon' => 'fas fa-plus']);
 
         $this->addMenuItem($menu, ['route' => 'app_typography', 'label' => 'Bootstrap 4', 'icon' => 'fab fa-bootstrap']);
-        $this->addMenuItem($menu, ['route' => 'survos_bootstrap3', 'label' => 'Bootstrap 3', 'icon' => 'fab fa-bootstrap']);
         $this->addMenuItem($menu, ['route' => 'survos_landing_credits', 'icon' => 'fas fa-trophy']);
 
 
 // $menu->addChild('test_rdf', ['route' => 'test_rdf'])->setAttribute('icon', 'fas fa-sync');
-        $this->addMenuItem($menu, ['route' => 'easyadmin', 'label' => 'EasyAdmin', 'icon' => 'fas fa-database']);
+        $this->addMenuItem($menu, ['route' => 'easyadmin', 'attributes' => ['target' => '_blank'], 'label' => 'EasyAdmin', 'icon' => 'fas fa-database']);
         $this->addMenuItem($menu, ['route' => 'api_entrypoint', 'label' => 'API', 'icon' => 'fas fa-exchange-alt']);
 
         // ...

@@ -138,6 +138,9 @@
             "config/routes/fos_js_routing.yaml"
         ]
     },
+    "gajus/dindent": {
+        "version": "2.0.2"
+    },
     "guzzlehttp/guzzle": {
         "version": "6.5.0"
     },
@@ -324,6 +327,9 @@
             "config/packages/sentry.yaml"
         ]
     },
+    "survos/base-bundle": {
+        "version": "1.x-dev"
+    },
     "survos/landing-bundle": {
         "version": "1.7.x-dev"
     },
@@ -412,7 +418,7 @@
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "1.0",
-            "ref": "19fa03bacd9a6619583d1e4939da4388df22984d"
+            "ref": "c0eeb50665f0f77226616b6038a9b06c03752d8e"
         },
         "files": [
             ".env"

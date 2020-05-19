@@ -1,0 +1,20 @@
+/* assets/app.css
+.current { font-weight: bolder; background-color: yellow }
+@import "~bootstrap/dist/css/bootstrap.min.css";
+ */
+.ancestor-active {
+    font-weight: bolder;
+    border-left-style: solid;
+    border-left-color: coral;
+}
+/*.depth-1 { background-color: green}*/
+/*.depth-2 { background-color: yellow}*/
+/*.active { font-weight: bolder; background-color: blue }*/
+
+// for sidebar, probably a better way to do this, but it works for submenus.  Needs to be defaulted in survos.scss (survos.min.css)
+.depth-2 {
+    font-size: 80%;
+    padding-left: 3em;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
