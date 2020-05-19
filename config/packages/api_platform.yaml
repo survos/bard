@@ -14,8 +14,8 @@ api_platform:
     swagger:
         versions: [3]
 
-    elasticsearch:
-        hosts: ['%env(ELASTICSEARCH_HOST)%']
+#    elasticsearch:
+#        hosts: ['%env(ELASTICSEARCH_HOST)%']
 
     collection:
         pagination:

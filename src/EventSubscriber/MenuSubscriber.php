@@ -4,13 +4,15 @@ namespace App\EventSubscriber;
 
 use App\Entity\Character;
 use App\Entity\Work;
+use Survos\BaseBundle\Services\KnpMenuHelper;
 use Survos\BaseBundle\Traits\KnpMenuHelperTrait;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use KevinPapst\AdminLTEBundle\Event\KnpMenuEvent;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\Security\Core\Security;
 
-class MenuSubscriber implements EventSubscriberInterface
+class MenuSubscriber extends  KnpMenuHelper implements EventSubscriberInterface
 {
     use KnpMenuHelperTrait;
 
@@ -22,11 +24,16 @@ class MenuSubscriber implements EventSubscriberInterface
      * @var Security
      */
     private $security;
+    /**
+     * @var AuthorizationCheckerInterface
+     */
+    private $authorizationChecker;
 
-    public function __construct(Security $security, RequestStack $requestStack)
+    public function __construct(Security $security, AuthorizationCheckerInterface $authorizationChecker, RequestStack $requestStack)
     {
         $this->requestStack = $requestStack;
         $this->security = $security;
+        $this->authorizationChecker = $authorizationChecker;
     }
 
     // could move this to the trait, if $security is visible
@@ -47,7 +54,7 @@ class MenuSubscriber implements EventSubscriberInterface
         $this->addMenuItem($worksMenu, ['route' => 'work_html_plus_datatable', 'label' => 'HTML+DT', 'icon' => 'fas fa-list']);
         $this->addMenuItem($worksMenu, ['route' => 'work_doctrine_api_platform', 'label' => 'Doctrine Search', 'icon' => 'fas fa-table']);
         // @todo: pass ROLE to addMenuItem and only display if permitted?  Or pass a boolean?
-        if ($this->isGranted('ROLE_ADMIN')) {
+        if ($this->isGranted('ROLE_USER')) {
             $this->addMenuItem($menu, ['route' => 'app_debug_menus', 'label' => 'Debug Menu', 'icon' => 'fas fa-bug']);
 
             $worksMenu = $this->addMenuItem($menu, ['menu_code' => 'search']);
@@ -75,6 +82,7 @@ class MenuSubscriber implements EventSubscriberInterface
         $this->addMenuItem($menu, ['route' => 'easyadmin', 'external' => 'true', 'attributes' => ['target' => '_blank'], 'label' => 'EasyAdmin', 'icon' => 'fas fa-database']);
         $this->addMenuItem($menu, ['route' => 'api_entrypoint', 'external' => 'true', 'label' => 'API', 'icon' => 'fas fa-exchange-alt']);
 
+        $this->authMenuUsingClass($this->authorizationChecker, $menu, $event->getChildOptions());
         // ...
     }
 
