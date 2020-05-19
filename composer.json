@@ -2,7 +2,7 @@
     "type": "project",
     "license": "proprietary",
     "require": {
-        "php": "^7.2.5",
+        "php": "^7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-json": "*",
@@ -15,7 +15,6 @@
         "elasticsearch/elasticsearch": "^7.6",
         "friendsofsymfony/jsrouting-bundle": "^2.5",
         "gajus/dindent": "^2.0",
-        "kevinpapst/adminlte-bundle": "dev-adminlte-v3",
         "knplabs/knp-markdown-bundle": "^1.8",
         "knplabs/knp-menu-bundle": "^3.0",
         "monolog/monolog": "^1.22",
@@ -94,18 +93,14 @@
     },
     "extra": {
         "symfony": {
-            "allow-contrib": false,
-            "require": "^5.1"
+            "allow-contrib": true,
+            "require": "5.0.*"
         }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "repositories": {
-        "adminlte": {
-            "type": "vcs",
-            "url": "git@github.com:tacman/AdminLTEBundle.git"
-        },
-        "survos_base_bundo": {
+        "survos_base_bundle": {
             "type": "vcs",
             "url": "git@github.com:survos/BaseBundle.git"
         }

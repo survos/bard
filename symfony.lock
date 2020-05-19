@@ -376,9 +376,6 @@
     "symfony/dependency-injection": {
         "version": "v5.0.1"
     },
-    "symfony/deprecation-contracts": {
-        "version": "v2.1.0"
-    },
     "symfony/doctrine-bridge": {
         "version": "v5.0.1"
     },
@@ -551,9 +548,6 @@
     },
     "symfony/polyfill-php73": {
         "version": "v1.13.1"
-    },
-    "symfony/polyfill-php80": {
-        "version": "v1.16.0"
     },
     "symfony/polyfill-uuid": {
         "version": "v1.13.1"
