@@ -4757,12 +4757,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/BaseBundle.git",
-                "reference": "76fef4a24bfccd7949300490fb2a1a84952bbe80"
+                "reference": "8225ddab05fd8cc5157f2493e103de0c07d5dacc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/BaseBundle/zipball/76fef4a24bfccd7949300490fb2a1a84952bbe80",
-                "reference": "76fef4a24bfccd7949300490fb2a1a84952bbe80",
+                "url": "https://api.github.com/repos/survos/BaseBundle/zipball/8225ddab05fd8cc5157f2493e103de0c07d5dacc",
+                "reference": "8225ddab05fd8cc5157f2493e103de0c07d5dacc",
                 "shasum": ""
             },
             "require": {
@@ -4819,7 +4819,7 @@
                 "source": "https://github.com/survos/BaseBundle/tree/master",
                 "issues": "https://github.com/survos/BaseBundle/issues"
             },
-            "time": "2020-05-18T18:20:25+00:00"
+            "time": "2020-05-19T13:06:38+00:00"
         },
         {
             "name": "symfony/asset",
@@ -10413,52 +10413,6 @@
     ],
     "packages-dev": [
         {
-            "name": "meyfa/php-svg",
-            "version": "v0.9.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/meyfa/php-svg.git",
-                "reference": "34401edef1f724898f468f71b85505fbcc8351bb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/meyfa/php-svg/zipball/34401edef1f724898f468f71b85505fbcc8351bb",
-                "reference": "34401edef1f724898f468f71b85505fbcc8351bb",
-                "shasum": ""
-            },
-            "require": {
-                "ext-gd": "*",
-                "ext-simplexml": "*",
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "meyfa/phpunit-assert-gd": "^1.1",
-                "phpunit/phpunit": "^4.8"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "SVG\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabian Meyer",
-                    "homepage": "http://meyfa.net"
-                }
-            ],
-            "description": "Read, edit, write, and render SVG files with PHP",
-            "homepage": "https://github.com/meyfa/php-svg",
-            "keywords": [
-                "svg"
-            ],
-            "time": "2019-07-30T18:41:25+00:00"
-        },
-        {
             "name": "nikic/php-parser",
             "version": "v4.4.0",
             "source": {
@@ -10509,72 +10463,6 @@
                 "php"
             ],
             "time": "2020-04-10T16:34:50+00:00"
-        },
-        {
-            "name": "survos/landing-bundle",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/survos/LandingBundle.git",
-                "reference": "6c1ddb84096a8d6a3b71e1d031f0c56f0327f416"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/survos/LandingBundle/zipball/6c1ddb84096a8d6a3b71e1d031f0c56f0327f416",
-                "reference": "6c1ddb84096a8d6a3b71e1d031f0c56f0327f416",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "ext-zip": "*",
-                "knplabs/knp-menu": "^3.0",
-                "knplabs/knp-menu-bundle": "^3.0",
-                "knpuniversity/oauth2-client-bundle": "^1.0",
-                "meyfa/php-svg": "^0.9.1",
-                "symfony/mailer": "*",
-                "symfony/orm-pack": "*",
-                "symfony/string": "^5.0",
-                "symfony/webpack-encore-bundle": "^1.6|^2",
-                "symfony/yaml": "*",
-                "twig/string-extra": "^3.0",
-                "twig/twig": "^2.5|^3.0"
-            },
-            "require-dev": {
-                "doctrine/doctrine-fixtures-bundle": "^3.0",
-                "fzaninotto/faker": "^1.7"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.7.x-dev"
-                },
-                "symfony": {
-                    "allow-contrib": "true",
-                    "id": "landing-bundle.survos.com"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Survos\\LandingBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Tac Tacelosky",
-                    "email": "tacman@gmail.com"
-                }
-            ],
-            "description": "Add some tools and resources to a Symfony5 application",
-            "keywords": [
-                "Skeleton",
-                "generator",
-                "symfony5"
-            ],
-            "time": "2020-05-18T12:58:20+00:00"
         },
         {
             "name": "symfony/browser-kit",

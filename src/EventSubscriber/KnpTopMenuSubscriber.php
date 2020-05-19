@@ -5,7 +5,7 @@ namespace App\EventSubscriber;
 use App\Entity\Character;
 use App\Entity\Work;
 
-use Survos\LandingBundle\Traits\KnpMenuHelperTrait;
+use Survos\BaseBundle\Traits\KnpMenuHelperTrait;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use KevinPapst\AdminLTEBundle\Event\KnpMenuEvent;
 use Symfony\Component\HttpFoundation\RequestStack;

@@ -8,7 +8,7 @@ use App\Repository\ParagraphRepository;
 use App\Repository\WorkRepository;
 use App\Services\AppService;
 use Doctrine\ORM\EntityManagerInterface;
-use Survos\LandingBundle\Controller\BaseController;
+use Survos\BaseBundle\Controller\BaseController;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/work")
  */
-class WorkController extends BaseController
+class WorkController extends AbstractController
 {
     /**
      * @var ParagraphRepository

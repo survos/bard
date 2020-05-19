@@ -12,12 +12,12 @@ use App\Repository\ChapterRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Survos\LandingBundle\Controller\BaseController;
+use Survos\BaseBundle\Controller\LandingController;
 
 /**
  * @Route("/chapter")
  */
-class ChapterController extends BaseController
+class ChapterController
 {
     /**
      * @Route("/", name="chapter_index", methods={"GET"})

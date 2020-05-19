@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Survos\LandingBundle\Entity\SurvosBaseEntity;
+use Survos\BaseBundle\Entity\SurvosBaseEntity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use ApiPlatform\Core\Annotation\ApiFilter;

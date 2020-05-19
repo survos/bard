@@ -198,9 +198,6 @@
     "league/oauth2-client": {
         "version": "2.4.1"
     },
-    "meyfa/php-svg": {
-        "version": "v0.9.1"
-    },
     "michelf/php-markdown": {
         "version": "1.9.0"
     },
@@ -329,9 +326,6 @@
     },
     "survos/base-bundle": {
         "version": "1.x-dev"
-    },
-    "survos/landing-bundle": {
-        "version": "1.7.x-dev"
     },
     "symfony/asset": {
         "version": "v5.0.1"

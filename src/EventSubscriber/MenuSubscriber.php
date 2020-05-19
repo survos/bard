@@ -4,7 +4,7 @@ namespace App\EventSubscriber;
 
 use App\Entity\Character;
 use App\Entity\Work;
-use Survos\LandingBundle\Traits\KnpMenuHelperTrait;
+use Survos\BaseBundle\Traits\KnpMenuHelperTrait;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use KevinPapst\AdminLTEBundle\Event\KnpMenuEvent;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -72,8 +72,8 @@ class MenuSubscriber implements EventSubscriberInterface
 
 
 // $menu->addChild('test_rdf', ['route' => 'test_rdf'])->setAttribute('icon', 'fas fa-sync');
-        $this->addMenuItem($menu, ['route' => 'easyadmin', 'attributes' => ['target' => '_blank'], 'label' => 'EasyAdmin', 'icon' => 'fas fa-database']);
-        $this->addMenuItem($menu, ['route' => 'api_entrypoint', 'label' => 'API', 'icon' => 'fas fa-exchange-alt']);
+        $this->addMenuItem($menu, ['route' => 'easyadmin', 'external' => 'true', 'attributes' => ['target' => '_blank'], 'label' => 'EasyAdmin', 'icon' => 'fas fa-database']);
+        $this->addMenuItem($menu, ['route' => 'api_entrypoint', 'external' => 'true', 'label' => 'API', 'icon' => 'fas fa-exchange-alt']);
 
         // ...
     }
