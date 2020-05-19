@@ -56,3 +56,6 @@ pages:
     character_datatable: |
         All the characters are loaded into an HTML table, so this page is large, but very fast, with no additional API calls.
         The table can be configured with data- attributes for the DataTable() call.
+
+menu.logout: Log out
+menu.login: Log In

@@ -54,7 +54,7 @@ class MenuSubscriber extends  KnpMenuHelper implements EventSubscriberInterface
         $this->addMenuItem($worksMenu, ['route' => 'work_html_plus_datatable', 'label' => 'HTML+DT', 'icon' => 'fas fa-list']);
         $this->addMenuItem($worksMenu, ['route' => 'work_doctrine_api_platform', 'label' => 'Doctrine Search', 'icon' => 'fas fa-table']);
         // @todo: pass ROLE to addMenuItem and only display if permitted?  Or pass a boolean?
-        if ($this->isGranted('ROLE_USER')) {
+        if ($this->isGranted('ROLE_ADMIN')) {
             $this->addMenuItem($menu, ['route' => 'app_debug_menus', 'label' => 'Debug Menu', 'icon' => 'fas fa-bug']);
 
             $worksMenu = $this->addMenuItem($menu, ['menu_code' => 'search']);

@@ -6,6 +6,8 @@
 
 {% block body %}
 
+    <a href="{{ searchServer }}">{{ searchServer }}</a><br />
+
     <a href="{{ path('search_create_index') }}" class="btn btn-primary">(Re-)Create Index</a>
     {{ form(form) }}
 

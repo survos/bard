@@ -35,11 +35,13 @@ class SearchController extends AbstractController
      * @var SerializerInterface
      */
     private $serializer;
+    private $searchDSN;
 
-    public function __construct(LoggerInterface $logger, SerializerInterface $serializer)
+    public function __construct(LoggerInterface $logger, SerializerInterface $serializer, $searchDSN)
     {
         $this->logger = $logger;
         $this->serializer = $serializer;
+        $this->searchDSN = $searchDSN;
     }
 
     private $client;
@@ -47,7 +49,7 @@ class SearchController extends AbstractController
     public function getClient(): Client
     {
         if (empty($this->client)) {
-            $this->client = new Client();
+            $this->client = new Client($this->searchDSN);
             $this->client->setLogger($this->logger);
 
         }
@@ -121,6 +123,7 @@ class SearchController extends AbstractController
         }
         return $this->render('search/index.html.twig', [
             'form' => $form->createView(),
+            'searchServer' => $this->searchDSN,
             'mapping' => $mapping,
             'works' => $works,
             'q' => $term,

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c492273c273af8786cbd1854d2bd15bc",
+    "content-hash": "e9ffc5ad23383963514a85f1eeda1cfb",
     "packages": [
         {
             "name": "api-platform/api-pack",
@@ -2375,13 +2375,13 @@
             "version": "dev-adminlte-v3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/kevinpapst/AdminLTEBundle.git",
-                "reference": "626240fb1ce440255db89b14fd7dbd4d52330256"
+                "url": "https://github.com/tacman/AdminLTEBundle.git",
+                "reference": "1d7b39beaca5f6dde942ed36d303daeb2fc8b374"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kevinpapst/AdminLTEBundle/zipball/626240fb1ce440255db89b14fd7dbd4d52330256",
-                "reference": "626240fb1ce440255db89b14fd7dbd4d52330256",
+                "url": "https://api.github.com/repos/tacman/AdminLTEBundle/zipball/1d7b39beaca5f6dde942ed36d303daeb2fc8b374",
+                "reference": "1d7b39beaca5f6dde942ed36d303daeb2fc8b374",
                 "shasum": ""
             },
             "require": {
@@ -2393,6 +2393,7 @@
                 "symfony/http-kernel": ">4.0",
                 "symfony/options-resolver": ">4.0",
                 "symfony/security-core": ">4.0",
+                "twig/extra-bundle": "^3.0",
                 "twig/twig": ">2.0"
             },
             "require-dev": {
@@ -2414,7 +2415,20 @@
                     "KevinPapst\\AdminLTEBundle\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "scripts": {
+                "tests": [
+                    "vendor/bin/phpunit Tests/"
+                ],
+                "phpstan": [
+                    "vendor/bin/phpstan analyse . --level=5"
+                ],
+                "codestyle": [
+                    "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none"
+                ],
+                "codestyle-fix": [
+                    "vendor/bin/php-cs-fixer fix"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -2433,13 +2447,16 @@
                 }
             ],
             "description": "Admin theme bundle for Symfony 4 based on AdminLTE 2.4.8 with FOSUserBundle support",
+            "support": {
+                "source": "https://github.com/tacman/AdminLTEBundle/tree/adminlte-v3"
+            },
             "funding": [
                 {
-                    "url": "https://paypal.me/kevinpapst",
-                    "type": "custom"
+                    "type": "custom",
+                    "url": "https://paypal.me/kevinpapst"
                 }
             ],
-            "time": "2020-05-19T10:57:58+00:00"
+            "time": "2020-05-19T15:15:35+00:00"
         },
         {
             "name": "knplabs/knp-markdown-bundle",
@@ -4740,12 +4757,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/BaseBundle.git",
-                "reference": "8225ddab05fd8cc5157f2493e103de0c07d5dacc"
+                "reference": "c4fd5d45b9572c317b723e88f10c61abb2a91803"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/BaseBundle/zipball/8225ddab05fd8cc5157f2493e103de0c07d5dacc",
-                "reference": "8225ddab05fd8cc5157f2493e103de0c07d5dacc",
+                "url": "https://api.github.com/repos/survos/BaseBundle/zipball/c4fd5d45b9572c317b723e88f10c61abb2a91803",
+                "reference": "c4fd5d45b9572c317b723e88f10c61abb2a91803",
                 "shasum": ""
             },
             "require": {
@@ -4802,7 +4819,7 @@
                 "source": "https://github.com/survos/BaseBundle/tree/master",
                 "issues": "https://github.com/survos/BaseBundle/issues"
             },
-            "time": "2020-05-19T13:06:38+00:00"
+            "time": "2020-05-19T15:04:49+00:00"
         },
         {
             "name": "symfony/asset",
@@ -10643,6 +10660,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "easyrdf/easyrdf": 20,
+        "kevinpapst/adminlte-bundle": 20,
         "ruflin/elastica": 20,
         "sentry/sentry-symfony": 20,
         "survos/base-bundle": 20
