@@ -9,6 +9,7 @@ use App\Entity\Chapter;
 use App\Form\ChapterType;
 use App\Repository\ChapterRepository;
 // use Symfony\Bundle\FrameworkBundle\Controller\BaseController;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,7 +18,7 @@ use Survos\BaseBundle\Controller\LandingController;
 /**
  * @Route("/chapter")
  */
-class ChapterController
+class ChapterController extends AbstractController
 {
     /**
      * @Route("/", name="chapter_index", methods={"GET"})
