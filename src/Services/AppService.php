@@ -82,6 +82,7 @@ class AppService
     public function workToFountain(Work $work): string
     {
         // @todo: title, copyright, etc.
+        $this->lines = []; // reset for export!
         foreach ($work->getChapters() as $chapter) {
             $this->push('.' . $chapter->getDescription(), true);
             foreach ($chapter->getParagraphs() as $paragraph) {
@@ -91,7 +92,7 @@ class AppService
                 $stanza = explode('[p]', $paragraph->getPlainText());
                 if (count($stanza) > 1) {
                     foreach ($stanza as $line) {
-                        $this->push('~' . $line);
+                        $this->push($line);
                     }
                     // blank at end
                     $this->push('');

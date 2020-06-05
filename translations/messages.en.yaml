@@ -29,6 +29,13 @@ app_typography: Boostrap
 works_header: Works
 characters_header: Characters
 
+app_homepage.notes: |
+  The AdminLTE-3 CSS and JS (Bootstrap 4 plus custom styles) for this site comes from the *yarn* library.
+
+  The AdminLTEBundle is used for Twig Macros, Controllers, and Events
+
+  SurvosBaseBundle is used for rendering the menu and providing default pages.
+
 bard.intro: |
     This site is a repository of Shakespeare's works.  The data comes from Open Source Shakepeare.
 

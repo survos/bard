@@ -1,5 +1,6 @@
 'use strict';
 
+
 /*  When the class is wrapped in this, not sure how to pass everything.
 (function(window, $, Routing, swal) {
     class SurvosDataTable {

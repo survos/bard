@@ -9,20 +9,3 @@
 {% block page_title %}{{ work }}{% endblock %}
 {% block page_subtitle %}{{ app.request.get('_route') }}{% endblock %}
 
-{% block page_content_start %}
-    {% embed '@AdminLTE/Widgets/box-widget.html.twig' %}
-        {% block box_title %}
-            {{ knp_menu_render('top_menu') }}
-        {% endblock %}
-        {% block box_body %}
-        {% endblock %}
-        {% block xxbox_footer %}
-            <div class="pull-right">
-                <button type="reset" class="btn btn-warning "><i class="fa fa-times"></i> {{ 'Return to List'|trans }}</button>
-                <button type="submit" class="btn btn-primary "><i class="fa fa-check-square"></i> {{ 'Submit'|trans }}</button>
-            </div>
-        {% endblock %}
-
-        {% block box_after %}{% endblock %}
-    {% endembed %}
-{% endblock %}

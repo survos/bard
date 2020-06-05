@@ -12,6 +12,7 @@ namespace App\Menu;
 use KevinPapst\AdminLTEBundle\Event\KnpMenuEvent;
 use Knp\Menu\FactoryInterface;
 use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
+use Survos\BaseBundle\Menu\MenuBuilder;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
@@ -42,6 +43,7 @@ class TopMenuBuilder
     {
 
         $menu = $this->factory->createItem('root', [
+            'attributes' => ['class' => 'navbar navbar-white'],
             'childrenAttributes' => ['class' => 'nav navbar-nav navbar-sm'],
         ]);
 
@@ -51,7 +53,7 @@ class TopMenuBuilder
             'labelAttributes' => [],
         ];
 
-        $this->eventDispatcher->dispatch(new KnpMenuEvent($menu, $this->factory, $options, $childOptions), 'topMenuEvent');
+        $this->eventDispatcher->dispatch(new KnpMenuEvent($menu, $this->factory, $options, $childOptions), MenuBuilder::PAGE_MENU_EVENT);
 
 
         return $menu;

@@ -4,6 +4,8 @@ namespace App\EventSubscriber;
 
 use App\Entity\Character;
 use App\Entity\Work;
+use Survos\BaseBundle\Menu\BaseMenuSubscriber;
+use Survos\BaseBundle\Menu\MenuBuilder;
 use Survos\BaseBundle\Services\KnpMenuHelper;
 use Survos\BaseBundle\Traits\KnpMenuHelperTrait;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -12,7 +14,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\Security\Core\Security;
 
-class MenuSubscriber extends  KnpMenuHelper implements EventSubscriberInterface
+class MenuSubscriber extends  BaseMenuSubscriber implements EventSubscriberInterface
 {
     use KnpMenuHelperTrait;
 
@@ -24,23 +26,13 @@ class MenuSubscriber extends  KnpMenuHelper implements EventSubscriberInterface
      * @var Security
      */
     private $security;
-    /**
-     * @var AuthorizationCheckerInterface
-     */
-    private $authorizationChecker;
 
     public function __construct(Security $security, AuthorizationCheckerInterface $authorizationChecker, RequestStack $requestStack)
     {
         $this->requestStack = $requestStack;
         $this->security = $security;
-        $this->authorizationChecker = $authorizationChecker;
+        $this->setAuthorizationChecker($authorizationChecker);
     }
-
-    // could move this to the trait, if $security is visible
-    private function isGranted(string $attribute, $subject=null) {
-        return $this->security->isGranted($attribute, $subject);
-    }
-
 
     public function onKnpMenuEvent(KnpMenuEvent $event)
     {
@@ -79,10 +71,10 @@ class MenuSubscriber extends  KnpMenuHelper implements EventSubscriberInterface
 
 
 // $menu->addChild('test_rdf', ['route' => 'test_rdf'])->setAttribute('icon', 'fas fa-sync');
-        $this->addMenuItem($menu, ['route' => 'easyadmin', 'external' => 'true', 'attributes' => ['target' => '_blank'], 'label' => 'EasyAdmin', 'icon' => 'fas fa-database']);
+//        $this->addMenuItem($menu, ['route' => 'easyadmin', 'external' => 'true', 'attributes' => ['target' => '_blank'], 'label' => 'EasyAdmin', 'icon' => 'fas fa-database']);
         $this->addMenuItem($menu, ['route' => 'api_entrypoint', 'external' => 'true', 'label' => 'API', 'icon' => 'fas fa-exchange-alt']);
 
-        $this->authMenuUsingClass($this->authorizationChecker, $menu, $event->getChildOptions());
+        $this->authMenu($this->getAuthorizationChecker(), $menu, $event->getChildOptions());
         // ...
     }
 
@@ -105,7 +97,6 @@ class MenuSubscriber extends  KnpMenuHelper implements EventSubscriberInterface
             if ($this->isGranted('WORK_ADMIN', $work)) {
                 $this->addMenuItem($workMenu, ['route' => 'work_edit', 'rp' => $work]);
             }
-
         }
 
         /** @var Character $character */
@@ -122,8 +113,8 @@ class MenuSubscriber extends  KnpMenuHelper implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            'topMenuEvent' => 'onKnpTopMenuEvent',
-            KnpMenuEvent::class => 'onKnpMenuEvent',
+            MenuBuilder::PAGE_MENU_EVENT => 'onKnpTopMenuEvent',
+            MenuBuilder::SIDEBAR_MENU_EVENT => 'onKnpMenuEvent',
         ];
     }
 }

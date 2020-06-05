@@ -2,7 +2,6 @@
 
 
 {% block logo_mini %}<b>Bard</b>{% endblock %}
-{% block logo_large 'Shakespeare' %}
 
 {% block page_title 'Shakespeare' %}
 {% block page_subtitle 'Works, Characters, and a bunch of cool tools' %}
@@ -12,24 +11,28 @@
         {% block box_title %}Tech Notes{% endblock %}
         {% block box_body %}
             <div class="callout callout-info">
-                {{ '%s.notes'|format(app.request.get('_route'))|trans   }}
+                {{ '%s.notes'|format(app.request.get('_route'))|trans|markdown   }}
             </div>
         {% endblock %}
     {% endembed %}
 
+    {% block page_nave %}
+        {% include '@SurvosBase/render_page_menu.html.twig' %}
+    {% endblock %}
+
 {% endblock %}
 
+{% block logo_large %} {{ 'home.title'|trans }} {% endblock %}
 
     {% block stylesheets %}
-        {# always include app?  Or add it to stylesheets block and always call parent?
+
+        {# this comes from kevinpapst adminlte bundle, but is identical to colorhq via composer or yarn add admin-lte:^3
+        <link rel="stylesheet" href="{{ asset('bundles/adminlte/adminlte.css') }}">
         #}
-        {{ parent() }}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
 
     {% block javascripts %}
-        {# always include app?  Or add it to stylesheets block and always call parent?
-        #}
-        {{ parent() }}
+
         {{ encore_entry_script_tags('app') }}
     {% endblock %}
