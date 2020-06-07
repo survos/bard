@@ -26,7 +26,8 @@ if (x) {
 
     const dataTableElements = $('.js-datatable');
     console.log('init table-datatable: ' + dataTableElements.length);
-    dump(dataTableElements);
+    console.log(dataTableElements);
+
 // basic initialation
     dataTableElements.each(function (index) {
         console.log($(this));

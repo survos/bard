@@ -530,16 +530,16 @@
         },
         {
             "name": "doctrine/common",
-            "version": "2.13.2",
+            "version": "2.13.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "6902fafacb43333d9dc3d949c0a06048a31549ac"
+                "reference": "f3812c026e557892c34ef37f6ab808a6b567da7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/6902fafacb43333d9dc3d949c0a06048a31549ac",
-                "reference": "6902fafacb43333d9dc3d949c0a06048a31549ac",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/f3812c026e557892c34ef37f6ab808a6b567da7f",
+                "reference": "f3812c026e557892c34ef37f6ab808a6b567da7f",
                 "shasum": ""
             },
             "require": {
@@ -623,7 +623,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-05-29T17:35:20+00:00"
+            "time": "2020-06-05T16:46:05+00:00"
         },
         {
             "name": "doctrine/dbal",
@@ -1635,16 +1635,16 @@
         },
         {
             "name": "easycorp/easyadmin-bundle",
-            "version": "v3.0.0-beta1",
+            "version": "v3.0.0-beta2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EasyCorp/EasyAdminBundle.git",
-                "reference": "3027d6d8165f0792dc074b62d8a38adff17a3549"
+                "reference": "adf26ccc403be3bd540efea42ac758fb99b0fff7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/3027d6d8165f0792dc074b62d8a38adff17a3549",
-                "reference": "3027d6d8165f0792dc074b62d8a38adff17a3549",
+                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/adf26ccc403be3bd540efea42ac758fb99b0fff7",
+                "reference": "adf26ccc403be3bd540efea42ac758fb99b0fff7",
                 "shasum": ""
             },
             "require": {
@@ -1718,33 +1718,33 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-06-03T15:30:59+00:00"
+            "time": "2020-06-06T17:31:59+00:00"
         },
         {
             "name": "easyrdf/easyrdf",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/njh/easyrdf.git",
-                "reference": "8227c6426c55284fb8b7eaf68c078bb0cd578392"
+                "url": "https://github.com/easyrdf/easyrdf.git",
+                "reference": "f26d01afa5f6fb1e787c26f8fe6c72b09d290371"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/njh/easyrdf/zipball/8227c6426c55284fb8b7eaf68c078bb0cd578392",
-                "reference": "8227c6426c55284fb8b7eaf68c078bb0cd578392",
+                "url": "https://api.github.com/repos/easyrdf/easyrdf/zipball/f26d01afa5f6fb1e787c26f8fe6c72b09d290371",
+                "reference": "f26d01afa5f6fb1e787c26f8fe6c72b09d290371",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
                 "ext-pcre": "*",
-                "php": ">=5.3.0"
+                "php": ">=7.1.0"
             },
             "require-dev": {
                 "ml/json-ld": "~1.0",
-                "phpunit/phpunit": "~4.8.36|^6|^7",
-                "sami/sami": "~2.0",
+                "phpunit/phpunit": "^7",
+                "sami/sami": "^4",
                 "semsol/arc2": "~2.2",
-                "squizlabs/php_codesniffer": "~1.4.3",
+                "squizlabs/php_codesniffer": "3.*",
                 "zendframework/zend-http": "~2.3"
             },
             "suggest": {
@@ -1785,7 +1785,7 @@
                 "rdfa",
                 "sparql"
             ],
-            "time": "2019-11-27T10:53:52+00:00"
+            "time": "2020-06-05T18:22:33+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -4881,12 +4881,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/BaseBundle.git",
-                "reference": "3301ec3d8c39cb75dcee7a62b7790ee173d66afd"
+                "reference": "cba3476e729d6f4c3d42cc7d5f14b1651fe31cd6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/BaseBundle/zipball/3301ec3d8c39cb75dcee7a62b7790ee173d66afd",
-                "reference": "3301ec3d8c39cb75dcee7a62b7790ee173d66afd",
+                "url": "https://api.github.com/repos/survos/BaseBundle/zipball/cba3476e729d6f4c3d42cc7d5f14b1651fe31cd6",
+                "reference": "cba3476e729d6f4c3d42cc7d5f14b1651fe31cd6",
                 "shasum": ""
             },
             "require": {
@@ -4944,7 +4944,7 @@
                 "source": "https://github.com/survos/BaseBundle/tree/master",
                 "issues": "https://github.com/survos/BaseBundle/issues"
             },
-            "time": "2020-06-02T17:00:45+00:00"
+            "time": "2020-06-06T13:05:57+00:00"
         },
         {
             "name": "symfony/asset",

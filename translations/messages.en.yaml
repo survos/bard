@@ -20,7 +20,8 @@ work_doctrine_api_platform:
   title: API Platform (Doctrine)
   notes: |
     Empty HTML page, javascript calls datatable with API Platform standard get call for the collection.
-    Advantages: For a small result swork_doctrine_datatable
+    Advantages: Quick development, control of columns.
+    Disadvantages: Lots of API calls, sorting is limited.
 
 survos_landing: home
 survos_landing_credits: libraries
