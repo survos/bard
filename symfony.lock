@@ -1,7 +1,4 @@
 {
-    "almasaeed2010/adminlte": {
-        "version": "v3.0.5"
-    },
     "api-platform/api-pack": {
         "version": "v1.2.1"
     },
@@ -269,6 +266,9 @@
     },
     "phpdocumentor/type-resolver": {
         "version": "1.0.1"
+    },
+    "phpstan/phpstan": {
+        "version": "0.12.28"
     },
     "psr/cache": {
         "version": "1.0.1"

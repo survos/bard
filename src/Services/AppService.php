@@ -4,28 +4,16 @@
 namespace App\Services;
 
 
-use App\Entity\Book;
-use App\Entity\Character;
 use App\Entity\GutenbergBook;
-use App\Entity\Music;
-use App\Entity\NoteType;
-use App\Entity\Scene;
-use App\Entity\SceneElement;
-use App\Entity\Script;
 use App\Entity\Work;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyRdf\Graph;
-use League\Flysystem\Filesystem;
+use PharData;
+use PharFileInfo;
 use Psr\Log\LoggerInterface;
-use Screenplay\Extractor;
-use Spatie\Dropbox\Client;
-use Spatie\FlysystemDropbox\DropboxAdapter;
-use Symfony\Component\Finder\Finder;
-use Symfony\Component\Finder\SplFileInfo;
+use RecursiveIteratorIterator;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Serializer\SerializerInterface;
-use Symfony\Component\String\Slugger\AsciiSlugger;
-use Symfony\Component\Yaml\Yaml;
 
 // consider this format: https://www.icomedytv.com/comedy-scripts/funny/humorous/comedy-monologues/cell-phones
 // and making this an interface, with different implementation, ScriptImportInterface (FountainImportService, etc.)
@@ -42,6 +30,7 @@ class AppService
      * @var LoggerInterface
      */
     private $logger;
+    private $lines = [];
 
     public function __construct(EntityManagerInterface $em, SerializerInterface $serializer, LoggerInterface $logger)
     {
@@ -50,26 +39,13 @@ class AppService
         $this->logger = $logger;
     }
 
-    private $lines = [];
-
-
-    private function push($string, $addBlank=false) {
-        $string = trim($string);
-        array_push($this->lines, $string);
-        if ($addBlank) {
-            array_push($this->lines, '');
-        }
-    }
-
-
-    //
     public function getCharacters(Work $work): array
     {
         $seen = [];
         // why isn't this a relationship in the database already?
         foreach ($work->getChapters() as $chapter) {
             foreach ($chapter->getParagraphs() as $paragraph) {
-                if ( !key_exists($paragraph->getCharId(), $seen )) {
+                if (!key_exists($paragraph->getCharId(), $seen)) {
                     $seen[$paragraph->getCharId()] = 0;
                 }
                 $seen[$paragraph->getCharId()]++;
@@ -78,7 +54,9 @@ class AppService
         return $seen;
     }
 
+
     //
+
     public function workToFountain(Work $work): string
     {
         // @todo: title, copyright, etc.
@@ -107,7 +85,16 @@ class AppService
         return $text;
     }
 
-    function extractBz2( $zipFile = '', array $options=[])
+    private function push($string, $addBlank = false)
+    {
+        $string = trim($string);
+        array_push($this->lines, $string);
+        if ($addBlank) {
+            array_push($this->lines, '');
+        }
+    }
+
+    public function extractBz2($zipFile = '', array $options = [])
     {
 
         $options = (new OptionsResolver())
@@ -121,19 +108,19 @@ class AppService
 
         $zipDir = getcwd() . DIRECTORY_SEPARATOR;
         $fn = $zipDir . $zipFile;
-        $phar = new \PharData($fn);
+        $phar = new PharData($fn);
 
         $i = 0;
 
         // @todo: truncate table
 
 
-        /** @var \PharFileInfo $file */
-        foreach (new \RecursiveIteratorIterator($phar) as $file) {
+        /** @var PharFileInfo $file */
+        foreach (new RecursiveIteratorIterator($phar) as $file) {
             // $file is a PharFileInfo class, and inherits from SplFileInfo
             $rdfXml = trim(file_get_contents($file->getPathname())); // get from tar file
             if ($outputDirectory = $options['outputDirectory']) {
-               // file_put_contents($outputDirectory . $file->getBasename(), $rdfXml);
+                // file_put_contents($outputDirectory . $file->getBasename(), $rdfXml);
             }
 
             if ($gutenBook = $this->createBook($file->getFilename(), $rdfXml, false)) {
@@ -174,9 +161,9 @@ class AppService
         dd($content);
     }
 
-    function createBook($url, $contents, $checkIfExists = true, $skipExisting = false ): ?GutenbergBook
+    function createBook($url, $contents, $checkIfExists = true, $skipExisting = false): ?GutenbergBook
     {
-        $id = (int) filter_var($url, FILTER_SANITIZE_NUMBER_INT);
+        $id = (int)filter_var($url, FILTER_SANITIZE_NUMBER_INT);
 
         if (!$id) {
             $this->logger->error("Invalid id for " . $url);
@@ -185,7 +172,7 @@ class AppService
         $baseUri = 'http://www.gutenberg.org/ebooks/' . $id;
 
         $graph = new Graph($baseUri, $contents, 'rdfxml');
-        foreach ($graph->resources() as $type=>$resource) {
+        foreach ($graph->resources() as $type => $resource) {
             $literal = $graph->getLiteral($resource, 'dcterms:title');
             if ($literal) {
                 $title = $literal->getValue();
@@ -194,7 +181,6 @@ class AppService
             }
             // dump($type, $resource);
         }
-
 
 
         if (!$checkIfExists || !$book = $this->em->getRepository(GutenbergBook::class)->find($id)) {
@@ -215,9 +201,8 @@ class AppService
 
 
         return $book;
-            // dump($resource, $graph->resources());
-            dump($localUrl, $baseUri, substr($contents, 0, 600), $graph->type() ?: 'No type for graph');
-
+        // dump($resource, $graph->resources());
+        dump($localUrl, $baseUri, substr($contents, 0, 600), $graph->type() ?: 'No type for graph');
 
 
         $foaf = new Graph("http://njh.me/foaf.rdf");
@@ -226,62 +211,50 @@ class AppService
         return "My name is: " . $me->get('foaf:name') . "\n";
     }
 
-    function extractZip( $zipFile = '', $dirFromZip = '' )
+    function extractZip($zipFile = '', $dirFromZip = '')
     {
 
-    define(DIRECTORY_SEPARATOR, '/');
+        define(DIRECTORY_SEPARATOR, '/');
 
-    $zipDir = getcwd() . DIRECTORY_SEPARATOR;
-    $zip = zip_open($zipDir.$zipFile);
+        $zipDir = getcwd() . DIRECTORY_SEPARATOR;
+        $zip = zip_open($zipDir . $zipFile);
 
-    if ($zip)
-    {
-        while ($zip_entry = zip_read($zip))
-        {
-            $completePath = $zipDir . dirname(zip_entry_name($zip_entry));
-            $completeName = $zipDir . zip_entry_name($zip_entry);
+        if ($zip) {
+            while ($zip_entry = zip_read($zip)) {
+                $completePath = $zipDir . dirname(zip_entry_name($zip_entry));
+                $completeName = $zipDir . zip_entry_name($zip_entry);
 
 
-            // Walk through path to create non existing directories
-            // This won't apply to empty directories ! They are created further below
-            if(!file_exists($completePath) && preg_match( '#^' . $dirFromZip .'.*#', dirname(zip_entry_name($zip_entry)) ) )
-            {
-                $tmp = '';
-                foreach(explode('/',$completePath) AS $k)
-                {
-                    $tmp .= $k.'/';
-                    if(!file_exists($tmp) )
-                    {
-                        dd($zip_entry, $completeName, $completePath, $tmp);
-                        @mkdir($tmp, 0777);
+                // Walk through path to create non existing directories
+                // This won't apply to empty directories ! They are created further below
+                if (!file_exists($completePath) && preg_match('#^' . $dirFromZip . '.*#', dirname(zip_entry_name($zip_entry)))) {
+                    $tmp = '';
+                    foreach (explode('/', $completePath) as $k) {
+                        $tmp .= $k . '/';
+                        if (!file_exists($tmp)) {
+                            dd($zip_entry, $completeName, $completePath, $tmp);
+                            @mkdir($tmp, 0777);
+                        }
+                    }
+                }
+
+                if (zip_entry_open($zip, $zip_entry, "r")) {
+                    if (preg_match('#^' . $dirFromZip . '.*#', dirname(zip_entry_name($zip_entry)))) {
+                        if ($fd = @fopen($completeName, 'w+')) {
+                            fwrite($fd, zip_entry_read($zip_entry, zip_entry_filesize($zip_entry)));
+                            fclose($fd);
+                        } else {
+                            // We think this was an empty directory
+                            mkdir($completeName, 0777);
+                        }
+                        zip_entry_close($zip_entry);
                     }
                 }
             }
-
-            if (zip_entry_open($zip, $zip_entry, "r"))
-            {
-                if( preg_match( '#^' . $dirFromZip .'.*#', dirname(zip_entry_name($zip_entry)) ) )
-                {
-                    if ($fd = @fopen($completeName, 'w+'))
-                    {
-                        fwrite($fd, zip_entry_read($zip_entry, zip_entry_filesize($zip_entry)));
-                        fclose($fd);
-                    }
-                    else
-                    {
-                        // We think this was an empty directory
-                        mkdir($completeName, 0777);
-                    }
-                    zip_entry_close($zip_entry);
-                }
-            }
+            zip_close($zip);
         }
-        zip_close($zip);
+        return true;
     }
-    return true;
-}
-
-
 
 
 }

@@ -73,13 +73,19 @@ Encore
 //     .addEntry('admin', './assets/js/admin.js')
 ;
 
+
 Encore.autoProvideVariables({
     // 'bazinga-translator': 'Translator',
     // 'underscore': 'underscore',
     '_': 'underscore',
+    '$': 'jquery',
+    'jQuery': 'jquery',
     // 'window._' : 'underscore'
     'window.jQuery': 'jquery',
     // 'window._': 'underscore'
 });
 
-module.exports = Encore.getWebpackConfig();
+const config = Encore.getWebpackConfig();
+config.resolve.symlinks = false;
+module.exports = config;
+

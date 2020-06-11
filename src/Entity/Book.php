@@ -18,9 +18,9 @@ class Book extends \EasyRdf\Resource
     {
         $birth = $this->birthEvent();
         if ($birth) {
-            $year = substr($birth->get('bio:date'), 0, 4);
+            $year = (int) substr($birth->get('bio:date'), 0, 4);
             if ($year) {
-                return date('Y') - $year;
+                return ((int) date('Y')) - $year;
             }
         }
         return 'unknown';

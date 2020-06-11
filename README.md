@@ -17,6 +17,9 @@ To run this locally:
 The data comes from a [MySQL database](http://opensourceshakespeare.com/downloads/).  Since Heroku only supports free databases of up to 10,000 rows, the database was converted to SQLite, after some tweaks and modifications.  See [Converting from MySQL to Doctrine Entities](/docs/database.md). 
 
 
+@todo
+
+do we want or need: almasaeed2010/adminlte
     
 ## Full-text search
 
@@ -150,4 +153,3 @@ Modify composer.json to enable pdo sqlite (not just ext-sqlite, which is enabled
 
  
  We now have 
-  

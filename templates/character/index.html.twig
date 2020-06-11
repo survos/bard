@@ -5,11 +5,6 @@
     {{ encore_entry_script_tags('characters') }}
 {% endblock %}
 
-{% block xxstylesheets %}
-    {{ parent() }}
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
-{% endblock %}
-
 {% block page_title %}Characters{% endblock %}
 {% block page_subtitle %}index (via make:crud){% endblock %}
 
@@ -20,19 +15,78 @@
 {% endblock %}
 
 {% block body %}
+    {# ... box widget with defaults ... #}
+    {% embed '@AdminLTE/Widgets/box-widget.html.twig' %}
 
-    {% if api|default(false) %}
-        <h3><span id="max">??</span> Characters, survos_datatable</h3>
-        {% set api_route = 'api_characters_get_collection' %}
-        <a href="{{ path(api_route) }}">{{ api_route }}</a>
+        {% import '@AdminLTE/Macros/buttons.html.twig'  as btn %}
+        {% import '@SurvosBase/macros/cards.html.twig'  as card_widget %}
+        {% block box_title %}Shakespeare's Works and Characters{% endblock %}
+        {% block box_body %}
 
-        <table id="character_table" class="xxsurvos-datatable" data-dt-ajax="{{ path(api_route)}}">
-        </table>
-    {% else %}
-        {{ block('html_table') }}
-    {% endif %}
+            {% set api = {
+                call: 'api_characters_get_collection',
+                filter: {}
+            } %}
+
+            {% set tableHtml %}
+                {{  card_widget.entityTable({
+                    id: 'character_table',
+                    api: api,
+                    class: 'js-character-table'
+                })
+                }}
+            {% endset %}
+            <pre>
+                    tableHtml
+                {{ tableHtml }}
+                {{ tableHtml|e('html') }}
+                {{ tableHtml|raw }}
+                </pre>
+
+
+                {{
+            card_widget.pane(
+                {
+                id: 'character_browse_id',
+                content: tableHtml,
+                slider: 3,
+                api: api,
+                title: '%d Media'|format(555),
+                }
+            )
+                }}
+            {% set cardHtml %}
+            {% endset %}
+
+            <div class="callout callout-info">
+                {{ 0 and block('character_table') }}
+            </div>
+        {% endblock %}
+
+        {% block box_footer %}
+            <div class="pull-left">
+                Data from <a target="_blank" href="http://opensourceshakespeare.com/">opensourceshakespeare.com</a>
+            </div>
+
+            <div class="pull-right">
+                {{ btn.link_button('Characters', path('character_index'), 'floppy') }}
+                {{ btn.link_button('Works', path('work_index'), 'floppy') }}
+            </div>
+        {% endblock %}
+
+        {% block character_table %}
+                <h3><span id="max">??</span> Characters, survos_datatable</h3>
+                {% set api_route = 'api_characters_get_collection' %}
+                <a href="{{ path(api_route) }}">{{ api_route }}</a>
+
+                <table id="character_table" class="xxsurvos-datatable" data-dt-ajax="{{ path(api_route)}}">
+                </table>
+
+        {% endblock %}
+    {% endembed %}
 
 {% endblock %}
+
 
 {% block html_table %}
 

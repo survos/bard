@@ -52,10 +52,10 @@ class FixDatabaseCommand extends Command
 
         $repo = $this->em->getRepository(Work::class);
 
-        /** @var $work Work */
         foreach ($repo->findAll() as $work) {
 
             // fix the relationship between paragraphs and chapters
+            /** @var $work Work */
             if ($input->getOption('chapters')) {
                 $io->note("Updating chapter paragraphs");
                 $this->fix($work);

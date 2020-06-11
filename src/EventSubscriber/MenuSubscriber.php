@@ -67,7 +67,14 @@ class MenuSubscriber extends  BaseMenuSubscriber implements EventSubscriberInter
         $this->addMenuItem($charactersMenu, ['route' => 'character_new', 'icon' => 'fas fa-plus']);
 
         $this->addMenuItem($menu, ['route' => 'app_typography', 'label' => 'Bootstrap 4', 'icon' => 'fab fa-bootstrap']);
-        $this->addMenuItem($menu, ['route' => 'survos_landing_credits', 'icon' => 'fas fa-trophy']);
+        // for nested menus, don't add a route, just a label, then use it for the argument to addMenuItem
+        $nestedMenu = $this->addMenuItem($menu, ['label' => 'Credits']);
+        foreach (['bundles' => 'fab fa-php', 'javascript' => 'fab fa-js-square'] as $type => $icon) {
+            $this->addMenuItem($nestedMenu, [
+                'route' => 'survos_base_credits', 'rp' => ['type' => $type],
+                'icon' => $icon,
+                'label' => ucfirst($type)]);
+        }
 
 
 // $menu->addChild('test_rdf', ['route' => 'test_rdf'])->setAttribute('icon', 'fas fa-sync');
@@ -85,7 +92,7 @@ class MenuSubscriber extends  BaseMenuSubscriber implements EventSubscriberInter
 
         $request = $this->requestStack->getCurrentRequest();
 
-        /** @var Work $work */
+        /** @var $work Work */
         if ($work = $request->get('work')) {
             $workMenu = $menu;
             // $workMenu = $this->addMenuItem($menu, ['menu_code' => $work->getSlug(), 'label' => 'Work: ' . $work->getTitle()]);
@@ -99,7 +106,7 @@ class MenuSubscriber extends  BaseMenuSubscriber implements EventSubscriberInter
             }
         }
 
-        /** @var Character $character */
+        /** @var  $character Character */
         if ($character = $request->get('character')) {
             // $scriptMenu = $this->addMenuItem($menu, ['menu_code' => $script->getSlug(), 'label' => 'Script: ' . $script->getTitle()]);
             $this->addMenuItem($menu, ['route' => 'character_show', 'rp' => $character]);

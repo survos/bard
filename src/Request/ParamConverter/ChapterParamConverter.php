@@ -43,7 +43,7 @@ class ChapterParamConverter implements ParamConverterInterface
      * @throws NotFoundHttpException     When object not found
      * @throws Exception
      */
-    public function apply(Request $request, ParamConverter $configuration)
+    public function apply(Request $request, ParamConverter $configuration): bool
     {
         $params = $request->attributes->get('_route_params');
 
@@ -57,7 +57,7 @@ class ChapterParamConverter implements ParamConverterInterface
         // Check, if route attributes exists
         if (null === $chapterId ) {
             if (!isset($params['chapterId'])) {
-                return; // no chapterId in the route, so leave.  Could throw an exception.
+                return false; // no chapterId in the route, so leave.  Could throw an exception.
             }
         }
 
@@ -74,6 +74,8 @@ class ChapterParamConverter implements ParamConverterInterface
 
         // Map found chapter to the route's parameter
         $request->attributes->set($configuration->getName(), $chapter);
+
+        return true;
     }
 
 }

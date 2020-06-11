@@ -12,7 +12,8 @@ import Routing from '../../vendor/friendsofsymfony/jsrouting-bundle/Resources/pu
 Routing.setRoutingData(routes);
 
 // import SurvosDataTable from '../../vendor/survos/landing-bundle/src/Resources/public/js/SurvosDataTable';
-import SurvosDataTable from './Components/SurvosDataTable';
+// import SurvosDataTable from './Components/SurvosDataTable';
+import SurvosDataTable from '../../vendor/survos/base-bundle/src/Resources/public/js/SurvosDataTable';
 
 // not sure if we use this for both ElasticSearch and for Doctrine.  Both are API platform.
 const $workTable = $('#work-table');

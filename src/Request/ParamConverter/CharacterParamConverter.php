@@ -43,7 +43,7 @@ class CharacterParamConverter implements ParamConverterInterface
      * @throws NotFoundHttpException     When object not found
      * @throws Exception
      */
-    public function apply(Request $request, ParamConverter $configuration)
+    public function apply(Request $request, ParamConverter $configuration): bool
     {
         $params = $request->attributes->get('_route_params');
 
@@ -57,7 +57,7 @@ class CharacterParamConverter implements ParamConverterInterface
         // Check, if route attributes exists
         if (null === $characterId ) {
             if (!isset($params['characterId'])) {
-                return; // no characterId in the route, so leave.  Could throw an exception.
+                return false; // no characterId in the route, so leave.  Could throw an exception.
             }
         }
 
@@ -74,6 +74,8 @@ class CharacterParamConverter implements ParamConverterInterface
 
         // Map found character to the route's parameter
         $request->attributes->set($configuration->getName(), $character);
+
+        return true;
     }
 
 }

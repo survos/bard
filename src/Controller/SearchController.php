@@ -27,6 +27,8 @@ use Symfony\Component\Serializer\SerializerInterface;
 class SearchController extends AbstractController
 {
 
+    const INDEX_NAME='work_output';
+
     /**
      * @var LoggerInterface
      */
@@ -37,15 +39,17 @@ class SearchController extends AbstractController
     private $serializer;
     private $searchDSN;
 
+    private $indexName;
+
     public function __construct(LoggerInterface $logger, SerializerInterface $serializer, $searchDSN)
     {
         $this->logger = $logger;
         $this->serializer = $serializer;
         $this->searchDSN = $searchDSN;
+        $this->indexName = self::INDEX_NAME; // ??
     }
 
     private $client;
-    const INDEX_NAME='work_output';
     public function getClient(): Client
     {
         if (empty($this->client)) {
@@ -56,9 +60,9 @@ class SearchController extends AbstractController
         return $this->client;
     }
 
-    public function getIndex($indexName=self::INDEX_NAME): Index
+    public function getIndex(): Index
     {
-        $index = $this->getClient()->getIndex($indexName);
+        $index = $this->getClient()->getIndex($this->indexName);
         return $index;
     }
 

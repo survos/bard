@@ -1,4 +1,13 @@
 {% extends '@SurvosBase/base.html.twig' %}
+{#
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+#}
 
 {% block page_title 'Shakespeare' %}
 {% block page_subtitle 'Works, Characters, and a bunch of cool tools' %}
@@ -30,15 +39,3 @@
 
 {% block logo_large %} {{ 'home.title'|trans }} {% endblock %}
 
-    {% block stylesheets %}
-
-        {# this comes from kevinpapst adminlte bundle, but is identical to colorhq via composer or yarn add admin-lte:^3
-        <link rel="stylesheet" href="{{ asset('bundles/adminlte/adminlte.css') }}">
-        #}
-        {{ encore_entry_link_tags('app') }}
-    {% endblock %}
-
-    {% block javascripts %}
-
-        {{ encore_entry_script_tags('app') }}
-    {% endblock %}

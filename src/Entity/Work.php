@@ -240,10 +240,9 @@ class Work extends SurvosBaseEntity
         return (int) $this->year;
     }
 
-    public function setYear(string $year): self
+    public function setYear( $year): self
     {
         $this->year = $year;
-
         return $this;
     }
 

@@ -9,7 +9,6 @@
         "ext-pdo_sqlite": "*",
         "ext-sqlite3": "*",
         "ext-zip": "*",
-        "almasaeed2010/adminlte": "~3.0",
         "api-platform/api-pack": "^1.2",
         "easycorp/easyadmin-bundle": "^3.0@dev",
         "easyrdf/easyrdf": "dev-master",
@@ -48,6 +47,7 @@
         "symfony/yaml": "^5.0"
     },
     "require-dev": {
+        "phpstan/phpstan": "^0.12.28",
         "symfony/maker-bundle": "^1.0",
         "symfony/profiler-pack": "*",
         "symfony/test-pack": "*"

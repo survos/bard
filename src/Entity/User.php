@@ -99,6 +99,7 @@ class User implements UserInterface
      */
     public function getSalt()
     {
+        return null;
         // not needed when using the "bcrypt" algorithm in security.yaml
     }
 
