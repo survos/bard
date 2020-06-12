@@ -12,7 +12,7 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CharacterRepository")
  * @ORM\Table(name="Characters")
- * @ApiResource(
+ * @ ApiResource(
  *     normalizationContext={"groups"={"read"}},
  *     denormalizationContext={"groups"={"write"}},
  *
@@ -21,7 +21,7 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
  *          "pagination_client_items_per_page"=true
  *     }
  * )
- * @ApiFilter(SearchFilter::class, properties={"name": "partial", "description": "partial"})
+ * @ ApiFilter(SearchFilter::class, properties={"name": "partial", "description": "partial"})
  *
  */
 class Character extends SurvosBaseEntity
@@ -36,13 +36,11 @@ class Character extends SurvosBaseEntity
 
     /**
      * @ORM\Column(name="CharName", type="string", length=48)
-     * @Groups({"read"})
      */
     private $name;
 
     /**
      * @ORM\Column(name="Description", type="string", length=255)
-     * @Groups({"read"})
      */
     private $description;
 

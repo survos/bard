@@ -15,12 +15,6 @@
 {% endblock %}
 
 {% block body %}
-
-    {{ block('html_table') }}
-
-    {% endblock %}
-
-{% block character_index %}
     {# ... box widget with defaults ... #}
     {% embed '@AdminLTE/Widgets/box-widget.html.twig' %}
 
@@ -42,12 +36,8 @@
                 })
                 }}
             {% endset %}
-            <pre>
-                    tableHtml
                 {{ tableHtml }}
                 {{ tableHtml|e('html') }}
-                {{ tableHtml|raw }}
-                </pre>
 
 
                 {{
@@ -91,37 +81,4 @@
         {% endblock %}
     {% endembed %}
 
-{% endblock %}
-
-
-{% block html_table %}
-
-    <div class="col">
-        <h3>{{ characters|length }} Characters (via HTML {{ add_js_basic ? '+basic .DataTable()' }})</h3>
-    </div>
-
-    <table class="table tables-bordered table-striped table-hover  {{ add_js_basic ? 'js-datatable' }}"
-       data-xxscroll-y="80vh"
-       id="html_character_table">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for character in characters %}
-        <tr>
-            <td><sm>{{ character.id }}</sm></td>
-            <td><a href="{{ path('character_show', character.rp) }}">{{ character.name }}</a></td>
-            <td>{{ character.description }}</td>
-        </tr>
-    {% else %}
-        <tr>
-            <td colspan="4">no records found</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
 {% endblock %}

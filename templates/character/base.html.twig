@@ -1,16 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Character{% endblock %}
+{% block title %}Character: {{ character }}{% endblock %}
 {% block page_title %}Character: {{ character }}{% endblock %}
 {% block page_subtitle %}Character: {{ app.request.get('_route') }}{% endblock %}
-
-{% block page_content_start %}
-            {% embed '@AdminLTE/Widgets/box-widget.html.twig' %}
-                {% block box_title %}
-                    {{ knp_menu_render('top_menu') }}
-                {% endblock %}
-                {% block box_body %}
-                {% endblock %}
-                {% block box_after %}{% endblock %}
-            {% endembed %}
-{% endblock %}

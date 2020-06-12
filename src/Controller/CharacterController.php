@@ -17,22 +17,25 @@ class CharacterController extends AbstractController
 {
     /**
      * @Route("/", name="character_index", methods={"GET"})
-     * @Route("/datatable", name="character_datatable", methods={"GET"})
+     * @Route("/datatable", name="character_js_datatable", methods={"GET"})
      */
     public function index(Request $request, CharacterRepository $characterRepository): Response
     {
+        $_route = $request->get('_route');
         return $this->render('character/index.html.twig', [
-            'datatable' => 'character_datatable'===$request->get('_route'),
+            '_route' => $_route,
+            'add_js_basic' => $_route === 'character_js_datatable',
             'characters' => $characterRepository->findAll(),
         ]);
     }
 
     /**
      * @Route("/api-datatable", name="character_datatable_via_api", methods={"GET"})
+     * @Route("/api-datatable-custom", name="character_datatable_via_api_custom", methods={"GET"})
      */
     public function dt(Request $request, CharacterRepository $characterRepository): Response
     {
-        return $this->render('character/index.html.twig', [
+        return $this->render('character/browse.html.twig', [
             'js' => $request->get('_route'),
             'api' => true
 
@@ -63,7 +66,7 @@ class CharacterController extends AbstractController
     }
 
     /**
-     * @Route("/{characterId}", name="character_show", methods={"GET"})
+     * @Route("/{characterId}", name="character_show", methods={"GET"}, options={"expose": true})
      */
     public function show(Character $character): Response
     {

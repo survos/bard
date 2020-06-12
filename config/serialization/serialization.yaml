@@ -1,4 +1,13 @@
 # we in
+App\Entity\Character:
+  attributes:
+    id:
+      groups: ['read']
+    name:
+      groups: ['read']
+    description:
+      groups: ['read']
+
 App\Entity\Work:
   attributes:
     shortTitle:

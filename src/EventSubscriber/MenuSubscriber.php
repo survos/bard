@@ -61,10 +61,21 @@ class MenuSubscriber extends  BaseMenuSubscriber implements EventSubscriberInter
 //        $menu->addChild('datatable', ['route' => 'work_datatable'])->setAttribute('icon', 'fas fa-table');
 
         $charactersMenu = $this->addMenuItem($menu, ['menu_code' => 'characters_header', 'icon' => 'fas fa-users']);
-        $this->addMenuItem($charactersMenu, ['route' => 'character_index', 'icon' => 'fas fa-list']);
-        $this->addMenuItem($charactersMenu, ['label' => 'DataTable(HTML)', 'route' => 'character_datatable', 'icon' => 'fas fa-table']);
-        $this->addMenuItem($charactersMenu, ['label' => 'DataTable(API)', 'route' => 'character_datatable_via_api', 'icon' => 'fas fa-exchange-alt']);
-        $this->addMenuItem($charactersMenu, ['route' => 'character_new', 'icon' => 'fas fa-plus']);
+
+        foreach ([
+            'character_index'=>'HTML only',
+                     'character_js_datatable' => 'HTML + basic dt',
+                     'character_datatable_via_api' => 'API basic',
+                     'character_datatable_via_api_custom' => 'API + custom'
+                     ] as $route => $lable) {
+            $this->addMenuItem($charactersMenu, ['route' => $route, 'label' => $lable]);
+        }
+        /*
+         *             $this->addMenuItem($charactersMenu, ['label' => 'DataTable(HTML)', 'route' => 'character_datatable', 'icon' => 'fas fa-table']);
+            $this->addMenuItem($charactersMenu, ['label' => 'DataTable(API)', 'route' => 'character_datatable_via_api', 'icon' => 'fas fa-exchange-alt']);
+            $this->addMenuItem($charactersMenu, ['route' => 'character_new', 'icon' => 'fas fa-plus']);
+
+         */
 
         $this->addMenuItem($menu, ['route' => 'app_typography', 'label' => 'Bootstrap 4', 'icon' => 'fab fa-bootstrap']);
         // for nested menus, don't add a route, just a label, then use it for the argument to addMenuItem

@@ -1,13 +1,17 @@
 # api/config/api_platform/resources.yaml
 App\Dto\WorkOutput:
 
+App\Entity\Character:
+  shortName: 'Characters'                   # optional
+  description: 'The characters acting the play'
+  attributes:                          # optional
+    pagination_items_per_page: 30   # optional
+    normalization_context:
+      groups: ['read']
+    denormalization_context:
+      groups: ['write']
+
 
 #App\Entity\Work:
 #  shortName: 'Plays'                   # optional
 #  description: 'aka Works' # optional
-#  attributes:                          # optional
-#    pagination_items_per_page: 30   # optional
-#    normalization_context:
-#      groups: ['Default']
-#    denormalization_context:
-#      groups: ['Default']

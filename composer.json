@@ -9,6 +9,7 @@
         "ext-pdo_sqlite": "*",
         "ext-sqlite3": "*",
         "ext-zip": "*",
+        "almasaeed2010/adminlte": "~3.0",
         "api-platform/api-pack": "^1.2",
         "easycorp/easyadmin-bundle": "^3.0@dev",
         "easyrdf/easyrdf": "dev-master",
