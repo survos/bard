@@ -93,7 +93,6 @@ class SearchController extends AbstractController
         $rawResults = [];
 
         if ($term = $request->get('q')) {
-            // $index = $this->getIndex();
             $index = $this->getIndex();
             // manual way, where we call the search directly.  We call elasticSearch elsewhere.
             $resultSet = $index->search($term);

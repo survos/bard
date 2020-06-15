@@ -1,12 +1,11 @@
 const $ = require('jquery');
 global.$ = $;
+require('popper.js');
 
 const routes = require('../../public/js/fos_js_routes.json');
 import Routing from '../../vendor/friendsofsymfony/jsrouting-bundle/Resources/public/js/router.min.js';
 Routing.setRoutingData(routes);
 global.Routing = Routing;
-
-require('popper.js');
 
 // adminlte utilities, like PushMenu.  This comes from yarn add admin-lte
 require('admin-lte'); // from yarn add admin-lte, 57k, does not include bootstrap

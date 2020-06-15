@@ -17,7 +17,7 @@ use ApiPlatform\Core\Bridge\Elasticsearch\DataProvider\Filter\MatchFilter;
 
 final class WorkOutput {
     /**
-     * @ApiProperty(identifier=true)
+     * @ ApiProperty(identifier=true)
      * @ApiFilter(TermFilter::class)
      *
      * @var string

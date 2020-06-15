@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\Security\Core\Security;
 
-class MenuSubscriber extends  BaseMenuSubscriber implements EventSubscriberInterface
+class SidebarMenuSubscriber extends  BaseMenuSubscriber implements EventSubscriberInterface
 {
     use KnpMenuHelperTrait;
 
@@ -96,42 +96,9 @@ class MenuSubscriber extends  BaseMenuSubscriber implements EventSubscriberInter
         // ...
     }
 
-    public function onKnpTopMenuEvent(KnpMenuEvent $event)
-    {
-        $isAdmin = $this->security->isGranted("ROLE_ADMIN");
-        $menu = $event->getMenu();
-
-        $request = $this->requestStack->getCurrentRequest();
-
-        /** @var $work Work */
-        if ($work = $request->get('work')) {
-            $workMenu = $menu;
-            // $workMenu = $this->addMenuItem($menu, ['menu_code' => $work->getSlug(), 'label' => 'Work: ' . $work->getTitle()]);
-            $this->addMenuItem($workMenu, ['route' => 'work_show', 'rp' => $work]);
-            // too similar right now$this->addMenuItem($workMenu, ['route' => 'admin_work_show', 'rp' => $work]);
-            $this->addMenuItem($workMenu, ['route' => 'work_characters', 'rp' => $work]);
-            $this->addMenuItem($workMenu, ['route' => 'work_chapters', 'rp' => $work]);
-            $this->addMenuItem($workMenu, ['route' => 'work_text', 'rp' => $work]);
-            if ($this->isGranted('WORK_ADMIN', $work)) {
-                $this->addMenuItem($workMenu, ['route' => 'work_edit', 'rp' => $work]);
-            }
-        }
-
-        /** @var  $character Character */
-        if ($character = $request->get('character')) {
-            // $scriptMenu = $this->addMenuItem($menu, ['menu_code' => $script->getSlug(), 'label' => 'Script: ' . $script->getTitle()]);
-            $this->addMenuItem($menu, ['route' => 'character_show', 'rp' => $character]);
-            $this->addMenuItem($menu, ['route' => 'character_scenes', 'rp' => $character]);
-            $this->addMenuItem($menu, ['route' => 'character_edit', 'rp' => $character]);
-        }
-
-    }
-
-
     public static function getSubscribedEvents()
     {
         return [
-            MenuBuilder::PAGE_MENU_EVENT => 'onKnpTopMenuEvent',
             MenuBuilder::SIDEBAR_MENU_EVENT => 'onKnpMenuEvent',
         ];
     }
