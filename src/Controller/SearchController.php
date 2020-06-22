@@ -151,6 +151,7 @@ class SearchController extends AbstractController
                 'GenreType' => ['type' => 'keyword'],
                 'source' => ['type' => 'keyword'],
                 'id' => ['type' => 'keyword'],
+                'year' => ['type' => 'integer'],
 
                 ]
         );

@@ -9,6 +9,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 
 use ApiPlatform\Core\Bridge\Elasticsearch\DataProvider\Filter\TermFilter;
 use ApiPlatform\Core\Bridge\Elasticsearch\DataProvider\Filter\MatchFilter;
+# use ApiPlatform\Core\Bridge\Elasticsearch\ataProvider\Filter\MatchFilter;
 
 
 /**
@@ -17,7 +18,7 @@ use ApiPlatform\Core\Bridge\Elasticsearch\DataProvider\Filter\MatchFilter;
 
 final class WorkOutput {
     /**
-     * @ ApiProperty(identifier=true)
+     * @ApiProperty(identifier=true)
      * @ApiFilter(TermFilter::class)
      *
      * @var string
@@ -38,7 +39,7 @@ final class WorkOutput {
 
     /**
      * @var integer
-     * @  ApiFilter(RangeFilter::class)
+     * @ ApiFilter(RangeFilter::class)
      */
     public $year;
 
@@ -56,7 +57,7 @@ final class WorkOutput {
 
     /**
      * @var string
-     * @ApiFilter(MatchFilter::class)
+     * @  ApiFilter(MatchFilter::class)
      */
     public $full_text;
 }
