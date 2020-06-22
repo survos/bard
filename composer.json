@@ -11,7 +11,7 @@
         "ext-zip": "*",
         "almasaeed2010/adminlte": "~3.0",
         "api-platform/api-pack": "^1.2",
-        "easycorp/easyadmin-bundle": "^3.0@dev",
+        "easycorp/easyadmin-bundle": "^3",
         "easyrdf/easyrdf": "dev-master",
         "elasticsearch/elasticsearch": "^7.6",
         "friendsofsymfony/jsrouting-bundle": "^2.5",

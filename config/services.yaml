@@ -33,6 +33,9 @@ services:
         tags:
             - { name: knp_menu.menu_builder, method: createTopMenu, alias: top_menu }
 
+#    api_platform.elasticsearch.match_filter:
+#        public: true
+
 # api/config/services.yaml
     # ...
 #    'App\DataTransformer\WorkInputDataTransformer': ~
@@ -40,6 +43,19 @@ services:
       # Uncomment only if autoconfiguration is disabled
     #tags: [ 'api_platform.data_transformer' ]
 
+    app.title.match_filter:
+        parent:    'api_platform.elasticsearch.match_filter'
+        # parent:    'api_platform.doctrine.orm.search_filter'
+        arguments: [ { 'title': ~, 'name': 'title' }]
+        tags:      [ { name: 'api_platform.filter', id: 'app.title.match_filter' } ]
+        public: true
 
-    # add more service definitions when explicit configuration is needed
+    app.year.term_filter:
+        parent:    'api_platform.elasticsearch.match_filter'
+        arguments: [ ]
+        tags:      [ { name: 'api_platform.filter', id: 'app.year.term_filter' } ]
+        public: true
+
+
+        # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

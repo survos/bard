@@ -38,11 +38,11 @@ App\Dto\WorkOutput:
       groups: ['read', 'Default']
     title:
       groups: ['read', 'write', 'Default']
-    longTitle:
-      groups: ['read', 'write', 'Default']
-    year:
-      groups: ['read', 'Default', 'write']
-    totalWords:
-      groups: ['read', 'Default']
-    full_text:
-      groups: ['full_text']
+#    longTitle:
+#      groups: ['read', 'write', 'Default']
+#    year:
+#      groups: ['read', 'Default', 'write']
+#    totalWords:
+#      groups: ['read', 'Default']
+#    full_text:
+#      groups: ['full_text']
