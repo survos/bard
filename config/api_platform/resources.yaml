@@ -7,7 +7,10 @@ App\Dto\WorkOutput:
     denormalization_context:
       groups: ['write']
     pagination_items_per_page: 3
+
+    # https://stackoverflow.com/questions/56793777/how-can-i-use-api-platform-filters-in-yaml
     # https://github.com/api-platform/api-platform/issues/638
+    # https://github.com/api-platform/core/issues/1755
     # https://api-platform.com/docs/core/filters/#basic-knowledge
     # https://github.com/api-platform/core/blob/df7087816254085741820cd1513aeb5fdaaf13a1/tests/Fixtures/app/config/config_orm.yml#L5
     collection_operations:
@@ -23,9 +26,6 @@ App\Dto\WorkOutput:
         identifier: true
         type: integer
 
-
-
-
 App\Entity\Character:
   shortName: 'Characters'                   # optional
   description: 'The characters acting the play'
@@ -36,7 +36,9 @@ App\Entity\Character:
     denormalization_context:
       groups: ['write']
 
+  collection_operations:
+    get_abc:
+        method: get
+        filters:
+          - app.character.search_filter
 
-#App\Entity\Work:
-#  shortName: 'Plays'                   # optional
-#  description: 'aka Works' # optional

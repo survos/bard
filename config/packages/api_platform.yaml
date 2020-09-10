@@ -6,9 +6,8 @@ api_platform:
         paths:
             - '%kernel.project_dir%/src/Dto'
             - '%kernel.project_dir%/src/Entity'
-            - '%kernel.project_dir%/config/api_platform' # yaml or xml directory configuration
 #            - '%kernel.project_dir%/src/Model'
-            - '%kernel.project_dir%/config/api_platform' # resources.yaml
+            - '%kernel.project_dir%/config/api_platform' # for resources.yaml
 
     patch_formats:
         json: ['application/merge-patch+json']
@@ -24,3 +23,9 @@ api_platform:
             items_per_page: 10 # Default value
             client_items_per_page: true # Disabled by default.  Idea: double the range, find the start page, get the results and return the slice to the API call
             items_per_page_parameter_name: itemsPerPage # Default value
+
+services:
+    app.character.search_filter:
+        parent:    'api_platform.doctrine.orm.search_filter'
+        arguments: [ { 'id': 'exact', 'name': 'partial', 'description': 'word_start' } ]
+        tags:      [ { name: 'api_platform.filter', id: 'app.character.search_filter' } ]
