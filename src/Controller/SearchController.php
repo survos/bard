@@ -101,7 +101,6 @@ class SearchController extends AbstractController
 //        $results = $finderParagraph->find($q);
         $results = $repositoryManager->getRepository('paragraph')->find($q);
 
-        dd($finderWork);
         $index = $indexManager->getDefaultIndex();
         dd($indexManager->getDefaultIndex());
         $search = new Work();
