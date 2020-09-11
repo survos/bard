@@ -1,0 +1,28 @@
+# Read the documentation: https://github.com/FriendsOfSymfony/FOSElasticaBundle/blob/master/doc/setup.md
+fos_elastica:
+    clients:
+        default: { url: '%env(ELASTICSEARCH_URL)%' }
+    indexes:
+        work:
+            persistence:
+                # the driver can be orm, mongodb or phpcr
+                driver: orm
+                model: App\Entity\Work
+                provider: ~
+                finder: ~
+
+            properties:
+                title: ~
+                longTitle: ~
+                year: { type: keyword }
+
+        paragraph:
+            persistence:
+                # the driver can be orm, mongodb or phpcr
+                driver: orm
+                model: App\Entity\Paragraph
+                provider: ~
+                finder: ~
+
+            properties:
+                plainText: ~
