@@ -14,6 +14,7 @@
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "easycorp/easyadmin-bundle": "^3",
         "easyrdf/easyrdf": "dev-master",
+        "friendsofsymfony/elastica-bundle": "dev-master",
         "friendsofsymfony/jsrouting-bundle": "^2.5",
         "gajus/dindent": "^2.0",
         "kevinpapst/adminlte-bundle": "dev-adminlte-v3",

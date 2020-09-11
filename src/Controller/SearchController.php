@@ -96,12 +96,10 @@ class SearchController extends AbstractController
     {
         $q = $request->get('q', 'night');
         $index = $indexManager->getIndex('work');
-        dump($index->getMapping());
         // Option 1. Returns all users who have example.net in any of their mapped fields
 
 //        $results = $finderParagraph->find($q);
         $results = $repositoryManager->getRepository('paragraph')->find($q);
-        dd($results);
 
         dd($finderWork);
         $index = $indexManager->getDefaultIndex();
