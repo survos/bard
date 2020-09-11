@@ -14,7 +14,6 @@
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "easycorp/easyadmin-bundle": "^3",
         "easyrdf/easyrdf": "dev-master",
-        "elasticsearch/elasticsearch": "^7.6",
         "friendsofsymfony/jsrouting-bundle": "^2.5",
         "gajus/dindent": "^2.0",
         "kevinpapst/adminlte-bundle": "dev-adminlte-v3",
@@ -107,10 +106,6 @@
         "adminlte": {
             "type": "vcs",
             "url": "git@github.com:tacman/AdminLTEBundle.git"
-        },
-        "foselastica": {
-            "type": "vcs",
-            "url": "git@github.com:giovannialbero1992/FOSElasticaBundle.git"
         },
         "survos_base_bundle": {
             "type": "vcs",

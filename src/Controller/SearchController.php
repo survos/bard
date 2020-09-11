@@ -13,6 +13,10 @@ use Elastica\Index;
 use Elastica\Mapping;
 use Elastica\Result;
 use Elastica\Search;
+use FOS\ElasticaBundle\Finder\FinderInterface;
+use FOS\ElasticaBundle\Index\IndexManager;
+use FOS\ElasticaBundle\Manager\RepositoryManager;
+use FOS\ElasticaBundle\Manager\RepositoryManagerInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -86,8 +90,22 @@ class SearchController extends AbstractController
     /**
      * @Route("/search", name="search_dashboard")
      */
-    public function search(Request $request)
+    public function search(Request $request,
+                           RepositoryManagerInterface $repositoryManager,
+                           FinderInterface $finderParagraph, FinderInterface $finderWork, IndexManager $indexManager)
     {
+        $q = $request->get('q', 'night');
+        $index = $indexManager->getIndex('work');
+        dump($index->getMapping());
+        // Option 1. Returns all users who have example.net in any of their mapped fields
+
+//        $results = $finderParagraph->find($q);
+        $results = $repositoryManager->getRepository('paragraph')->find($q);
+        dd($results);
+
+        dd($finderWork);
+        $index = $indexManager->getDefaultIndex();
+        dd($indexManager->getDefaultIndex());
         $search = new Work();
         $works = [];
         $rawResults = [];
