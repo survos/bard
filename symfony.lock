@@ -231,6 +231,9 @@
     "nikic/php-parser": {
         "version": "v4.5.0"
     },
+    "nyholm/dsn": {
+        "version": "2.0.0"
+    },
     "ocramius/package-versions": {
         "version": "1.8.0"
     },
@@ -674,6 +677,9 @@
     },
     "symfony/twig-pack": {
         "version": "v1.0.0"
+    },
+    "symfony/uid": {
+        "version": "v5.2.0"
     },
     "symfony/validator": {
         "version": "4.3",

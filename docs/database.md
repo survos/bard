@@ -1,8 +1,10 @@
 # MySQL To SQLite and Doctrine Entities
 
+
 The process:
 
-* Download the .zipped database dump, and unzip it.
+* Download the .zipped database dump from https://www.opensourceshakespeare.org/downloads/oss-db-full.zip
+* unzip it.
 * Import the data into sqlite or mysql
 * Configure the environment to point to the database.
 * Inspect each table and create an entity and the same proprties.
@@ -13,14 +15,15 @@ The process:
 
 Unzip the mysql database, convert it to sqlite sql and import it.
 
-    unzip ~/Downloads/shakespeare-oss-db-full.zip 
+    wget https://www.opensourceshakespeare.org/downloads/oss-db-full.zip
+    unzip shakespeare-oss-db-full.zip 
     # source: https://stackoverflow.com/questions/3890518/convert-mysql-to-sqlite
     bin/mysqltosqlite ~/Downloads/oss-db-full.sql > bard.sql
     sqlite3 var/data.db < bard.sql
 
 ####  Configure .env.local
 
-    DATABASE_URL=sqlite:///%kernel.project_dir%/var/data.db
+    echo "DATABASE_URL=sqlite:///%kernel.project_dir%/var/data.db" >> .env.local
 
 ### MySQL/MariaDB
 
