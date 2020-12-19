@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppX\Entity\Annotations" table="Annotations">
+    <id name="annotationid" type="integer" column="AnnotationID">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="annotationthreadid" type="integer" column="AnnotationThreadID" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="childof" type="integer" column="ChildOf" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="userid" type="integer" column="UserID" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="comment" type="text" column="Comment" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="externallinkUrl" type="text" column="ExternalLink_URL" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="mediaid" type="integer" column="MediaID" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="startat" type="integer" column="StartAt" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="created" type="datetime" column="Created" nullable="false">
+      <options>
+        <option name="default">current_timestamp</option>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

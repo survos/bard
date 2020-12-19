@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppX\Entity\Annotationthreads" table="AnnotationThreads">
+    <id name="annotationthreadid" type="integer" column="AnnotationThreadID">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="annotationLevel" type="string" column="Annotation_Level" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="annotationWork" type="string" column="Annotation_Work" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="annotationChapter" type="integer" column="Annotation_Chapter" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="annotationSection" type="integer" column="Annotation_Section" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="annotationParagraph" type="integer" column="Annotation_Paragraph" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="annotationPassagebegin" type="integer" column="Annotation_PassageBegin" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="annotationPassagelength" type="integer" column="Annotation_PassageLength" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="annotationtypeid" type="string" column="AnnotationTypeID" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="created" type="datetime" column="Created" nullable="false">
+      <options>
+        <option name="default">current_timestamp</option>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>
