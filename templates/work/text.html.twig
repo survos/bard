@@ -5,7 +5,13 @@
 
         {% for chapter in work.chapters %}
             <li>
-                <h2>{{ chapter }}</h2>
+                <h2>
+                    <a href="{{ path('chapter_show', chapter.rp) }}">
+                        {{ chapter }}
+                    </a>
+                </h2>
+                {% include "_includes/formatted_chapter.html.twig" with {chapter: chapter} only %}
+
 
                 <ol>
                     {% for paragraph in chapter.paragraphs %}

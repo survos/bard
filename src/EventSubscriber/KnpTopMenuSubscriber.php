@@ -33,6 +33,7 @@ class KnpTopMenuSubscriber extends BaseMenuSubscriber implements EventSubscriber
         $this->requestStack = $requestStack;
         $this->security = $security;
         $this->setAuthorizationChecker($authorizationChecker);
+//        $this->setAuthorizationChecker($security);
     }
 
     public function onKnpTopMenuEvent(KnpMenuEvent $event)

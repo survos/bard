@@ -98,7 +98,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": true,
-            "require": "5.1.*"
+            "require": "5.2.*"
         }
     },
     "minimum-stability": "dev",

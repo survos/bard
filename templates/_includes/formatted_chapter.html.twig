@@ -1,0 +1,9 @@
+
+{% for paragraph in chapter.paragraphs %}
+        <span class="character">
+        {{ paragraph.charId }} ({{ paragraph.type }})
+        </span>
+        <p>
+            {{ paragraph|split('[p]')|join('<br />')|raw }}
+        </p>
+{% endfor %}

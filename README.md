@@ -35,7 +35,7 @@ Quick and Easy: Use a controller to go through the works and index them.
        
 ## Step-by-Step Rebuilding Tutorial
 
-Here are the steps to rebuild this application from scratch.  Note that Survos/LandingBundle does a lot of the setup.  Follow the README there to get to the point of having a Symfony application with a landing page.
+Here are the steps to rebuild this application from scratch.  Note that Survos/BaseBundle does a lot of the setup.  Follow the README there to get to the point of having a Symfony application with a landing page.
 
 Then follow the instructions above to convert the database to SQLite and set the .env DATABASE_URL to the sqlite file.
 
