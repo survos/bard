@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppX\Entity\Paragraphs" table="Paragraphs">
+    <indexes>
+      <index name="IDX_F7921F37363C8CB2" columns="Chapter"/>
+      <index name="IDX_F7921F376E954463" columns="WorkID"/>
+    </indexes>
+    <id name="paragraphid" type="string" column="ParagraphID" length="255">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="workid" type="string" column="WorkID" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="comment">String identifier from MySQL database</option>
+      </options>
+    </field>
+    <field name="charid" type="string" column="CharID" length="32" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="plaintext" type="text" column="PlainText" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="paragraphtype" type="string" column="ParagraphType" length="1" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="section" type="integer" column="Section" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="chapter" type="string" column="Chapter" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

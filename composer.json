@@ -22,7 +22,7 @@
         "monolog/monolog": "^1.22",
         "ruflin/elastica": "dev-master",
         "sensio/framework-extra-bundle": "^5.1",
-        "sentry/sentry-symfony": "dev-master",
+        "sentry/sentry-symfony": "^3.5",
         "survos/base-bundle": "^1.0@dev",
         "symfony/asset": "^5.0",
         "symfony/console": "^5.0",
@@ -45,6 +45,7 @@
         "symfony/twig-pack": "*",
         "symfony/validator": "^5.0",
         "symfony/web-link": "^5.0",
+        "symfony/workflow": "5.2.*",
         "symfony/yaml": "^5.0"
     },
     "require-dev": {
