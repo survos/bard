@@ -8,6 +8,7 @@ use App\Entity\Work;
 use App\Form\SearchFormType;
 use App\Repository\WorkRepository;
 use Elastica\Client;
+use Elastica\ClientConfiguration;
 use Elastica\Document;
 use Elastica\Index;
 use Elastica\Mapping;
@@ -91,9 +92,16 @@ class SearchController extends AbstractController
      * @Route("/search", name="search_dashboard")
      */
     public function search(Request $request,
+                           Client $client,
                            RepositoryManagerInterface $repositoryManager,
                            FinderInterface $finderParagraph, FinderInterface $finderWork, IndexManager $indexManager)
     {
+        $config = $client->getConfig();
+        $config['headers'] = [
+//           'Authorization ' =>  'Basic ' . base64_encode('admin' . ':' . '1234')
+        ];
+//        dd($config);
+
         $q = $request->get('q', 'night');
         $index = $indexManager->getIndex('work');
         // Option 1. Returns all users who have example.net in any of their mapped fields
@@ -101,16 +109,19 @@ class SearchController extends AbstractController
 //        $results = $finderParagraph->find($q);
         $results = $repositoryManager->getRepository('paragraph')->find($q);
 
-        $index = $indexManager->getDefaultIndex();
-        dd($indexManager->getDefaultIndex());
+        dd($results);
+//        $index = $indexManager->getDefaultIndex();1
+//        dd($indexManager->getDefaultIndex());
         $search = new Work();
         $works = [];
         $rawResults = [];
 
+        if (0)
         if ($term = $request->get('q')) {
             $index = $this->getIndex();
             // manual way, where we call the search directly.  We call elasticSearch elsewhere.
             $resultSet = $index->search($term);
+            dd($resultSet);
             $rawResults = array_map(function (Result $result) { return $result->getHit(); }, $resultSet->getResults());
 
             $works = array_map(function (Result $result) use ($rawResults) {
@@ -139,6 +150,7 @@ class SearchController extends AbstractController
         } catch (\Exception $e) {
             $mapping = null;
         }
+        dd($results);
         return $this->render('search/index.html.twig', [
             'form' => $form->createView(),
             'searchServer' => $this->searchDSN,
