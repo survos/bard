@@ -129,6 +129,18 @@
     "fig/link-util": {
         "version": "1.1.1"
     },
+    "friendsofsymfony/elastica-bundle": {
+        "version": "5.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "5.0",
+            "ref": "46c9cd2c1e07f0fcfd97e96f12b03b2e0845c4cd"
+        },
+        "files": [
+            "config/packages/fos_elastica.yaml"
+        ]
+    },
     "friendsofsymfony/jsrouting-bundle": {
         "version": "2.3",
         "recipe": {
@@ -227,9 +239,6 @@
     },
     "nikic/php-parser": {
         "version": "v4.5.0"
-    },
-    "nyholm/dsn": {
-        "version": "2.0.0"
     },
     "ocramius/package-versions": {
         "version": "1.8.0"
