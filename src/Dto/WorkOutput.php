@@ -19,7 +19,7 @@ use ApiPlatform\Core\Bridge\Elasticsearch\DataProvider\Filter\MatchFilter;
 final class WorkOutput {
     /**
      * @ApiProperty(identifier=true)
-     * @ApiFilter(TermFilter::class)
+     * @ ApiFilter(TermFilter::class)
      *
      * @var string
      */
@@ -27,13 +27,13 @@ final class WorkOutput {
 
     /**
      * @var string
-     * @ApiFilter(MatchFilter::class)
+     * @ ApiFilter(MatchFilter::class)
      */
     public $title;
 
     /**
      * @var string
-     * @ApiFilter(MatchFilter::class)
+     * @ ApiFilter(MatchFilter::class)
      */
     public $longTitle;
 
@@ -45,13 +45,13 @@ final class WorkOutput {
 
     /**
      * @var integer
-     * @ApiFilter(TermFilter::class)
+     * @ ApiFilter(TermFilter::class)
      */
     public $totalWords;
 
     /**
      * @var string
-     * @ApiFilter(TermFilter::class)
+     * @ ApiFilter(TermFilter::class)
      */
     public $source;
 

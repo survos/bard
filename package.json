@@ -5,6 +5,7 @@
         "admin-lte": "^3.0",
         "bootstrap": "^4.4.1",
         "core-js": "^3.0.0",
+        "datatables.net-searchpanes-bs4": "^1.1.1",
         "eslint": "^6.8.0",
         "eslint-config-google": "^0.14.0",
         "fontawesome": "^5.6.3",
@@ -26,6 +27,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "bootstrap-icons": "^1.0.0",
         "datatables.net": "^1.10.20",
         "datatables.net-autofill-bs4": "^2.3.4",
         "datatables.net-bs4": "^1.10.20",

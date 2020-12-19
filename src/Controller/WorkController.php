@@ -8,6 +8,7 @@ use App\Repository\ParagraphRepository;
 use App\Repository\WorkRepository;
 use App\Services\AppService;
 use Doctrine\ORM\EntityManagerInterface;
+use FOS\ElasticaBundle\Finder\FinderInterface;
 use Survos\BaseBundle\Controller\BaseController;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -40,6 +41,19 @@ class WorkController extends AbstractController
         return $this->render('work/index.html.twig', [
             'works' => $works,
             'apply_basic_datatable' => $request->get('_route') === 'work_html_plus_datatable'
+        ]);
+    }
+
+    /**
+     * @Route("/search", name="work_search", methods={"GET"})
+     */
+    public function search(Request $request, FinderInterface $finderWork): Response
+    {
+        $q = $request->get('q');
+        return $this->render('work/index.html.twig', [
+            'works' => $finderWork->find($q),
+            'apply_basic_datatable' => false,
+            'q' => $q
         ]);
     }
 

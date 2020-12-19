@@ -46,13 +46,13 @@ class SidebarMenuSubscriber extends  BaseMenuSubscriber implements EventSubscrib
         $this->addMenuItem($worksMenu, ['route' => 'work_html_plus_datatable', 'label' => 'HTML+DT', 'icon' => 'fas fa-list']);
         $this->addMenuItem($worksMenu, ['route' => 'work_doctrine_api_platform', 'label' => 'Doctrine Search', 'icon' => 'fas fa-table']);
         // @todo: pass ROLE to addMenuItem and only display if permitted?  Or pass a boolean?
-        if ($this->isGranted('ROLE_ADMIN')) {
-            $this->addMenuItem($menu, ['route' => 'app_debug_menus', 'label' => 'Debug Menu', 'icon' => 'fas fa-bug']);
 
             $worksMenu = $this->addMenuItem($menu, ['menu_code' => 'search']);
             $this->addMenuItem($worksMenu, ['route' => 'search_dashboard', 'icon' => 'fas fa-list']);
             $this->addMenuItem($worksMenu, ['route' => 'search_create_index', 'icon' => 'fas fa-plus']);
             $this->addMenuItem($worksMenu, ['route' => 'work_es_datatable', 'label'=>'ElasticSearch', 'icon' => 'fas fa-table']);
+        if ($this->isGranted('ROLE_ADMIN')) {
+            $this->addMenuItem($menu, ['route' => 'app_debug_menus', 'label' => 'Debug Menu', 'icon' => 'fas fa-bug']);
 
         }
 
@@ -61,7 +61,6 @@ class SidebarMenuSubscriber extends  BaseMenuSubscriber implements EventSubscrib
 //        $menu->addChild('datatable', ['route' => 'work_datatable'])->setAttribute('icon', 'fas fa-table');
 
         $charactersMenu = $this->addMenuItem($menu, ['menu_code' => 'characters_header', 'icon' => 'fas fa-users']);
-
         foreach ([
             'character_index'=>'HTML only',
                      'character_js_datatable' => 'HTML + basic dt',
@@ -70,6 +69,14 @@ class SidebarMenuSubscriber extends  BaseMenuSubscriber implements EventSubscrib
                      ] as $route => $lable) {
             $this->addMenuItem($charactersMenu, ['route' => $route, 'label' => $lable]);
         }
+        $worksMenu = $this->addMenuItem($menu, ['menu_code' => 'works_header', 'icon' => 'fas fa-scroll']);
+        foreach ([
+                     'work_index'=>'HTML only',
+                     'work_search' => 'Search',
+                 ] as $route => $lable) {
+            $this->addMenuItem($worksMenu, ['route' => $route, 'label' => $lable]);
+        }
+
         /*
          *             $this->addMenuItem($charactersMenu, ['label' => 'DataTable(HTML)', 'route' => 'character_datatable', 'icon' => 'fas fa-table']);
             $this->addMenuItem($charactersMenu, ['label' => 'DataTable(API)', 'route' => 'character_datatable_via_api', 'icon' => 'fas fa-exchange-alt']);

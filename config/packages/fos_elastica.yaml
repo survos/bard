@@ -1,6 +1,36 @@
 # Read the documentation: https://github.com/FriendsOfSymfony/FOSElasticaBundle/blob/master/doc/setup.md
 fos_elastica:
     clients:
-        default: { url: '%env(ELASTICSEARCH_URL)%' }
+#        default: { url: '%env(ELASTICSEARCH_URL)%' }
+        default: #{ url: '%env(SEARCHBOX_URL)%', ssl: true }
+              url: '%env(SEARCHBOX_URL)%/'
+              ssl: true
+#              username: '%env(string:key:user:url:ELASTICSEARCH_URL)%'
+#              password: '%env(string:key:pass:url:ELASTICSEARCH_URL)%'
+#              host: '%env(string:key:host:url:ELASTICSEARCH_URL)%'
+#              transport: '%env(string:key:scheme:url:ELASTICSEARCH_URL)%'
+#        default: { port: 9200, username: '%env(SEARCHBOX_USERNAME)%', password: '%env(SEARCHBOX_PASSWORD)%', url: '%env(SEARCHBOX_URL)%' }
     indexes:
-        app: null
+        work:
+            persistence:
+                # the driver can be orm, mongodb or phpcr
+                driver: orm
+                model: App\Entity\Work
+                provider: ~
+                finder: ~
+
+            properties:
+                title: ~
+                longTitle: ~
+                year: { type: keyword }
+
+        paragraph:
+            persistence:
+                # the driver can be orm, mongodb or phpcr
+                driver: orm
+                model: App\Entity\Paragraph
+                provider: ~
+                finder: ~
+
+            properties:
+                plainText: ~

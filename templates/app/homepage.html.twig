@@ -2,6 +2,8 @@
 
 {% block page_title %}Shakespeare{% endblock %}
 {% block body %}
+
+
     {# ... box widget with defaults ... #}
     {% embed '@AdminLTE/Widgets/box-widget.html.twig' %}
 
@@ -23,11 +25,14 @@
 
         {% block box_footer %}
             <div class="pull-right">
+
                 {{ btn.link_button('Home', path('app_homepage')) }}
                 {{ btn.link_button('Login',path('app_login') ) }}
             </div>
         {% endblock %}
     {% endembed %}
+
+
 {% endblock %}
 
 {% block page_content %}

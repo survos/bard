@@ -21,7 +21,7 @@ class ParagraphCrudController extends AbstractCrudController
     {
         return $crud
             ->setEntityLabelInSingular('Paragraph')
-            ->setEntityLabelInPlural('Paragraph')
+            ->setEntityLabelInPlural('Paragraphs')
             ->setSearchFields(['id', 'plainText', 'section', 'charId', 'type']);
     }
 
