@@ -21,6 +21,7 @@
         "friendsofsymfony/elastica-bundle": "dev-master",
         "friendsofsymfony/jsrouting-bundle": "^2.5",
         "gajus/dindent": "^2.0",
+        "jetbrains/phpstorm-attributes": "^1.0",
         "kevinpapst/adminlte-bundle": "dev-adminlte-v3",
         "knplabs/knp-markdown-bundle": "^1.8",
         "knplabs/knp-menu-bundle": "^3.0",
@@ -115,7 +116,7 @@
     "repositories": {
         "adminlte": {
             "type": "vcs",
-            "url": "git@github.com:tacman/AdminLTEBundle.git"
+            "url": "git@github.com:survos/AdminLTEBundle.git"
         },
         "survos_base_bundle": {
             "type": "vcs",

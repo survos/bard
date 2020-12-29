@@ -37,7 +37,6 @@ require('datatables.net-select-bs4');
 if (x) {
     const dataTableElements = $('.js-datatable');
     console.log('init table-datatable: ' + dataTableElements.length);
-    console.log(dataTableElements);
 
     // basic initialation
     dataTableElements.each(function (index) {
