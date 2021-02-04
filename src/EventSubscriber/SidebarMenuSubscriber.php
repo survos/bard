@@ -40,6 +40,7 @@ class SidebarMenuSubscriber extends  BaseMenuSubscriber implements EventSubscrib
         $request = $this->requestStack->getCurrentRequest();
 
         $this->addMenuItem($menu, ['route' => 'app_homepage', 'label' => 'Home', 'icon' => 'fas fa-home']);
+        $this->addMenuItem($menu, ['route' => 'es_ally', 'label' => 'ES Ally', 'icon' => 'fas fa-search']);
 
         $worksMenu = $this->addMenuItem($menu, ['menu_code' => 'works_header', 'icon' => 'fas fa-theater-masks']);
         $this->addMenuItem($worksMenu, ['route' => 'work_index', 'label' => 'HTML', 'icon' => 'fas fa-list']);

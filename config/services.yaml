@@ -28,6 +28,21 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+    JoliCode\Elastically\Client:
+        arguments:
+            $config:
+#                host: '%env(ELASTICSEARCH_HOST)%'
+                elastically_mappings_directory: '%kernel.project_dir%/config/mappings'
+                elastically_index_class_mapping:
+                    works: App\Dto\WorkOutput
+                    beers: App\Dto\Beer
+                    paragraph: App\Entity\Paragraph
+                    work: App\Entity\Work
+                elastically_serializer: '@serializer'
+                elastically_bulk_size: 10
+            $logger: '@logger'
+
+
     app.top_menu_builder:
         class: App\Menu\TopMenuBuilder
         arguments:

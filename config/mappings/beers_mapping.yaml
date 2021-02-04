@@ -1,0 +1,14 @@
+# Anything you want, no validation
+settings:
+  number_of_replicas: 1
+  number_of_shards: 1
+  refresh_interval: 60s
+mappings:
+  dynamic: false
+  properties:
+    foo:
+      type: text
+      analyzer: english
+      fields:
+        keyword:
+          type: keyword

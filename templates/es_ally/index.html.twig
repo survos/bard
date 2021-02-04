@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EsAlly Browser!{% endblock %}
+
+{% block body %}
+    <a href="{{ path('es_ally_purge') }}" class="btn btn-danger">Purge All</a>
+    <a href="{{ path('es_ally_example') }}" class="btn btn-warning">Example (Beer)</a>
+<div class="example-wrapper">
+
+    {{ dump(mappingConfig|default('')) }}
+    <table class="table">
+        <tbody>
+        {% for allyIndexName, model in mappingConfig|default([]) %}
+            <tr>
+                <td>
+                    <a href="{{ path('es_ally_explore', {allyIndexName: allyIndexName}) }}">{{ allyIndexName }}</a>
+                </td>
+                <td>
+                    <code>{{ model }}</code>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+    <h3>Indexes on Cluster</h3>
+    {{ dump(indexes|default([])) }}
+
+    <ul>
+    {% for d in dumps %}
+        <li>
+            <code>{{ d.class }}</code>
+            {{ d.keys|join(', ') }}
+            {{ dump(d.obj) }}
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+mappings:
+  dynamic: false
+  properties:
+    title:
+      type: text
+      analyzer: english
+    longTitle: {type: text}
+    year: { type: keyword }
+#
+#    foo:
+#      fields:
+#        keyword:
+#          type: keyword

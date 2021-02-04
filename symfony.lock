@@ -176,6 +176,9 @@
     "jetbrains/phpstorm-attributes": {
         "version": "1.0"
     },
+    "jolicode/elastically": {
+        "version": "v1.1.0"
+    },
     "kevinpapst/adminlte-bundle": {
         "version": "0.9",
         "recipe": {

@@ -52,7 +52,7 @@ class WorkController extends AbstractController
         $q = $request->get('q');
         return $this->render('work/index.html.twig', [
             'works' => $finderWork->find($q),
-            'apply_basic_datatable' => false,
+            'apply_basic_datatable' => true,
             'q' => $q
         ]);
     }

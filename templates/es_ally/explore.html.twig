@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EsAlly Browser!{% endblock %}
+
+{% block body %}
+    {{ dump(mapping) }}
+    <ul>
+    {% for d in dumps %}
+        <li>
+            <code>{{ d.class }}</code>
+            {{ d.keys|join(', ') }}
+            {{ dump(d.obj) }}
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

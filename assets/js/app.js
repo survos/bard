@@ -40,7 +40,7 @@ if (x) {
 
     // basic initialation
     dataTableElements.each(function (index) {
-        console.log($(this));
+        console.log(index, $(this));
         const options = $(this).data();
         console.log('data is ', options);
 
