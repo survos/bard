@@ -8,7 +8,7 @@ Routing.setRoutingData(routes);
 global.Routing = Routing;
 
 // adminlte utilities, like PushMenu.  This comes from yarn add admin-lte
-require('admin-lte'); // from yarn add admin-lte, 57k, does not include bootstrap
+// require('admin-lte'); // from yarn add admin-lte, 57k, does not include bootstrap
 require('bootstrap');
 
 require('../css/app.scss');

@@ -3,9 +3,11 @@
 @import "~admin-lte/dist/css/adminlte.min.css";
 @import "~bootstrap";
 */
-@import "~admin-lte"; // bootstrap css, plus some adminlte goodies
+//@import "~admin-lte"; // bootstrap css, plus some adminlte goodies
+@import "~bootstrap";
+//@import "~select2/dist/css/select2.min.css";
 
-@import "~select2/dist/css/select2.min.css";
+@import "simple-sidebar.css";
 
 @import "~datatables.net-bs4";
 @import "~datatables.net-buttons-bs4";
