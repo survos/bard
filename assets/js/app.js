@@ -10,6 +10,7 @@ global.Routing = Routing;
 // adminlte utilities, like PushMenu.  This comes from yarn add admin-lte
 // require('admin-lte'); // from yarn add admin-lte, 57k, does not include bootstrap
 require('bootstrap');
+// require('../../public/bs5_files/bootstrap.bundle.min');
 
 require('../css/app.scss');
 //  require('admin-lte/dist/js/adminlte');
