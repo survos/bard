@@ -1,9 +1,9 @@
-const $ = global.$;
+const $ = require('jquery');
 
 require('datatables.net-bs4');
-require('datatables.net-scroller-bs4');
-require('datatables.net-buttons-bs4');
-require('datatables.net-select-bs4');
+// require('datatables.net-scroller-bs4');
+// require('datatables.net-buttons-bs4');
+// require('datatables.net-select-bs4');
 
 // import SurvosDataTable from './Components/SurvosDataTable';
 // const $ = require('jquery');

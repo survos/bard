@@ -1,3 +1,5 @@
+OLD APP
+
 const $ = require('jquery');
 global.$ = $;
 require('popper.js');
