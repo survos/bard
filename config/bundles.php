@@ -20,7 +20,5 @@ return [
     ApiPlatform\Core\Bridge\Symfony\Bundle\ApiPlatformBundle::class => ['all' => true],
     Sentry\SentryBundle\SentryBundle::class => ['all' => true],
     FOS\JsRoutingBundle\FOSJsRoutingBundle::class => ['all' => true],
-    Knp\Bundle\MarkdownBundle\KnpMarkdownBundle::class => ['all' => true],
     Survos\BaseBundle\SurvosBaseBundle::class => ['all' => true],
-    FOS\ElasticaBundle\FOSElasticaBundle::class => ['all' => true],
 ];

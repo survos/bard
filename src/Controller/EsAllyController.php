@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+use App\DataTransformer\WorkOutputDataTransformer;
 use App\Dto\Beer;
+use App\Dto\WorkOutput;
 use App\Entity\Paragraph;
 use App\Entity\Work;
+use App\Repository\WorkRepository;
 use JoliCode\Elastically\Client;
 use Elastica\Document;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -63,22 +66,36 @@ class EsAllyController extends AbstractController
     /**
      * @Route("/es/ally_explore/{allyIndexName}", name="es_ally_explore")
      */
-    public function explore(Client $client, $allyIndexName): Response
+    public function explore(Client $client, $allyIndexName, WorkRepository $workRepository): Response
     {
         $dumps = [];
+        $transformer = new WorkOutputDataTransformer();
         $index = $client->getIndex($allyIndexName);
         if (!$index->exists()) {
             $indexBuilder = $client->getIndexBuilder();
             $index = $indexBuilder->createIndex($allyIndexName);
-            // Set the proper aliases
             $indexBuilder->markAsLive($index, $allyIndexName);
+        }
+
+        $indexer = $client->getIndexer();
+        // Set the proper aliases
+            switch ($allyIndexName) {
+                case 'works':
+                    foreach ($workRepository->findAll() as $work) {
+                        $dto = $transformer->transform($work, WorkOutput::class, []);
+                        $_id = $work->getId();
+                        $indexer->scheduleIndex($allyIndexName,  new Document($_id, $dto));
+                    }
+                    $indexer->flush();
+            }
+
+
 
             // Class to index DTO in an Index
             $indexer = $client->getIndexer();
-
-        }
         $mapping = $index->getMapping();
         $results = $index->search('night');
+        dd($results);
         /*
         $indexName = $client->getIndexNameFromClass(Work::class);
         array_push($dump, $results);

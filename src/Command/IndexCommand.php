@@ -31,10 +31,7 @@ class IndexCommand extends Command
                                 string $name = null)
     {
         parent::__construct($name);
-        $this->searchService = $searchService;
-        $this->articleRepository = $articleRepository;
         $this->normalizer = $normalizer;
-        $this->bus = $bus;
         $this->entityManager = $entityManager;
     }
 

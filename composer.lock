@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6aaeb02b7b294193e1a7ab13ca743965",
+    "content-hash": "7b06e2deaa236725b10942fc2aadae26",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -348,16 +348,16 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "1.11.1",
+            "version": "1.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "ce77a7ba1770462cd705a91a151b6c3746f9c6ad"
+                "reference": "b17c5014ef81d212ac539f07a1001832df1b6d3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/ce77a7ba1770462cd705a91a151b6c3746f9c6ad",
-                "reference": "ce77a7ba1770462cd705a91a151b6c3746f9c6ad",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/b17c5014ef81d212ac539f07a1001832df1b6d3b",
+                "reference": "b17c5014ef81d212ac539f07a1001832df1b6d3b",
                 "shasum": ""
             },
             "require": {
@@ -372,11 +372,6 @@
                 "phpunit/phpunit": "^7.5 || ^9.1.5"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.11.x-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Doctrine\\Common\\Annotations\\": "lib/Doctrine/Common/Annotations"
@@ -417,9 +412,9 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/annotations/issues",
-                "source": "https://github.com/doctrine/annotations/tree/1.11.1"
+                "source": "https://github.com/doctrine/annotations/tree/1.12.1"
             },
-            "time": "2020-10-26T10:28:16+00:00"
+            "time": "2021-02-21T21:00:45+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -2225,103 +2220,6 @@
             "time": "2021-01-14T21:52:44+00:00"
         },
         {
-            "name": "friendsofsymfony/elastica-bundle",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/FriendsOfSymfony/FOSElasticaBundle.git",
-                "reference": "cda96c649078ab1feaafc5c0b74e86b802e5f2e6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSElasticaBundle/zipball/cda96c649078ab1feaafc5c0b74e86b802e5f2e6",
-                "reference": "cda96c649078ab1feaafc5c0b74e86b802e5f2e6",
-                "shasum": ""
-            },
-            "require": {
-                "pagerfanta/pagerfanta": "^2.0",
-                "php": "^7.2",
-                "psr/log": "^1.0",
-                "ruflin/elastica": "^7.0",
-                "symfony/console": "^4.4 || ^5.1",
-                "symfony/dependency-injection": "^4.4 || ^5.1",
-                "symfony/framework-bundle": "^4.4 || ^5.1",
-                "symfony/property-access": "^4.4 || ^5.1"
-            },
-            "require-dev": {
-                "doctrine/doctrine-bundle": "^2.0",
-                "doctrine/mongodb-odm-bundle": "^4.0",
-                "doctrine/orm": "^2.7",
-                "doctrine/persistence": "^1.3.4",
-                "doctrine/phpcr-bundle": "^1.3 || ^2.0",
-                "doctrine/phpcr-odm": "^1.4",
-                "friendsofphp/php-cs-fixer": "^2.2",
-                "jackalope/jackalope-doctrine-dbal": "^1.2",
-                "jms/serializer-bundle": "^2.3 || ^3.5",
-                "knplabs/knp-components": "^2.3",
-                "phpspec/prophecy-phpunit": "^1.1 || ^2.0",
-                "phpunit/phpunit": "^8.5 || ^9.3",
-                "symfony/expression-language": "^4.4 || ^5.1",
-                "symfony/messenger": "^4.4 || ^5.1",
-                "symfony/serializer": "^4.4 || ^5.1",
-                "symfony/twig-bundle": "^4.4 || ^5.1",
-                "symfony/web-profiler-bundle": "^4.4 || ^5.1",
-                "symfony/yaml": "^4.4 || ^5.1"
-            },
-            "suggest": {
-                "enqueue/elastica-bundle": "For populating Elasticsearch indexes asynchronously and using significanly less resources. Uses Enqueue.",
-                "symfony/messenger": "For populating Elasticsearch indexes asynchronously and using significanly less resources."
-            },
-            "default-branch": true,
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "6.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "FOS\\ElasticaBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "FriendsOfSymfony Community",
-                    "homepage": "https://github.com/FriendsOfSymfony/FOSElasticaBundle/contributors"
-                },
-                {
-                    "name": "Tim Nagel",
-                    "email": "tim@nagel.com.au"
-                },
-                {
-                    "name": "Richard Miller",
-                    "email": "richard.miller@limethinking.co.uk"
-                },
-                {
-                    "name": "Jeremy Mikola",
-                    "email": "jmikola@gmail.com"
-                }
-            ],
-            "description": "Elasticsearch PHP integration for your Symfony project using Elastica",
-            "homepage": "https://github.com/FriendsOfSymfony/FOSElasticaBundle",
-            "keywords": [
-                "doctrine2",
-                "elastica",
-                "elasticsearch",
-                "mongodb",
-                "search"
-            ],
-            "support": {
-                "issues": "https://github.com/FriendsOfSymfony/FOSElasticaBundle/issues",
-                "source": "https://github.com/FriendsOfSymfony/FOSElasticaBundle/tree/master"
-            },
-            "time": "2020-12-09T15:44:32+00:00"
-        },
-        {
             "name": "friendsofsymfony/jsrouting-bundle",
             "version": "2.7.0",
             "source": {
@@ -2724,16 +2622,16 @@
         },
         {
             "name": "jean85/pretty-package-versions",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jean85/pretty-package-versions.git",
-                "reference": "2053f8d459033782d5fa4948c6c0b2d1e7de21e6"
+                "reference": "b2c4ec2033a0196317a467cb197c7c843b794ddf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/2053f8d459033782d5fa4948c6c0b2d1e7de21e6",
-                "reference": "2053f8d459033782d5fa4948c6c0b2d1e7de21e6",
+                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/b2c4ec2033a0196317a467cb197c7c843b794ddf",
+                "reference": "b2c4ec2033a0196317a467cb197c7c843b794ddf",
                 "shasum": ""
             },
             "require": {
@@ -2777,9 +2675,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Jean85/pretty-package-versions/issues",
-                "source": "https://github.com/Jean85/pretty-package-versions/tree/2.0.2"
+                "source": "https://github.com/Jean85/pretty-package-versions/tree/2.0.3"
             },
-            "time": "2021-02-03T09:41:45+00:00"
+            "time": "2021-02-22T10:52:38+00:00"
         },
         {
             "name": "jetbrains/phpstorm-attributes",
@@ -2888,84 +2786,17 @@
             "time": "2021-02-16T09:05:27+00:00"
         },
         {
-            "name": "knplabs/knp-markdown-bundle",
-            "version": "1.8.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/KnpLabs/KnpMarkdownBundle.git",
-                "reference": "7238cc264eab9c42d1a5b71950b55fe3dd78ab38"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMarkdownBundle/zipball/7238cc264eab9c42d1a5b71950b55fe3dd78ab38",
-                "reference": "7238cc264eab9c42d1a5b71950b55fe3dd78ab38",
-                "shasum": ""
-            },
-            "require": {
-                "michelf/php-markdown": "~1.4",
-                "php": "^7.1.3",
-                "symfony/dependency-injection": "~3.4|^4.0|^5.0",
-                "symfony/framework-bundle": "~3.4|^4.0|^5.0"
-            },
-            "require-dev": {
-                "symfony/phpunit-bridge": "^4.4.0 || ^5.0",
-                "symfony/templating": "~3.4|^4.0|^5.0"
-            },
-            "suggest": {
-                "ext-sundown": "to use optional support for php-sundown extension instead of php implementation",
-                "symfony/twig-bundle": "to use the Twig markdown filter"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.5.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Knp\\Bundle\\MarkdownBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "KnpLabs Team",
-                    "homepage": "http://knplabs.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://github.com/KnpLabs/KnpMarkdownBundle/contributors"
-                }
-            ],
-            "description": "Knplabs markdown bundle transforms markdown into html",
-            "homepage": "http://github.com/KnpLabs/KnpMarkdownBundle",
-            "keywords": [
-                "bundle",
-                "knp",
-                "knplabs",
-                "markdown"
-            ],
-            "support": {
-                "issues": "https://github.com/KnpLabs/KnpMarkdownBundle/issues",
-                "source": "https://github.com/KnpLabs/KnpMarkdownBundle/tree/master"
-            },
-            "time": "2019-11-26T13:18:52+00:00"
-        },
-        {
             "name": "knplabs/knp-menu",
-            "version": "v3.1.2",
+            "version": "v3.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenu.git",
-                "reference": "9996764bc4bdc4381ecdc4617817de23948f0cdb"
+                "reference": "bee33a4cb6b698447cd61c6b593589a82993f8c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/9996764bc4bdc4381ecdc4617817de23948f0cdb",
-                "reference": "9996764bc4bdc4381ecdc4617817de23948f0cdb",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/bee33a4cb6b698447cd61c6b593589a82993f8c9",
+                "reference": "bee33a4cb6b698447cd61c6b593589a82993f8c9",
                 "shasum": ""
             },
             "require": {
@@ -3022,9 +2853,9 @@
             ],
             "support": {
                 "issues": "https://github.com/KnpLabs/KnpMenu/issues",
-                "source": "https://github.com/KnpLabs/KnpMenu/tree/master"
+                "source": "https://github.com/KnpLabs/KnpMenu/tree/v3.1.3"
             },
-            "time": "2020-08-15T08:01:46+00:00"
+            "time": "2021-02-19T07:49:30+00:00"
         },
         {
             "name": "knplabs/knp-menu-bundle",
@@ -3425,59 +3256,6 @@
             "time": "2020-10-28T02:03:40+00:00"
         },
         {
-            "name": "michelf/php-markdown",
-            "version": "1.9.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/michelf/php-markdown.git",
-                "reference": "c83178d49e372ca967d1a8c77ae4e051b3a3c75c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/michelf/php-markdown/zipball/c83178d49e372ca967d1a8c77ae4e051b3a3c75c",
-                "reference": "c83178d49e372ca967d1a8c77ae4e051b3a3c75c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": ">=4.3 <5.8"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Michelf\\": "Michelf/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Michel Fortin",
-                    "email": "michel.fortin@michelf.ca",
-                    "homepage": "https://michelf.ca/",
-                    "role": "Developer"
-                },
-                {
-                    "name": "John Gruber",
-                    "homepage": "https://daringfireball.net/"
-                }
-            ],
-            "description": "PHP Markdown",
-            "homepage": "https://michelf.ca/projects/php-markdown/",
-            "keywords": [
-                "markdown"
-            ],
-            "support": {
-                "issues": "https://github.com/michelf/php-markdown/issues",
-                "source": "https://github.com/michelf/php-markdown/tree/1.9.0"
-            },
-            "time": "2019-12-02T02:32:27+00:00"
-        },
-        {
             "name": "mindscreen/yarnlock",
             "version": "v1.0.1",
             "source": {
@@ -3867,99 +3645,6 @@
                 }
             ],
             "time": "2021-02-18T15:41:32+00:00"
-        },
-        {
-            "name": "pagerfanta/pagerfanta",
-            "version": "v2.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/BabDev/Pagerfanta.git",
-                "reference": "80e5770150de0a7cadbe92e5f545bbb874e04df7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/BabDev/Pagerfanta/zipball/80e5770150de0a7cadbe92e5f545bbb874e04df7",
-                "reference": "80e5770150de0a7cadbe92e5f545bbb874e04df7",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "php": "^7.2 || ^8.0",
-                "symfony/deprecation-contracts": "^2.1"
-            },
-            "conflict": {
-                "twig/twig": "<1.35 || >=2.0,<2.5"
-            },
-            "replace": {
-                "pagerfanta/core": "self.version",
-                "pagerfanta/doctrine-collections-adapter": "self.version",
-                "pagerfanta/doctrine-dbal-adapter": "self.version",
-                "pagerfanta/doctrine-mongodb-odm-adapter": "self.version",
-                "pagerfanta/doctrine-orm-adapter": "self.version",
-                "pagerfanta/doctrine-phpcr-odm-adapter": "self.version",
-                "pagerfanta/elastica-adapter": "self.version",
-                "pagerfanta/solarium-adapter": "self.version",
-                "pagerfanta/twig": "self.version"
-            },
-            "require-dev": {
-                "dg/bypass-finals": "^1.2.2",
-                "doctrine/collections": "^1.4",
-                "doctrine/dbal": "^2.5 || ^3.0",
-                "doctrine/orm": "^2.5",
-                "doctrine/phpcr-odm": "^1.3",
-                "friendsofphp/php-cs-fixer": "^2.18.2",
-                "jackalope/jackalope-doctrine-dbal": "^1.3",
-                "mandango/mandango": "^1.0@dev",
-                "phpstan/extension-installer": "^1.0.4",
-                "phpstan/phpstan": "^0.12.71",
-                "phpstan/phpstan-phpunit": "^0.12.17",
-                "phpunit/phpunit": "^8.5 || ^9.0",
-                "propel/propel": "^2.0@dev",
-                "propel/propel1": "^1.7",
-                "ruflin/elastica": "^1.3 || ^2.0 || ^3.0 || ^5.0 || ^6.0 || ^7.0",
-                "solarium/solarium": "^2.3 || ^3.0 || ^4.0 || ^5.0 || ^6.0",
-                "twig/twig": "^1.35 || ^2.5 || ^3.0"
-            },
-            "suggest": {
-                "twig/twig": "To integrate Pagerfanta with Twig"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Pagerfanta\\": "lib/Core/",
-                    "Pagerfanta\\Adapter\\": "src/Adapter/",
-                    "Pagerfanta\\Doctrine\\Collections\\": "lib/Adapter/Doctrine/Collections/",
-                    "Pagerfanta\\Doctrine\\DBAL\\": "lib/Adapter/Doctrine/DBAL/",
-                    "Pagerfanta\\Doctrine\\MongoDBODM\\": "lib/Adapter/Doctrine/MongoDBODM/",
-                    "Pagerfanta\\Doctrine\\ORM\\": "lib/Adapter/Doctrine/ORM/",
-                    "Pagerfanta\\Doctrine\\PHPCRODM\\": "lib/Adapter/Doctrine/PHPCRODM/",
-                    "Pagerfanta\\Elastica\\": "lib/Adapter/Elastica/",
-                    "Pagerfanta\\Solarium\\": "lib/Adapter/Solarium/",
-                    "Pagerfanta\\Twig\\": "lib/Twig/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Pagination for PHP",
-            "keywords": [
-                "page",
-                "pagination",
-                "paginator",
-                "paging"
-            ],
-            "support": {
-                "issues": "https://github.com/BabDev/Pagerfanta/issues",
-                "source": "https://github.com/BabDev/Pagerfanta/tree/v2.6.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/mbabker",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-02-03T00:07:24+00:00"
         },
         {
             "name": "php-http/client-common",
@@ -4824,20 +4509,20 @@
         },
         {
             "name": "psr/link",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/link.git",
-                "reference": "eea8e8662d5cd3ae4517c9b864493f59fca95562"
+                "reference": "94d170941164db307197ebf436296372b849bdb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/link/zipball/eea8e8662d5cd3ae4517c9b864493f59fca95562",
-                "reference": "eea8e8662d5cd3ae4517c9b864493f59fca95562",
+                "url": "https://api.github.com/repos/php-fig/link/zipball/94d170941164db307197ebf436296372b849bdb5",
+                "reference": "94d170941164db307197ebf436296372b849bdb5",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=8.0.0"
             },
             "type": "library",
             "extra": {
@@ -4861,6 +4546,7 @@
                 }
             ],
             "description": "Common interfaces for HTTP links",
+            "homepage": "https://github.com/php-fig/link",
             "keywords": [
                 "http",
                 "http-link",
@@ -4870,9 +4556,9 @@
                 "rest"
             ],
             "support": {
-                "source": "https://github.com/php-fig/link/tree/master"
+                "source": "https://github.com/php-fig/link/tree/1.1.0"
             },
-            "time": "2016-10-28T16:06:13+00:00"
+            "time": "2021-02-03T23:29:51+00:00"
         },
         {
             "name": "psr/log",
@@ -5331,12 +5017,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-symfony.git",
-                "reference": "a4b5fb36b217bbfcdb54be584db106846afeb063"
+                "reference": "d6a738f005b57a16f156f3ae1024ec874c21b2a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-symfony/zipball/a4b5fb36b217bbfcdb54be584db106846afeb063",
-                "reference": "a4b5fb36b217bbfcdb54be584db106846afeb063",
+                "url": "https://api.github.com/repos/getsentry/sentry-symfony/zipball/d6a738f005b57a16f156f3ae1024ec874c21b2a4",
+                "reference": "d6a738f005b57a16f156f3ae1024ec874c21b2a4",
                 "shasum": ""
             },
             "require": {
@@ -5428,7 +5114,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2021-02-16T08:52:50+00:00"
+            "time": "2021-02-23T11:30:36+00:00"
         },
         {
             "name": "survos/base-bundle",
@@ -5436,12 +5122,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/BaseBundle.git",
-                "reference": "54e4bec5a88f651413d7862f8cb41349bd2fd896"
+                "reference": "ee4824763aec0bdbb926383b67040e3090dbcf4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/BaseBundle/zipball/54e4bec5a88f651413d7862f8cb41349bd2fd896",
-                "reference": "54e4bec5a88f651413d7862f8cb41349bd2fd896",
+                "url": "https://api.github.com/repos/survos/BaseBundle/zipball/ee4824763aec0bdbb926383b67040e3090dbcf4e",
+                "reference": "ee4824763aec0bdbb926383b67040e3090dbcf4e",
                 "shasum": ""
             },
             "require": {
@@ -5499,7 +5185,7 @@
                 "source": "https://github.com/survos/BaseBundle/tree/master",
                 "issues": "https://github.com/survos/BaseBundle/issues"
             },
-            "time": "2021-02-18T20:53:52+00:00"
+            "time": "2021-02-23T14:07:35+00:00"
         },
         {
             "name": "symfony/asset",
@@ -11426,16 +11112,16 @@
     "packages-dev": [
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.77",
+            "version": "0.12.78",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "1f10b8c8d118d01e7b492f9707999d456be5812c"
+                "reference": "eecce8d2ee3cac6769f37b4cb1998b2715f82984"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/1f10b8c8d118d01e7b492f9707999d456be5812c",
-                "reference": "1f10b8c8d118d01e7b492f9707999d456be5812c",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/eecce8d2ee3cac6769f37b4cb1998b2715f82984",
+                "reference": "eecce8d2ee3cac6769f37b4cb1998b2715f82984",
                 "shasum": ""
             },
             "require": {
@@ -11466,7 +11152,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/0.12.77"
+                "source": "https://github.com/phpstan/phpstan/tree/0.12.78"
             },
             "funding": [
                 {
@@ -11482,7 +11168,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-02-17T16:22:19+00:00"
+            "time": "2021-02-20T13:24:36+00:00"
         },
         {
             "name": "symfony/browser-kit",
@@ -11915,14 +11601,13 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "easyrdf/easyrdf": 20,
-        "friendsofsymfony/elastica-bundle": 20,
         "sentry/sentry-symfony": 20,
         "survos/base-bundle": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4",
+        "php": ">=7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-json": "*",

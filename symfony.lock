@@ -131,18 +131,6 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.1"
     },
-    "friendsofsymfony/elastica-bundle": {
-        "version": "5.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "5.0",
-            "ref": "46c9cd2c1e07f0fcfd97e96f12b03b2e0845c4cd"
-        },
-        "files": [
-            "config/packages/fos_elastica.yaml"
-        ]
-    },
     "friendsofsymfony/jsrouting-bundle": {
         "version": "2.3",
         "recipe": {
@@ -179,9 +167,6 @@
     "jolicode/elastically": {
         "version": "v1.1.0"
     },
-    "knplabs/knp-markdown-bundle": {
-        "version": "1.8.1"
-    },
     "knplabs/knp-menu": {
         "version": "v3.1.2"
     },
@@ -211,9 +196,6 @@
     },
     "league/oauth2-client": {
         "version": "2.6.0"
-    },
-    "michelf/php-markdown": {
-        "version": "1.9.0"
     },
     "mindscreen/yarnlock": {
         "version": "v1.0.1"
@@ -250,9 +232,6 @@
         "files": [
             "config/packages/nyholm_psr7.yaml"
         ]
-    },
-    "pagerfanta/pagerfanta": {
-        "version": "v2.5.1"
     },
     "php-http/client-common": {
         "version": "2.3.0"

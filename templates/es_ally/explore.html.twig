@@ -3,7 +3,10 @@
 {% block title %}EsAlly Browser!{% endblock %}
 
 {% block body %}
-    {{ dump(mapping) }}
+    <h3>Mapping</h3>
+    <pre>{{ mapping|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+
+    <h3>Dumps</h3>
     <ul>
     {% for d in dumps %}
         <li>
