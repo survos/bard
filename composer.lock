@@ -4,8 +4,17 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b06e2deaa236725b10942fc2aadae26",
+    "content-hash": "1a1c7e3d483b6dd4351210c015388efe",
     "packages": [
+        {
+            "name": "adminkit/adminkit",
+            "version": "master",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/adminkit/adminkit/archive/master.zip"
+            },
+            "type": "library"
+        },
         {
             "name": "almasaeed2010/adminlte",
             "version": "v3.0.5",
@@ -5122,12 +5131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/BaseBundle.git",
-                "reference": "ee4824763aec0bdbb926383b67040e3090dbcf4e"
+                "reference": "43976b03f3fe1ca7d5d6974dff526777adc5ed63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/BaseBundle/zipball/ee4824763aec0bdbb926383b67040e3090dbcf4e",
-                "reference": "ee4824763aec0bdbb926383b67040e3090dbcf4e",
+                "url": "https://api.github.com/repos/survos/BaseBundle/zipball/43976b03f3fe1ca7d5d6974dff526777adc5ed63",
+                "reference": "43976b03f3fe1ca7d5d6974dff526777adc5ed63",
                 "shasum": ""
             },
             "require": {
@@ -5175,7 +5184,7 @@
                     "email": "tacman@gmail.com"
                 }
             ],
-            "description": "Add some tools and resources to a Symfony5 application.  No longer depends on         \"kevinpapst/adminlte-bundle\": \"dev-adminlte-v3\",\n",
+            "description": "Add some tools and resources to a Symfony5 application, including volt theme",
             "keywords": [
                 "generator",
                 "skeleton",
@@ -5185,7 +5194,7 @@
                 "source": "https://github.com/survos/BaseBundle/tree/master",
                 "issues": "https://github.com/survos/BaseBundle/issues"
             },
-            "time": "2021-02-23T14:07:35+00:00"
+            "time": "2021-02-24T16:11:13+00:00"
         },
         {
             "name": "symfony/asset",
@@ -11600,6 +11609,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "adminkit/adminkit": 20,
         "easyrdf/easyrdf": 20,
         "sentry/sentry-symfony": 20,
         "survos/base-bundle": 20

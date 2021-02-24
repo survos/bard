@@ -1,4 +1,7 @@
 {
+    "adminkit/adminkit": {
+        "version": "master"
+    },
     "almasaeed2010/adminlte": {
         "version": "v3.0.5"
     },

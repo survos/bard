@@ -85,7 +85,7 @@ class SidebarMenuSubscriber extends  BaseMenuSubscriber implements EventSubscrib
 
          */
 
-        $this->addMenuItem($menu, ['route' => 'app_typography', 'label' => 'Bootstrap 4', 'icon' => 'fab fa-bootstrap']);
+//        $this->addMenuItem($menu, ['route' => 'app_typography', 'label' => 'Bootstrap 4', 'icon' => 'fab fa-bootstrap']);
         // for nested menus, don't add a route, just a label, then use it for the argument to addMenuItem
         $nestedMenu = $this->addMenuItem($menu, ['label' => 'Credits']);
         foreach (['bundles' => 'fab fa-php', 'javascript' => 'fab fa-js-square'] as $type => $icon) {

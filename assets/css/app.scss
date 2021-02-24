@@ -4,13 +4,16 @@
 */
 //@import "~admin-lte"; // bootstrap css, plus some adminlte goodies
 //@import "~bootstrap";
-@import "~bootstrap/dist/css/bootstrap.min.css";
-@import "../../public/bundles/survosbase/volt-dist/css/volt.css";
+//@import "~bootstrap/dist/css/bootstrap.min.css";
+//@import "../../public/bundles/survosbase/volt-dist/css/volt.css";
+
+@import "/vendor/adminkit/adminkit/static/css/app.css";
+
 
 //@import "~select2/dist/css/select2.min.css";
 
-@import "simple-sidebar.css";
-@import "../../public/bs5_files/docs.css";
+//@import "simple-sidebar.css";
+//@import "../../public/bs5_files/docs.css";
 
 @import "~datatables.net-bs4";
 //@import "~datatables.net-buttons-bs4";
