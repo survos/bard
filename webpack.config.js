@@ -21,6 +21,7 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
+    .addEntry('simple-datatable', './assets/js/simple-datatable.js')
     .addEntry('basic-datatable', './assets/js/basic-datatable.js')
     .addEntry('works-datatable', './assets/js/works.js')
     .addEntry('characters', './assets/js/characters.js')

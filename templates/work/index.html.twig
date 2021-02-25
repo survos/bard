@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block javascripts %}
-    {{ parent() }}
-    {{ encore_entry_script_tags('basic-datatable') }}
+        {{ parent() }}
+        {{ encore_entry_script_tags('simple-datatable') }}
 {% endblock %}
 
 
@@ -14,11 +14,15 @@
 
 {% block body %}
 
-    {% if not apply_basic_datatable %}
-        <form><input name="q" value="{{ q|default('') }}"/><button type="submit"><span class="fas fa-search"></span> </button></form>
-    {% endif %}
+{#    {% if not apply_basic_datatable %}#}
+{#        <form><input name="q" value="{{ q|default('') }}"/><button type="submit"><span class="fas fa-search"></span> </button></form>#}
+{#    {% endif %}#}
 
-    {% include "work/_table.html.twig" with {works: works, apply_basic_datatable: apply_basic_datatable } only %}
+    <h3>Simple</h3>
+
+    <table id="dynamic" class="table"></table>
+
+{#    {% include "work/_table.html.twig" with {works: works, apply_basic_datatable: apply_basic_datatable } only %}#}
 
     {% if is_granted('ROLE_ADMIN') %}
     <hr />
