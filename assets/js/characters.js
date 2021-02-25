@@ -7,7 +7,8 @@ require('datatables.net-bs4');
 // import SurvosDataTable from './Components/SurvosDataTable';
 // const $ = require('jquery');
 // const $ = global.$;
-import SurvosDataTable from '../../vendor/survos/base-bundle/src/Resources/public/js/SurvosDataTable';
+// import SurvosDataTable from '../../vendor/survos/base-bundle/src/Resources/public/js/SurvosDataTable';
+import {SurvosDataTable} from 'survos-datatables';
 
 const Routing = global.Routing;
 console.log(Routing);

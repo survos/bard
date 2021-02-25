@@ -1,4 +1,4 @@
 const $ = require('jquery');
 console.log('basic-datatable.js');
-
-$('.js-datatable').DataTable();
+// require('datatables.net-bs4');
+// $('.js-datatable').DataTable();
