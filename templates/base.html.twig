@@ -11,12 +11,14 @@
     {% endblock %}
 #}
 
+{% block navbar_notifications ''     %}
+
 
 {% block page_title 'Shakespeare' %}
 {% block page_subtitle 'Works, Characters, and a bunch of cool tools' %}
 
 {% block xxxpage_content_before %}
-    {% embed '@AdminLTE/Widgets/box-widget.html.twig' %}
+    {% embed '@SurvosBase/Widgets/box-widget.html.twig' %}
         {% block box_title %}Tech Notes{% endblock %}
         {% block box_body %}
             <div class="callout callout-info">

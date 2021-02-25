@@ -1,4 +1,4 @@
-OLD APP
+// OLD APP
 
 const $ = require('jquery');
 global.$ = $;

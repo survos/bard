@@ -7,15 +7,17 @@
 //@import "~bootstrap/dist/css/bootstrap.min.css";
 //@import "../../public/bundles/survosbase/volt-dist/css/volt.css";
 
-@import "/vendor/adminkit/adminkit/static/css/app.css";
+// this has to come BEFORE adminkit for the pagination to be correct.
 
+@import "~simple-datatables/dist/style.css";
+@import "/vendor/adminkit/adminkit/static/css/app.css";
 
 //@import "~select2/dist/css/select2.min.css";
 
 //@import "simple-sidebar.css";
 //@import "../../public/bs5_files/docs.css";
 
-@import "~datatables.net-bs4";
+//@import "~datatables.net-bs4";
 //@import "~datatables.net-buttons-bs4";
 //@import "~datatables.net-scroller-bs4";
 //@import "~datatables.net-select-bs4";
