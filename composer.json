@@ -2,7 +2,7 @@
     "type": "project",
     "license": "proprietary",
     "require": {
-        "php": ">= 7.4",
+        "php": ">= 8.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-json": "*",
@@ -10,7 +10,6 @@
         "ext-sqlite3": "*",
         "ext-zip": "*",
         "adminkit/adminkit": "dev-master",
-        "almasaeed2010/adminlte": "~3.0",
         "api-platform/core": "^2.5",
         "composer/package-versions-deprecated": "1.11.99.1",
         "doctrine/annotations": "^1.0",
@@ -69,6 +68,7 @@
         "symfony/test-pack": "*"
     },
     "config": {
+        "optimize-autoloader": true,
         "preferred-install": {
             "*": "dist"
         },
