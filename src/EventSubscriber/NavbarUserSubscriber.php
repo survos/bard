@@ -48,7 +48,7 @@ class NavbarUserSubscriber implements EventSubscriberInterface
      */
     public function onShowUser(ShowUserEvent $event)
     {
-        
+
         if (null === $this->security->getUser()) {
             return;
         }
@@ -58,8 +58,8 @@ class NavbarUserSubscriber implements EventSubscriberInterface
 
         $user = new UserModel($myUser);
 
-        //$event->setShowProfileLink(false);
-        //$event->addLink(new NavBarUserLink('Followers', 'home'));
+        $event->setShowProfileLink(false);
+        $event->addLink(new NavBarUserLink('Followers', 'home'));
 
         $event->setUser($user);
     }

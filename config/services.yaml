@@ -12,8 +12,8 @@ services:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
         bind:
-            $finderWork: '@fos_elastica.finder.work'
-            $finderParagraph: '@fos_elastica.finder.paragraph'
+#            $finderWork: '@fos_elastica.finder.work'
+#            $finderParagraph: '@fos_elastica.finder.paragraph'
             $searchDSN: '%env(ELASTICSEARCH_HOST)%'
 
     # makes classes in src/ available to be used as services
@@ -28,13 +28,28 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
-    app.top_menu_builder:
-        class: App\Menu\TopMenuBuilder
+    JoliCode\Elastically\Client:
         arguments:
-            - "@knp_menu.factory"
-            - "@event_dispatcher"
-        tags:
-            - { name: knp_menu.menu_builder, method: createTopMenu, alias: top_menu }
+            $config:
+#                host: '%env(ELASTICSEARCH_HOST)%'
+                elastically_mappings_directory: '%kernel.project_dir%/config/mappings'
+                elastically_index_class_mapping:
+                    works: App\Dto\WorkOutput
+                    beers: App\Dto\Beer
+                    paragraph: App\Entity\Paragraph
+                    work: App\Entity\Work
+                elastically_serializer: '@serializer'
+                elastically_bulk_size: 10
+            $logger: '@logger'
+
+
+#    app.top_menu_builder:
+#        class: App\Menu\TopMenuBuilder
+#        arguments:
+#            - "@knp_menu.factory"
+#            - "@event_dispatcher"
+#        tags:
+#            - { name: knp_menu.menu_builder, method: createTopMenu, alias: top_menu }
 
 #    api_platform.elasticsearch.match_filter:
 #        public: true

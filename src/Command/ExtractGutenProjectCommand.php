@@ -29,7 +29,7 @@ class ExtractGutenProjectCommand extends Command
     {
         $this
             ->setDescription('Read zip file and extract rdf info')
-            ->addArgument('filename', InputArgument::OPTIONAL, 'Zip filename', '../data/rdf-files.tar')
+            ->addArgument('filename', InputArgument::OPTIONAL, 'Zip filename', '../../data/rdf-files.tar')
             ->addOption('limit', null, InputOption::VALUE_REQUIRED, 'Files to Extract', 10)
             ->addOption('batchSize', null, InputOption::VALUE_REQUIRED, 'Flush Batch Size', 100)
         ;

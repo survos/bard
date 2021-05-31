@@ -45,6 +45,10 @@ At this point, you can run
      
  I then inspected the fields of each table to create the ORM entities.
  
+ @todo: introspect database and do this instead
+ 
+     echo "description,string,16,no," | sed "s/,/\n/g"  | bin/console make:entity Work
+
      bin/console make:entity Work
      
  Since I didn't want the plural entities names, I had to go into the Work.php file and set @ORM\Table(name="Works") to get the right table name.  I also had to add the capitalized name to the fields, though there's probably a way to configure the doctrine name method, but I gave up trying to figure it out.

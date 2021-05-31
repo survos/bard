@@ -107,17 +107,19 @@ class SearchController extends AbstractController
         // Option 1. Returns all users who have example.net in any of their mapped fields
 
 //        $results = $finderParagraph->find($q);
+        // Fos Elastica -- get paragraph entities
         $results = $repositoryManager->getRepository('paragraph')->find($q);
 
-        dd($results);
+//        dd($results);
 //        $index = $indexManager->getDefaultIndex();1
 //        dd($indexManager->getDefaultIndex());
         $search = new Work();
         $works = [];
         $rawResults = [];
+        $term = $request->get('q');
 
         if (0)
-        if ($term = $request->get('q')) {
+        if ($term) {
             $index = $this->getIndex();
             // manual way, where we call the search directly.  We call elasticSearch elsewhere.
             $resultSet = $index->search($term);
@@ -150,12 +152,12 @@ class SearchController extends AbstractController
         } catch (\Exception $e) {
             $mapping = null;
         }
-        dd($results);
+//        dd($results);
         return $this->render('search/index.html.twig', [
             'form' => $form->createView(),
             'searchServer' => $this->searchDSN,
             'mapping' => $mapping,
-            'works' => $works,
+            'works' => $results, // $works,
             'q' => $term,
             'rawResults' => $rawResults,
             'controller_name' => 'SearchController',

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EsAlly Browser!{% endblock %}
+
+{% block body %}
+    <h3>Mapping</h3>
+    <pre>{{ mapping|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+
+    <h3>Dumps</h3>
+    <ul>
+    {% for d in dumps %}
+        <li>
+            <code>{{ d.class }}</code>
+            {{ d.keys|join(', ') }}
+            {{ dump(d.obj) }}
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

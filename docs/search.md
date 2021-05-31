@@ -10,6 +10,16 @@ The steps:
 * That DTO is used for both indexing and retrieval.
 * Should be usable for both doctrine and elasticsearch
 
+## Populating ElasticSearch Indexes
+
+Need to get the data in JSON, in a DTO.  Ways to do this
+
+1) Run a doctrine query, serilialize this to an object whose properties match exactly the DTO.  This uses a lot of resources, since it hydrated the entities.
+2) Run a doctrine ->select() query, getting only the fields needed, matching the DTO, and convert that to JSON.
+   Also, see https://www.thinktocode.com/2019/09/12/hydrating-query-objects-with-dtos/ 
+3) Use fos_elastica to index, and set the query_builder_method.
+
+
 ## DataTables Setup
 
 ```twig

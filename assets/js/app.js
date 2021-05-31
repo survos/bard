@@ -1,4 +1,3 @@
-console.error('Loading assets/js/app.js');
 const $ = require('jquery');
 global.$ = $;
 
@@ -38,11 +37,10 @@ require('datatables.net-select-bs4');
 if (x) {
     const dataTableElements = $('.js-datatable');
     console.log('init table-datatable: ' + dataTableElements.length);
-    console.log(dataTableElements);
 
     // basic initialation
     dataTableElements.each(function (index) {
-        console.log($(this));
+        console.log(index, $(this));
         const options = $(this).data();
         console.log('data is ', options);
 
@@ -66,3 +64,10 @@ if (x) {
     });
 
 }
+
+
+// import {DataTable} from "simple-datatables"
+//
+// document.querySelectorAll(".js-datatable").forEach(table => { console.log(table); });
+//
+// document.querySelectorAll(".js-datatable").forEach(table => { new DataTable(table); console.log("Init DataTable " + table.id); })
