@@ -3,7 +3,10 @@
 @import "~admin-lte/dist/css/adminlte.min.css";
 @import "~bootstrap";
 */
-@import "~admin-lte"; // bootstrap css, plus some adminlte goodies
+//@import "~admin-lte"; // bootstrap css, plus some adminlte goodies
+
+//@import "~adminkit/static/css/app.css";
+@import "~@adminkit/core/static/css/app.css";
 
 @import "~select2/dist/css/select2.min.css";
 

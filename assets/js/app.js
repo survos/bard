@@ -1,15 +1,16 @@
+console.error('Loading assets/js/app.js');
 const $ = require('jquery');
 global.$ = $;
-require('popper.js');
 
 const routes = require('../../public/js/fos_js_routes.json');
 import Routing from '../../vendor/friendsofsymfony/jsrouting-bundle/Resources/public/js/router.min.js';
 Routing.setRoutingData(routes);
 global.Routing = Routing;
 
-// adminlte utilities, like PushMenu.  This comes from yarn add admin-lte
-require('admin-lte'); // from yarn add admin-lte, 57k, does not include bootstrap
+require('@adminkit/core/static/js/app');
+require('@popperjs/core');
 require('bootstrap');
+require('Hinclude/hinclude');
 
 require('../css/app.scss');
 //  require('admin-lte/dist/js/adminlte');
@@ -20,7 +21,7 @@ $('button:contains(Save)').addClass('btn-primary');
 $('button:contains(Update)').addClass('btn-primary');
 
 // eslint-disable-next-line new-cap
-$('.js-toggle-sidebar').PushMenu({});
+// $('.js-toggle-sidebar').PushMenu({});
 
 // this is from adminlte bundle??, we want the one from adminlte directly
 
