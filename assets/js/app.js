@@ -7,7 +7,7 @@ Routing.setRoutingData(routes);
 global.Routing = Routing;
 
 // require('@adminkit/core/static/js/app');
-// require('bootstrap');
+require('bootstrap');
 require('@popperjs/core');
 require('Hinclude/hinclude');
 
