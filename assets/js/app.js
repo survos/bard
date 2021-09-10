@@ -6,10 +6,12 @@ import Routing from '../../vendor/friendsofsymfony/jsrouting-bundle/Resources/pu
 Routing.setRoutingData(routes);
 global.Routing = Routing;
 
-require('@adminkit/core/static/js/app');
+// require('@adminkit/core/static/js/app');
+// require('bootstrap');
 require('@popperjs/core');
-require('bootstrap');
 require('Hinclude/hinclude');
+
+require('./adminlte.js');
 
 require('../css/app.scss');
 //  require('admin-lte/dist/js/adminlte');

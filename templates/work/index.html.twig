@@ -2,7 +2,7 @@
 
 {% block javascripts %}
         {{ parent() }}
-        {{ encore_entry_script_tags('simple-datatable') }}
+{#        {{ encore_entry_script_tags('simple-datatable') }}#}
 {% endblock %}
 
 
@@ -22,7 +22,7 @@
 
     <table id="dynamic" class="table"></table>
 
-{#    {% include "work/_table.html.twig" with {works: works, apply_basic_datatable: apply_basic_datatable } only %}#}
+    {% include "work/_table.html.twig" with {works: works, apply_basic_datatable: apply_basic_datatable } only %}
 
     {% if is_granted('ROLE_ADMIN') %}
     <hr />
