@@ -108,7 +108,7 @@
         "compile": [
             "# wget https://museo.survos.com.s3.amazonaws.com/loc.db.zip --no-check-certificate && unzip loc.db.zip",
             "@php  -i | grep memory_limit",
-            "bin/create-admins.sh"
+            "# bin/create-admins.sh"
         ],
 
         "post-install-cmd": [
