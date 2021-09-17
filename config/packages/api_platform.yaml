@@ -14,9 +14,9 @@ api_platform:
     swagger:
         versions: [3]
 
-    elasticsearch:
-        enabled: true
-        hosts: ['%env(SEARCHBOX_URL)%']
+#    elasticsearch:
+#        enabled: true
+#        hosts: ['%env(SEARCHBOX_URL)%']
 
     collection:
         pagination:
