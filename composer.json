@@ -55,6 +55,7 @@
         "symfony/translation-contracts": "*",
         "symfony/twig-bundle": "^5.3",
         "symfony/uid": "^5.3",
+        "symfony/ux-twig-component": "1.4.x-dev",
         "symfony/validator": "^5.0",
         "symfony/web-link": "^5.0",
         "symfony/web-profiler-bundle": "5.3.*",

@@ -24,7 +24,6 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "@adminkit/core": "https://github.com/survos/adminkit.git",
         "@fortawesome/fontawesome-free": "^5.15.2",
         "@popperjs/core": "^2.9.2",
         "@symfony/stimulus-bridge": "^2.0.0",

@@ -3,6 +3,9 @@ global.$ = $;
 
 const routes = require('../../public/js/fos_js_routes.json');
 import Routing from '../../vendor/friendsofsymfony/jsrouting-bundle/Resources/public/js/router.min.js';
+
+// require('../venadminlte.js');
+require('../../vendor/survos/base-bundle/src/Resources/assets/js/adminlte');
 Routing.setRoutingData(routes);
 global.Routing = Routing;
 
@@ -11,7 +14,6 @@ require('bootstrap');
 require('@popperjs/core');
 require('Hinclude/hinclude');
 
-require('./adminlte.js');
 
 require('../css/app.scss');
 //  require('admin-lte/dist/js/adminlte');

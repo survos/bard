@@ -4,6 +4,9 @@
     {% set work = character.work %}
 {% endif %}
 
+{% block logo_large work.title %}
+{% block logo_mini work.id %}
+
 {% block title %}Work{% endblock %}
 
 {% block page_title %}{{ work }}{% endblock %}
