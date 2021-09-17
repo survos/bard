@@ -33,10 +33,10 @@ $('button:contains(Update)').addClass('btn-primary');
 
 const x = true;
 
-require('datatables.net-bs4');
-require('datatables.net-scroller-bs4');
-require('datatables.net-buttons-bs4');
-require('datatables.net-select-bs4');
+require('datatables.net-bs5');
+require('datatables.net-scroller-bs5');
+require('datatables.net-buttons-bs5');
+require('datatables.net-select-bs5');
 
 if (x) {
     const dataTableElements = $('.js-datatable');

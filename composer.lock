@@ -4357,16 +4357,16 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0"
+                "reference": "30f38bffc6f24293dadd1823936372dfa9e86e2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0",
-                "reference": "6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/30f38bffc6f24293dadd1823936372dfa9e86e2f",
+                "reference": "30f38bffc6f24293dadd1823936372dfa9e86e2f",
                 "shasum": ""
             },
             "require": {
@@ -4374,7 +4374,8 @@
                 "phpdocumentor/reflection-common": "^2.0"
             },
             "require-dev": {
-                "ext-tokenizer": "*"
+                "ext-tokenizer": "*",
+                "psalm/phar": "^4.8"
             },
             "type": "library",
             "extra": {
@@ -4400,9 +4401,9 @@
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
             "support": {
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.4.0"
+                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.5.0"
             },
-            "time": "2020-09-17T18:55:26+00:00"
+            "time": "2021-09-17T15:28:14+00:00"
         },
         {
             "name": "psr/cache",
@@ -5221,12 +5222,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-symfony.git",
-                "reference": "31edf15fd22fcfb2ba0989cef7d70f34a41f6abf"
+                "reference": "be6339f96030e7fe76a9dc82a72d327c8702c747"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-symfony/zipball/31edf15fd22fcfb2ba0989cef7d70f34a41f6abf",
-                "reference": "31edf15fd22fcfb2ba0989cef7d70f34a41f6abf",
+                "url": "https://api.github.com/repos/getsentry/sentry-symfony/zipball/be6339f96030e7fe76a9dc82a72d327c8702c747",
+                "reference": "be6339f96030e7fe76a9dc82a72d327c8702c747",
                 "shasum": ""
             },
             "require": {
@@ -5327,7 +5328,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2021-09-14T22:06:01+00:00"
+            "time": "2021-09-17T16:15:50+00:00"
         },
         {
             "name": "survos/base-bundle",
@@ -5335,12 +5336,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/BaseBundle.git",
-                "reference": "594db0adb32807eb746919da4205cdd08877098c"
+                "reference": "76aa41e6413be829b229106629b575b16a24d3ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/BaseBundle/zipball/594db0adb32807eb746919da4205cdd08877098c",
-                "reference": "594db0adb32807eb746919da4205cdd08877098c",
+                "url": "https://api.github.com/repos/survos/BaseBundle/zipball/76aa41e6413be829b229106629b575b16a24d3ad",
+                "reference": "76aa41e6413be829b229106629b575b16a24d3ad",
                 "shasum": ""
             },
             "require": {
@@ -5398,7 +5399,7 @@
                 "source": "https://github.com/survos/BaseBundle/tree/master",
                 "issues": "https://github.com/survos/BaseBundle/issues"
             },
-            "time": "2021-09-17T13:34:25+00:00"
+            "time": "2021-09-17T16:36:27+00:00"
         },
         {
             "name": "symfony/asset",
