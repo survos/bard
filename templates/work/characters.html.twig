@@ -2,10 +2,26 @@
 
 {% block body %}
 
-    <ul>
-        {% for c, paraCount in characters %}
-            <li>{{ c }}, {{ paraCount  }} Paragraphs</li>
-        {% endfor %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Character</th>
+            <th>Paragraphs</th>
+        </tr>
+        </thead>
+            <tbody>
+            {% for c, paraCount in characters %}
+                <tr>
+                    <td>
+                        <a href="{{ path('character_show', {characterId: c}) }}">
+                            {{ c }}
+                        </a>
+                    </td>
+                    <td>{{ paraCount }}</td>
+                </tr>
+            {% endfor %}
 
-    </ul>
+            </tbody>
+
+    </table>
 {% endblock %}

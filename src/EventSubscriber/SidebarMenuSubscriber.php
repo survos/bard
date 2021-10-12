@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\Security\Core\Security;
 
-class SidebarMenuSubscriber extends  BaseMenuSubscriber implements EventSubscriberInterface
+class SidebarMenuSubscriber extends BaseMenuSubscriber implements EventSubscriberInterface
 {
     use KnpMenuHelperTrait;
 

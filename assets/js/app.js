@@ -1,18 +1,19 @@
-// OLD APP
-
 const $ = require('jquery');
 global.$ = $;
-require('popper.js');
 
 const routes = require('../../public/js/fos_js_routes.json');
 import Routing from '../../vendor/friendsofsymfony/jsrouting-bundle/Resources/public/js/router.min.js';
+
+// require('../venadminlte.js');
+require('../../vendor/survos/base-bundle/src/Resources/assets/js/adminlte');
 Routing.setRoutingData(routes);
 global.Routing = Routing;
 
-// adminlte utilities, like PushMenu.  This comes from yarn add admin-lte
-// require('admin-lte'); // from yarn add admin-lte, 57k, does not include bootstrap
+// require('@adminkit/core/static/js/app');
 require('bootstrap');
-// require('../../public/bs5_files/bootstrap.bundle.min');
+require('@popperjs/core');
+require('Hinclude/hinclude');
+
 
 require('../css/app.scss');
 //  require('admin-lte/dist/js/adminlte');
@@ -23,7 +24,7 @@ $('button:contains(Save)').addClass('btn-primary');
 $('button:contains(Update)').addClass('btn-primary');
 
 // eslint-disable-next-line new-cap
-$('.js-toggle-sidebar').PushMenu({});
+// $('.js-toggle-sidebar').PushMenu({});
 
 // this is from adminlte bundle??, we want the one from adminlte directly
 
@@ -32,10 +33,10 @@ $('.js-toggle-sidebar').PushMenu({});
 
 const x = true;
 
-require('datatables.net-bs4');
-require('datatables.net-scroller-bs4');
-require('datatables.net-buttons-bs4');
-require('datatables.net-select-bs4');
+require('datatables.net-bs5');
+require('datatables.net-scroller-bs5');
+require('datatables.net-buttons-bs5');
+require('datatables.net-select-bs5');
 
 if (x) {
     const dataTableElements = $('.js-datatable');
@@ -67,3 +68,10 @@ if (x) {
     });
 
 }
+
+
+// import {DataTable} from "simple-datatables"
+//
+// document.querySelectorAll(".js-datatable").forEach(table => { console.log(table); });
+//
+// document.querySelectorAll(".js-datatable").forEach(table => { new DataTable(table); console.log("Init DataTable " + table.id); })

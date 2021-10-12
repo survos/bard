@@ -93,8 +93,9 @@ class SearchController extends AbstractController
      */
     public function search(Request $request,
                            Client $client,
-                           RepositoryManagerInterface $repositoryManager,
-                           FinderInterface $finderParagraph, FinderInterface $finderWork, IndexManager $indexManager)
+//                           RepositoryManagerInterface $repositoryManager,
+//                           FinderInterface $finderParagraph, FinderInterface $finderWork, IndexManager $indexManager
+    )
     {
         $config = $client->getConfig();
         $config['headers'] = [

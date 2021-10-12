@@ -46,12 +46,12 @@
                 {% block box_title %}Shakespeare's Works and Characters{% endblock %}
                 {% block box_body %}
                     <div class="callout callout-info">
-                        {{ 'bard.intro'|trans }}
+                        {{ 'bard.intro'|trans|markdown }}
                     </div>
                 {% endblock %}
                 {% block box_footer %}
                     <div class="pull-left">
-                        Data from <a target="_blank" href="http://opensourceshakespeare.com/">opensourceshakespeare.com</a>
+                        Data from <a target="_blank" href="http://opensourceshakespeare.com/"><span class="fas fa-external-link-alt" opensourceshakespeare.com</a>
                     </div>
 
                     <div class="pull-right">
@@ -74,7 +74,7 @@
                 {% block box_title %}Toolkit{% endblock %}
                 {% block box_body %}
                     <div class="callout callout-warning">
-                            {{ 'site.intro'|trans|u.replaceMatches('/^ +/ims', '') }}
+                            {{ 'site.intro'|trans|u.replaceMatches('/^ +/ims', '')|markdown }}
                     </div>
                 {% endblock %}
                 {% block box_footer %}
