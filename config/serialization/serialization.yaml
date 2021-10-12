@@ -24,6 +24,8 @@ App\Entity\Work:
       groups: ['read']
     source:
       groups: ['source']
+    chapters:
+      groups: ['source']
     fountainUrl:
       groups: ['read', 'Default']
     fullText:
