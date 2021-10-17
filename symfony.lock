@@ -210,6 +210,9 @@
     "league/oauth2-client": {
         "version": "2.6.0"
     },
+    "liquid/liquid": {
+        "version": "1.4.24"
+    },
     "michelf/php-markdown": {
         "version": "1.9.0"
     },
