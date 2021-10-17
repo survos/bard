@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Services\LiquidService;
 use Liquid\Tag\TagComment;
 use Liquid\Tag\TagIf;
 use Liquid\Tag\TagInclude;
@@ -20,8 +21,12 @@ class LiquidController extends AbstractController
 
     }
     #[Route('/liquid', name: 'liquid')]
-    public function index(ParameterBagInterface $bag): Response
+    public function index(LiquidService $liquidService, ParameterBagInterface $bag): Response
     {
+        $protectedPath = sprintf("%s/liquid/protected/", $bag->get('kernel.project_dir'));
+        assert(file_exists($protectedPath), "missing dir $protectedPath");
+
+        $liquidService->toTwig($protectedPath . 'templates');
 
 
         dd($liquid, $liquid->getRoot(), $liquidTemplate);

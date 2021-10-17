@@ -7,7 +7,7 @@ This is a comment block
 <!DOCTYPE HTML>
 <html>
     <head>
-        {% include 'header' %}
+        {% include 'header.tpl' %}
     </head>
     <body>
 		<h1>{{ document.title }}</h1>
@@ -34,11 +34,11 @@ This is a comment block
                     <p>Blogentry has tag: freestyle</p>
                 {% endif %}
 
-            </li>      
+            </li>
           {% endfor %}
         </ul>
         {% endif %}
 
-		{% include 'footer' %}
+		{% include 'footer.tpl' %}
     </body>
 </html>
