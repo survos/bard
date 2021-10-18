@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% for template in templates %}
+        <h3>{{ template.liquidFilename }}</h3>
+        <div class="row">
+            <div class="col-md-6 border border-danger">
+
+                <textarea rows="{{ template.liquidLineCount }}" cols="60">{{ template.liquidSource|raw }}</textarea>
+            </div>
+            <div class="col-md-6 border border-primary">
+                <textarea rows="{{ template.twigLineCount }}" cols="60">{{ template.twigSource|raw }}</textarea>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

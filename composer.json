@@ -133,6 +133,10 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "repositories": {
+        "liquid": {
+            "type": "vcs",
+            "url": "git@github.com:kalimatas/php-liquid.git"
+        },
         "survos_base_bundle": {
             "type": "vcs",
             "url": "git@github.com:survos/BaseBundle.git"

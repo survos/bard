@@ -2,6 +2,8 @@
 
 Data from [Open Source Shakesepeare](http://opensourceshakespeare.com/ "GMU"), in a Symfony application using AdminLTE, API Platform, Encore and other tools and bundles.  
 
+composer config repositories.liquid '{"type": "vcs", "url": "git@github.com:kalimatas/php-liquid.git"}'
+
 ## Local Setup
 
 To run this locally:

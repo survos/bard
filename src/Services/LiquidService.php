@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Entity\Template;
 use Liquid\Document;
 use Liquid\Liquid;
 use Liquid\Tag\TagBlock;
@@ -9,14 +10,13 @@ use Liquid\Tag\TagComment;
 use Liquid\Tag\TagExtends;
 use Liquid\Tag\TagIf;
 use Liquid\Tag\TagInclude;
-use Liquid\Template;
+use Liquid\Template as LiquidTemplate;
 use Liquid\Variable;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
 use Symfony\Component\Yaml\Yaml;
-
 
 class LiquidService
 {
@@ -100,28 +100,35 @@ class LiquidService
     }
 
     // convert all .tpl files in a directory to .html.twig
-    public function toTwig($dir)
+    public function toTwig($dir): array
     {
-
+        $templates = [];
 
         assert(is_dir($dir), "$dir is not a directory");
-        $liquid = new Template($dir);
+        $liquid = new LiquidTemplate($dir);
 
         $finder = new Finder();
-        $finder->files()->in($dir)->name('*.' . $this->ext);
+        $finder->files()->in($dir)->name('*child*' . $this->ext);
         foreach ($finder as $file) {
+            $liquidSource = file_get_contents($file->getRealPath());
+            $template = (new Template())
+                ->setLiquidSource($liquidSource)
+                ->setLiquidFilename($file->getRelativePathname())
+                ;
             try {
-                $liquidTemplate = $liquid->parse(file_get_contents($file->getRealPath()));
+                $liquidTemplate = $liquid->parse($liquidSource);
             } catch (\Exception $exception) {
-
                 throw new \Exception($file->getRealPath() . " " .  $exception->getMessage());
             }
 
-//            dd($file->getRealPath(), $liquidTemplate);
             $twigs = $this->convert($liquidTemplate->getRoot());
+            dd($twigs, $liquidTemplate, $liquidTemplate->getRoot()->getNodelist());
+            $template->setTwigSource(join("\n", $twigs));
 
             dump(Yaml::dump($twigs));
+            array_push($templates, $template);
         }
+        return $templates;
         dd('stopped');
 
 

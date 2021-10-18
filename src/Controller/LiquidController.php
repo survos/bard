@@ -26,15 +26,10 @@ class LiquidController extends AbstractController
         $protectedPath = sprintf("%s/liquid/protected/", $bag->get('kernel.project_dir'));
         assert(file_exists($protectedPath), "missing dir $protectedPath");
 
-        $liquidService->toTwig($protectedPath . 'templates');
+        $templates = $liquidService->toTwig($protectedPath . 'templates');
 
-
-        dd($liquid, $liquid->getRoot(), $liquidTemplate);
-
-        echo $liquid->render($assigns);
-
-        return $this->render('liquid/index.html.twig', [
-            'controller_name' => 'LiquidController',
+        return $this->render('liquid/templates.html.twig', [
+            'templates' => $templates
         ]);
     }
 }
