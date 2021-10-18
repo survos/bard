@@ -38,7 +38,9 @@ class SidebarMenuSubscriber extends BaseMenuSubscriber implements EventSubscribe
 
     private function isDev(): bool
     {
-        return $this->getParameterBag()?->get('kernel.environment') == 'dev';
+        // php8
+//        return $this->getParameterBag()?->get('kernel.environment') == 'dev';
+        return $this->getParameterBag()->get('kernel.environment') == 'dev';
     }
 
     public function onKnpMenuEvent(KnpMenuEvent $event)

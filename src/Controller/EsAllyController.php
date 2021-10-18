@@ -10,8 +10,10 @@ use App\Entity\Work;
 use App\Repository\WorkRepository;
 use JoliCode\Elastically\Client;
 use Elastica\Document;
+use JoliCode\Elastically\Result;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 use Symfony\Component\Routing\Annotation\Route;
@@ -66,7 +68,7 @@ class EsAllyController extends AbstractController
     /**
      * @Route("/es/ally_explore/{allyIndexName}", name="es_ally_explore")
      */
-    public function explore(Client $client, $allyIndexName, WorkRepository $workRepository): Response
+    public function explore(Client $client, Request $request, $allyIndexName, WorkRepository $workRepository): Response
     {
         $dumps = [];
         $transformer = new WorkOutputDataTransformer();
@@ -77,8 +79,10 @@ class EsAllyController extends AbstractController
             $indexBuilder->markAsLive($index, $allyIndexName);
         }
 
+
         $indexer = $client->getIndexer();
-        // Set the proper aliases
+        if ($request->get('reindex')) {
+            // Set the proper aliases
             switch ($allyIndexName) {
                 case 'works':
                     foreach ($workRepository->findAll() as $work) {
@@ -88,14 +92,10 @@ class EsAllyController extends AbstractController
                     }
                     $indexer->flush();
             }
-
-
-
-            // Class to index DTO in an Index
-            $indexer = $client->getIndexer();
+        }
+        $query = $request->get('q', 'night');
         $mapping = $index->getMapping();
-        $results = $index->search('night');
-        dd($results);
+        $results = array_map(fn (Result $result) => $result->getModel(), $index->search($query)->getResults());
         /*
         $indexName = $client->getIndexNameFromClass(Work::class);
         array_push($dump, $results);
@@ -103,6 +103,7 @@ class EsAllyController extends AbstractController
 
         return $this->render('es_ally/explore.html.twig', [
             'index' => $index,
+            'results' => $results,
             'mapping' => $mapping,
             'dumps' => $dumps
         ]);

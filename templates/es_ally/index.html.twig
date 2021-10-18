@@ -13,6 +13,7 @@
         {% for allyIndexName, model in mappingConfig|default([]) %}
             <tr>
                 <td>
+                    <a href="{{ path('es_ally_explore', {reindex: true, allyIndexName: allyIndexName}) }}"><span class="fas fa-sync"></span></a>
                     <a href="{{ path('es_ally_explore', {allyIndexName: allyIndexName}) }}">{{ allyIndexName }}</a>
                 </td>
                 <td>

@@ -1,6 +1,9 @@
 mappings:
   dynamic: false
   properties:
+    id: { type: keyword }
+    chapters:
+        type: nested
     title:
       type: text
       analyzer: english
