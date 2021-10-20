@@ -47,6 +47,7 @@ class SidebarMenuSubscriber extends BaseMenuSubscriber implements EventSubscribe
     {
         $menu = $event->getMenu();
         $request = $this->requestStack->getCurrentRequest();
+        $this->addMenuItem($menu, ['route' => 'hello']);
 
         /** @var $work Work */
         if ($work = $request->get('work')) {

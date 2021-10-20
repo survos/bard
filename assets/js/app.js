@@ -9,6 +9,9 @@ require('../../vendor/survos/base-bundle/src/Resources/assets/js/adminlte');
 Routing.setRoutingData(routes);
 global.Routing = Routing;
 
+// start the Stimulus application
+import '../bootstrap';
+
 // require('@adminkit/core/static/js/app');
 require('bootstrap');
 require('@popperjs/core');
