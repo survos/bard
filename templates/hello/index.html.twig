@@ -10,7 +10,9 @@
 
 <div class="example-wrapper" {{ stimulus_controller('hello') }}>
 
-    <div {{ stimulus_target('hello', '') }}
+    <div {{ stimulus_target('hello', 'messages') }}>
+        Stimulus messages go here...
+    </div>
 
 
     This friendly message is coming from:

@@ -61,6 +61,16 @@ Encore
 
     // enables Sass/SCSS support
     .enableSassLoader()
+
+    .addLoader({
+        test: /\.twig$/,
+        use: {
+            loader: 'twig-loader',
+            options: {
+                // See options section below
+            },
+        },
+    })
 // uncomment if you use TypeScript
 // .enableTypeScriptLoader()
 
@@ -75,4 +85,7 @@ Encore
     .autoProvidejQuery();
 const config = Encore.getWebpackConfig();
 config.resolve.symlinks = false;
+
+// config.node.fs = 'empty';
+
 module.exports = config;
