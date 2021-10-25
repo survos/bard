@@ -5,11 +5,15 @@ namespace App\Services;
 use App\Entity\Template;
 use Liquid\Document;
 use Liquid\Liquid;
+use Liquid\Tag\TagAssign;
 use Liquid\Tag\TagBlock;
+use Liquid\Tag\TagCapture;
 use Liquid\Tag\TagComment;
 use Liquid\Tag\TagExtends;
+use Liquid\Tag\TagFor;
 use Liquid\Tag\TagIf;
 use Liquid\Tag\TagInclude;
+use Liquid\Tag\TagUnless;
 use Liquid\Template as LiquidTemplate;
 use Liquid\Variable;
 use Psr\Log\LoggerInterface;
@@ -23,9 +27,6 @@ class LiquidService
     private string $ext = 'tpl';
     public function __construct(private LoggerInterface $logger)
     {
-        Liquid::set('INCLUDE_SUFFIX', 'tpl');
-        Liquid::set('INCLUDE_PREFIX', '');
-        Liquid::set('INCLUDE_ALLOW_EXT', true);
 
 
 // Uncomment the following lines to enable cache
@@ -49,6 +50,7 @@ class LiquidService
     private function convert(Document $document)
     {
 
+
         $this->logger->info("document ", [$document]);
         $twigs = [];
         $nodeList = $document->getNodelist();
@@ -59,6 +61,8 @@ class LiquidService
                 $nodeClass = $node::class;
                 $this->logger->info("converting node ", [$node]);
                 switch ($nodeClass) {
+                    case LiquidTags::class:
+                        break; // @todo
                     case TagExtends::class:
                         // we don't need to recurse this.
                         /** @var $node TagExtends */
@@ -68,12 +72,16 @@ class LiquidService
                         break;
                     case Variable::class:
                     case TagIf::class:
+                    case TagAssign::class:
+                    case TagFor::class:
                     case TagInclude::class:
-                        dump($node);
+                    case TagCapture::class:
+                    case TagUnless::class:
+//                        dump($node);
                         break;
                     case TagBlock::class:
                         /** @var $node TagBlock */
-                        dump($node);
+                        dd($node);
                         ($reflectionProperty = new \ReflectionProperty($nodeClass, 'block'))->setAccessible(true);
                         $blockName  = $reflectionProperty->getValue($node);
 
@@ -81,7 +89,20 @@ class LiquidService
                         $twigs[] = 'BLOCK ' . $blockName;
                         break;
                     case TagComment::class:
-                        $twigs[] = sprintf("{# %s #}", join("\n", $node->getNodeList()));
+                        try {
+                            $comment = '';
+                            foreach ($node->getNodeList() as $commentNode) {
+                                if (is_string($commentNode)) {
+                                    $comment .= $commentNode . "\n";
+                                } else {
+                                    $comment .= $commentNode::class . "\n";
+                                }
+                            }
+                            $twigs[] = sprintf("{# %s #}", $comment);
+//                            $twigs[] = sprintf("{# %s #}", join("\n", $node->getNodeList()));
+                        } catch (\Exception $exception) {
+                            $twigs[] = $exception;
+                        }
 //                            array_push($twigs, [
 //                                'class' => $nodeClass,
 //                                'value' => join("\n", $node->getNodeList())
@@ -99,16 +120,38 @@ class LiquidService
 
     }
 
+
+
     // convert all .tpl files in a directory to .html.twig
-    public function toTwig($dir): array
+    public function toTwig($dir, $ext): array
     {
         $templates = [];
 
         assert(is_dir($dir), "$dir is not a directory");
         $liquid = new LiquidTemplate($dir);
 
+        Liquid::set('INCLUDE_SUFFIX', 'tpl');
+        Liquid::set('INCLUDE_PREFIX', '_includes/');
+        Liquid::set('INCLUDE_ALLOW_EXT', true);
+//        $liquid->registerFilter();
+
+        $liquid->registerTag('removeemptylines', LiquidTags::class);
+        $liquid->registerTag('endremoveemptylines', LiquidTags::class);
+        $liquid->registerTag('capture_global', LiquidTags::class);
+        $liquid->registerTag('endcapture_global', LiquidTags::class);
+        $liquid->registerTag('highlight', LiquidTags::class);
+        $liquid->registerTag('endhighlight', LiquidTags::class);
+        $liquid->registerTag('card', LiquidTags::class);
+        $liquid->registerTag('endcard', LiquidTags::class);
+
+
+        // ??
+        $liquid->registerTag('endif', LiquidTags::class);
+
+//        dd($liquid);
+
         $finder = new Finder();
-        $finder->files()->in($dir)->name('*child*' . $this->ext);
+        $finder->files()->in($dir)->name('*' . $ext);
         foreach ($finder as $file) {
             $liquidSource = file_get_contents($file->getRealPath());
             $template = (new Template())
@@ -117,15 +160,20 @@ class LiquidService
                 ;
             try {
                 $liquidTemplate = $liquid->parse($liquidSource);
+//                dd($liquidTemplate, $liquidTemplate->getRoot(), $liquid, $liquidTemplate->render([]));
             } catch (\Exception $exception) {
-                throw new \Exception($file->getRealPath() . " " .  $exception->getMessage());
+                throw new \Exception($file->getRealPath() . ": " .  $exception->getMessage());
             }
 
             $twigs = $this->convert($liquidTemplate->getRoot());
-            dd($twigs, $liquidTemplate, $liquidTemplate->getRoot()->getNodelist());
+
+
+
+
+//            dd($twigs, $liquidTemplate, $liquidTemplate->getRoot()->getNodelist());
             $template->setTwigSource(join("\n", $twigs));
 
-            dump(Yaml::dump($twigs));
+//            dump(Yaml::dump($twigs));
             array_push($templates, $template);
         }
         return $templates;

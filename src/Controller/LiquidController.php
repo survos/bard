@@ -23,10 +23,12 @@ class LiquidController extends AbstractController
     #[Route('/liquid', name: 'liquid')]
     public function index(LiquidService $liquidService, ParameterBagInterface $bag): Response
     {
-        $protectedPath = sprintf("%s/liquid/protected/", $bag->get('kernel.project_dir'));
+//        $protectedPath = sprintf("%s/liquid/protected/", $bag->get('kernel.project_dir'));
+        $protectedPath = sprintf("/home/tac/survos/themes/tabler/src/pages");
+
         assert(file_exists($protectedPath), "missing dir $protectedPath");
 
-        $templates = $liquidService->toTwig($protectedPath . 'templates');
+        $templates = $liquidService->toTwig($protectedPath, 'html');
 
         return $this->render('liquid/templates.html.twig', [
             'templates' => $templates
