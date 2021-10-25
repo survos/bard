@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}Work Overview{% endblock %}
+
+{% block page_subtitle %}
+    Works of Shakespeare
+{% endblock %}
+
+{% block body %}
+
+    {% import "@SurvosBase/macros/cards.html.twig" as cardMacros %}
+
+    <h3>In memory Table</h3>
+
+    {% set menuCode = 'survos_sidebar_menu'%}
+
+    {% set worksMenu = knp_menu_get(menuCode, ['works_header'], {'some_option': 'my_value'}) %}
+    {% for menuItem in worksMenu.children  %}
+        {{ cardMacros.menu_card(
+            menuItem.name,
+            {
+                menuItem: menuItem,
+                url: menuItem.uri
+            }
+        ) }}
+
+    {% endfor %}
+
+{% endblock %}

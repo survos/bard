@@ -42,6 +42,15 @@ class WorkController extends AbstractController
             'works' => $works,
             'apply_basic_datatable' => $request->get('_route') === 'work_html_plus_datatable'
         ]);
+
+    }
+
+    /**
+     * @Route("/overview", name="work_overview", methods={"GET"})
+     */
+    public function overview(Request $request, EntityManagerInterface $em, WorkRepository $workRepository): Response
+    {
+        return $this->render('work/overview.html.twig', []);
     }
 
     /**

@@ -47,11 +47,12 @@ class SidebarMenuSubscriber extends BaseMenuSubscriber implements EventSubscribe
     {
         $menu = $event->getMenu();
         $request = $this->requestStack->getCurrentRequest();
+        $this->addMenuItem($menu, ['route' => 'hello']);
 
         /** @var $work Work */
         if ($work = $request->get('work')) {
             $workMenu = $menu;
-            // $workMenu = $this->addMenuItem($menu, ['menu_code' => $work->getSlug(), 'label' => 'Work: ' . $work->getTitle()]);
+            // $workMenu = $this->addMenuItem($menu, ['id'=> $work->getSlug(), 'label' => 'Work: ' . $work->getTitle()]);
             $this->addMenuItem($workMenu, ['route' => 'work_show', 'rp' => $work]);
             // too similar right now$this->addMenuItem($workMenu, ['route' => 'admin_work_show', 'rp' => $work]);
             $this->addMenuItem($workMenu, ['route' => 'work_characters', 'rp' => $work]);
@@ -65,7 +66,7 @@ class SidebarMenuSubscriber extends BaseMenuSubscriber implements EventSubscribe
 
         /** @var  $character Character */
         if ($character = $request->get('character')) {
-            // $scriptMenu = $this->addMenuItem($menu, ['menu_code' => $script->getSlug(), 'label' => 'Script: ' . $script->getTitle()]);
+            // $scriptMenu = $this->addMenuItem($menu, ['id'=> $script->getSlug(), 'label' => 'Script: ' . $script->getTitle()]);
             $this->addMenuItem($menu, ['route' => 'character_show', 'rp' => $character]);
             $this->addMenuItem($menu, ['route' => 'character_scenes', 'rp' => $character]);
             $this->addMenuItem($menu, ['route' => 'character_edit', 'rp' => $character]);
@@ -79,7 +80,8 @@ class SidebarMenuSubscriber extends BaseMenuSubscriber implements EventSubscribe
             $this->addMenuItem($menu, ['route' => 'es_ally', 'label' => 'ES Ally', 'icon' => 'fas fa-search']);
         }
 
-        $worksMenu = $this->addMenuItem($menu, ['menu_code' => 'works_header', 'icon' => 'fas fa-theater-masks']);
+        $worksMenu = $this->addMenuItem($menu, ['id' => 'works_header', 'icon' => 'fas fa-theater-masks']);
+        $this->addMenuItem($worksMenu, ['route' => 'work_overview']);
         $this->addMenuItem($worksMenu, ['route' => 'work_index', 'label' => 'HTML', 'icon' => 'fas fa-list']);
         $this->addMenuItem($worksMenu, ['route' => 'work_html_plus_datatable', 'label' => 'HTML+DT', 'icon' => 'fas fa-list']);
         if ($this->isDev())
@@ -87,7 +89,7 @@ class SidebarMenuSubscriber extends BaseMenuSubscriber implements EventSubscribe
             $this->addMenuItem($worksMenu, ['route' => 'work_doctrine_api_platform', 'label' => 'Doctrine Search', 'icon' => 'fas fa-table']);
         // @todo: pass ROLE to addMenuItem and only display if permitted?  Or pass a boolean?
 
-        $worksMenu = $this->addMenuItem($menu, ['menu_code' => 'search']);
+        $worksMenu = $this->addMenuItem($menu, ['id' => 'search']);
         $this->addMenuItem($worksMenu, ['route' => 'search_dashboard', 'icon' => 'fas fa-list']);
         $this->addMenuItem($worksMenu, ['route' => 'search_create_index', 'icon' => 'fas fa-plus']);
         $this->addMenuItem($worksMenu, ['route' => 'work_es_datatable', 'label' => 'ElasticSearch', 'icon' => 'fas fa-table']);
@@ -100,7 +102,7 @@ class SidebarMenuSubscriber extends BaseMenuSubscriber implements EventSubscribe
 //        $menu->addChild('work_index.title', ['route' => 'work_index'])->setAttribute('icon', 'fas fa-theater-masks');
 //        $menu->addChild('datatable', ['route' => 'work_datatable'])->setAttribute('icon', 'fas fa-table');
 
-        $charactersMenu = $this->addMenuItem($menu, ['menu_code' => 'characters_header', 'icon' => 'fas fa-users']);
+        $charactersMenu = $this->addMenuItem($menu, ['id'=> 'characters_header', 'icon' => 'fas fa-users']);
         foreach ([
             'character_index'=>'HTML only',
                      'character_js_datatable' => 'HTML + basic dt',
@@ -109,7 +111,7 @@ class SidebarMenuSubscriber extends BaseMenuSubscriber implements EventSubscribe
                      ] as $route => $lable) {
             $this->addMenuItem($charactersMenu, ['route' => $route, 'label' => $lable]);
         }
-//        $worksMenu = $this->addMenuItem($menu, ['menu_code' => 'works_header', 'icon' => 'fas fa-scroll']);
+//        $worksMenu = $this->addMenuItem($menu, ['id'=> 'works_header', 'icon' => 'fas fa-scroll']);
 //        foreach ([
 //                     'work_index'=>'HTML only',
 ////                     'work_search' => 'Search',
