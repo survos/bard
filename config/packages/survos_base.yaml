@@ -15,7 +15,7 @@ survos_base:
 
 twig:
   globals:
-    theme: adminlte
+    theme: tabler
   paths:
 #    'email/default/templates': ~
-    'vendor/survos/base-bundle/src/Resources/views/adminlte': 'theme'
+    'vendor/survos/base-bundle/src/Resources/views/tabler': 'theme'

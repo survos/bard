@@ -177,6 +177,9 @@
     "jolicode/elastically": {
         "version": "v1.2.0"
     },
+    "kevinpapst/tabler-bundle": {
+        "version": "dev-tac"
+    },
     "knplabs/knp-markdown-bundle": {
         "version": "1.9.0"
     },

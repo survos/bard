@@ -27,6 +27,7 @@
         "@fortawesome/fontawesome-free": "^5.15.2",
         "@popperjs/core": "^2.9.2",
         "@symfony/stimulus-bridge": "^2.0.0",
+        "@tabler/core": "^1.0.0-beta4",
         "Hinclude": "^1.2.0",
         "adminlte4-bs5": "^4.0.2",
         "bootstrap": "^5.0.1",
