@@ -10,14 +10,34 @@ security:
             entity:
                 class: App\Entity\User
                 property: email
+#        admin_entity_provider:
+#            entity:
+#                class: App\Entity\AdminUser
+#                property: email
         # users_in_memory: { memory: null }
 
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+#        admin:
+#            pattern: ^/admin
+#            user_checker: Umbrella\AdminBundle\Security\UserChecker
+#            entry_point: Umbrella\AdminBundle\Security\AuthenticationEntryPoint
+#            provider: admin_entity_provider
+#            lazy: true
+#            form_login:
+#                login_path: umbrella_admin_login
+#                check_path: umbrella_admin_login
+#                default_target_path: app_admin_home_index # !! Depends on your configuration
+#                enable_csrf: true
+#            logout:
+#                path: umbrella_admin_logout
+#                target: umbrella_admin_login
+
         main:
             guard:
+                provider: app_user_provider
                 authenticators:
                     - App\Security\AppAuthenticator
             logout:
@@ -25,7 +45,6 @@ security:
                 # where to redirect after logout
                 # target: app_any_route
 
-            anonymous: true
             lazy: true
             # provider: users_in_memory
 
@@ -37,6 +56,13 @@ security:
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
-    access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+    enable_authenticator_manager: true
+    password_hashers:
+        App\Entity\AdminUser: auto
         # - { path: ^/profile, roles: ROLE_USER }
+
+    access_control:
+        - { path: ^/admin/login$, role: PUBLIC_ACCESS } # Admin login url mus be public
+        - { path: ^/admin/password_request, role: PUBLIC_ACCESS } # Admin password request url must be public
+        - { path: ^/admin/password_reset, role: PUBLIC_ACCESS } # Admin password reset url must be public
+        - { path: ^/admin, roles: ROLE_ADMIN } # Other admin urls must be protected

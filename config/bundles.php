@@ -25,4 +25,6 @@ return [
     SymfonyCasts\Bundle\VerifyEmail\SymfonyCastsVerifyEmailBundle::class => ['all' => true],
     FOS\ElasticaBundle\FOSElasticaBundle::class => ['all' => true],
     Symfony\UX\TwigComponent\TwigComponentBundle::class => ['all' => true],
+    Umbrella\CoreBundle\UmbrellaCoreBundle::class => ['all' => true],
+    Umbrella\AdminBundle\UmbrellaAdminBundle::class => ['all' => true],
 ];

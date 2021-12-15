@@ -20,5 +20,11 @@
             "package.json",
             "webpack.config.js"
         ]
+    },
+    "umbrella2/adminbundle": {
+        "version": "v4.2"
+    },
+    "umbrella2/corebundle": {
+        "version": "v4.2"
     }
 }
