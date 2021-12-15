@@ -1,4 +1,4 @@
-import {Controller} from 'stimulus';
+import {Controller} from '@hotwired/stimulus';
 
 export default class extends Controller {
 
@@ -8,6 +8,7 @@ export default class extends Controller {
     };
 
     connect() {
+        console.error('hello from hello_controller');
 
         var html = 'nada';
         var twig = require('twig').twig;
