@@ -1,7 +1,6 @@
 {
     "devDependencies": {
         "@babel/eslint-parser": "^7.15.8",
-        "@symfony/stimulus-bridge": "^2.0.0",
         "@symfony/webpack-encore": "1.1",
         "bootstrap": "^5.0.1",
         "core-js": "^3.0.0",
@@ -10,7 +9,6 @@
         "regenerator-runtime": "^0.13.2",
         "sass": "^1.32.8",
         "sass-loader": "^11.0.0",
-        "stimulus": "^2.0.0",
         "webpack-notifier": "^1.6.0"
     },
     "engines": {
@@ -27,7 +25,6 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.2",
         "@popperjs/core": "^2.9.2",
-        "@symfony/stimulus-bridge": "^2.0.0",
         "Hinclude": "^1.2.0",
         "adminlte4-bs5": "^4.0.2",
         "bootstrap": "^5.0.1",

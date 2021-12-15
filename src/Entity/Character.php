@@ -79,7 +79,7 @@ class Character extends SurvosBaseEntity
         return $this;
     }
 
-    function getUniqueIdentifiers()
+    function getUniqueIdentifiers(): array
     {
         return ['characterId' => $this->getId()];
     }

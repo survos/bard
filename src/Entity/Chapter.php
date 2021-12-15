@@ -148,7 +148,7 @@ class Chapter extends SurvosBaseEntity
         return $this;
     }
 
-    function getUniqueIdentifiers()
+    function getUniqueIdentifiers(): array
     {
         return ['chapterId' => $this->getId()];
     }

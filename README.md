@@ -56,7 +56,7 @@ At this point, you can run
 I also changed the "extends" in the Word table to use SurvosBaseEntity.  This gives access to a RP (RouteParameters) method that makes it much easier to use slugs instead of numeric ids for the routes.  It requires getUniqueIdentifiers to be defined (in this case, id IS the slug, not an integer).
 
 ```php
-    function getUniqueIdentifiers()
+    function getUniqueIdentifiers(): array
     {
         return ['id' => $this->getId()];
     }

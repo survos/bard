@@ -218,7 +218,7 @@ class Work extends SurvosBaseEntity
         return $this->getShortTitle();
     }
 
-    function getUniqueIdentifiers()
+    function getUniqueIdentifiers(): array
     {
         return ['id' => $this->getId()];
     }
