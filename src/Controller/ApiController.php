@@ -2,15 +2,64 @@
 
 namespace App\Controller;
 
+use ApiPlatform\Core\Documentation\Documentation;
+use ApiPlatform\Core\Metadata\Resource\Factory\ResourceNameCollectionFactoryInterface;
+use ApiPlatform\Core\Swagger\Serializer\ApiGatewayNormalizer;
+use ApiPlatform\Core\Swagger\Serializer\DocumentationNormalizer;
+use App\Repository\WorkRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Yaml\Yaml;
 
 class ApiController extends AbstractController
 {
+
+    public function __construct(private NormalizerInterface $normalizer, private ResourceNameCollectionFactoryInterface $resourceNameCollectionFactory)
+    {
+
+    }
+
+    /**
+     * @Route("/api-datatable", name="work_datatable_via_api", methods={"GET"})
+     * @Route("/api-datatable-custom", name="work_datatable_via_api_custom", methods={"GET"})
+     */
+
+
+    /**
+     * @Route("/schema-docs/", name="api_schema")
+     */
+    public function api_schema(Request $request,
+
+                               UrlGeneratorInterface $urlGenerator): Response
+    {
+        $documentation = new Documentation($this->resourceNameCollectionFactory->create());
+        $data = $this->normalizer->normalize($documentation, DocumentationNormalizer::FORMAT);
+//        $data = json_decode(json_encode($data), false);
+//        dd($data['components']);
+
+        return $this->render('@SurvosBase/datatable/debug.html.twig', [
+            'paths' => $data['paths'],
+            'schemas' => $data['components']['schemas'],
+            'js' => $request->get('_route'),
+            'api' => true
+
+        ]);
+
+        dd($data);
+        $content = $input->getOption('yaml')
+            ? Yaml::dump($data, 10, 2, Yaml::DUMP_OBJECT_AS_MAP | Yaml::DUMP_EMPTY_ARRAY_AS_SEQUENCE | Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK)
+            : (json_encode($data, \JSON_PRETTY_PRINT | \JSON_UNESCAPED_SLASHES) ?: '');
+
+
+
+    }
+
     /**
      * @Route("/passthru/{apiRoute}", name="api_passthru")
      */

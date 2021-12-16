@@ -16,7 +16,6 @@
         "doctrine/doctrine-bundle": "^2.2",
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.8",
-        "easycorp/easyadmin-bundle": "^3",
         "easyrdf/easyrdf": "*",
         "friendsofsymfony/elastica-bundle": "dev-master",
         "friendsofsymfony/jsrouting-bundle": "^2.7",

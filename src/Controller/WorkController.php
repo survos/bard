@@ -77,6 +77,21 @@ class WorkController extends AbstractController
     }
 
     /**
+     * @Route("/api-datatable", name="work_datatable_via_api", methods={"GET"})
+     * @Route("/api-datatable-custom", name="work_datatable_via_api_custom", methods={"GET"})
+     */
+    public function dt(Request $request, WorkRepository $workRepository): Response
+    {
+        return $this->render('work/browse.html.twig', [
+            'js' => $request->get('_route'),
+            'api' => true
+
+        ]);
+    }
+
+
+
+    /**
      * @Route("/es-datatable", name="work_es_datatable", methods={"GET"})
      */
     public function esDatatable(Request $request): Response

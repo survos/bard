@@ -1,5 +1,5 @@
 // const $ = global.$;
-// const $ = require('jquery');
+const $ = require('jquery');
 console.log('hello, works.js');
 
 /*
@@ -18,6 +18,7 @@ import {SurvosDataTable} from 'survos-datatables';
 
 // not sure if we use this for both ElasticSearch and for Doctrine.  Both are API platform.
 const $workTable = $('#work-table');
+console.log('start.');
 const workColumns = [
     {title: 'ID', data: '@id'},
     {title: 'Title', data: 'longTitle', xfilter: 'partial'},

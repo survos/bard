@@ -83,6 +83,7 @@ class SidebarMenuSubscriber extends BaseMenuSubscriber implements EventSubscribe
         $worksMenu = $this->addMenuItem($menu, ['id' => 'works_header', 'icon' => 'fas fa-theater-masks']);
         $this->addMenuItem($worksMenu, ['route' => 'work_overview']);
         $this->addMenuItem($worksMenu, ['route' => 'work_index', 'label' => 'HTML', 'icon' => 'fas fa-list']);
+        $this->addMenuItem($worksMenu, ['route' => 'work_datatable_via_api', 'label' => 'API Basic', 'icon' => 'fas fa-list']);
         $this->addMenuItem($worksMenu, ['route' => 'work_html_plus_datatable', 'label' => 'HTML+DT', 'icon' => 'fas fa-list']);
         if ($this->isDev())
         {
@@ -140,6 +141,7 @@ class SidebarMenuSubscriber extends BaseMenuSubscriber implements EventSubscribe
 // $menu->addChild('test_rdf', ['route' => 'test_rdf'])->setAttribute('icon', 'fas fa-sync');
 //        $this->addMenuItem($menu, ['route' => 'easyadmin', 'external' => 'true', 'attributes' => ['target' => '_blank'], 'label' => 'EasyAdmin', 'icon' => 'fas fa-database']);
         $this->addMenuItem($menu, ['route' => 'api_entrypoint', 'external' => 'true', 'label' => 'API', 'icon' => 'fas fa-exchange-alt']);
+        $this->addMenuItem($menu, ['route' => 'api_schema',  'label' => 'API Schema', 'icon' => 'fas fa-book']);
 
 //        $this->authMenu($this->getAuthorizationChecker(), $menu, $event->getChildOptions());
         // ...
