@@ -86,6 +86,10 @@ Encore
 const config = Encore.getWebpackConfig();
 config.resolve.symlinks = false;
 
+config.watchOptions = {
+    poll: true,
+};
+
 // config.node.fs = 'empty';
 
 module.exports = config;

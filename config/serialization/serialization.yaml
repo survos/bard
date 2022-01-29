@@ -38,6 +38,8 @@ App\Dto\WorkOutput:
   attributes:
     id:
       groups: ['read', 'Default']
+    year:
+      groups: ['read', 'Default']
     title:
       groups: ['read', 'write', 'Default']
 #    longTitle:

@@ -1,4 +1,10 @@
-<table class="table table-striped {{ apply_basic_datatable ? 'js-datatable' }}" id="works-html-table">
+{% set sc = 'datatable' %}
+<div {{ stimulus_controller(sc, {
+    api_call: 'api_works_get_collection',
+}) }}>
+
+
+<table class="table table-striped {{ apply_basic_datatable ? 'js-datatable' }}" id="works-html-table" {{  stimulus_target(sc, 'htmlTable') }}>
     <thead>
     <tr>
         <th>Id</th>
@@ -38,3 +44,4 @@
     {% endfor %}
     </tbody>
 </table>
+</div>

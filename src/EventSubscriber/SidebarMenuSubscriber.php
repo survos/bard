@@ -84,6 +84,7 @@ class SidebarMenuSubscriber extends BaseMenuSubscriber implements EventSubscribe
         $this->addMenuItem($worksMenu, ['route' => 'work_overview']);
         $this->addMenuItem($worksMenu, ['route' => 'work_index', 'label' => 'HTML', 'icon' => 'fas fa-list']);
         $this->addMenuItem($worksMenu, ['route' => 'work_datatable_via_api', 'label' => 'API Basic', 'icon' => 'fas fa-list']);
+        $this->addMenuItem($worksMenu, ['route' => 'work_datatable_via_stimulus', 'label' => 'API via Stimulus', 'icon' => 'fas fa-list']);
         $this->addMenuItem($worksMenu, ['route' => 'work_html_plus_datatable', 'label' => 'HTML+DT', 'icon' => 'fas fa-list']);
         if ($this->isDev())
         {

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% import "@SurvosBase/macros/cards.html.twig" as card_widget %}
+
+{% block page_content_before %}
+    <div class="well-sm">
+        {{ "pages.%s"|format(app.request.get('_route'))|trans }}
+    </div>
+{% endblock %}
+
+
+
+{% block body %}
+
+    <h1>{{ _self }}</h1>
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+
+
+        {% set aaController = 'works' %}
+
+
+        <div {{ stimulus_controller(aaController, {
+            filter: filter|default([]),
+            api_call: path('api_works_get_collection'),
+        }) }}>
+
+            <table id="works-table-via-api" {{ stimulus_target(aaController, 'apiTable') }}>
+
+            </table>
+
+{#            <table {{ stimulus_target(options.stimulusController, options.stimulusTarget) }}#}
+{#                    id="{{ id }}"#}
+{#                    {% if options.extraColumns %}data-extra-columns='{{ options.extraColumns|json_encode }}'{% endif %}#}
+{#                    data-json-ld-url="{{ dataUrl }}"#}
+{#                    data-api="{{ api|json_encode }}"#}
+{#                    class="table table-striped no-wrap {{ options.class  }}"#}
+{#            >#}
+{#                <tfoot></tfoot>#}
+{#            </table>#}
+
+            {# create the table element for dataTables to use. #}
+{#            {{ card_widget.entityTable({#}
+{#                id: 'works-table',#}
+{#                stimulusController: aaController,#}
+{#                stimulusTarget: 'table',#}
+{#                api: api,#}
+{#                marking: markingData|default([]),#}
+{#                class: 'js-media-table'#}
+{#            })#}
+{#            }}#}
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
