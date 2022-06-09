@@ -46,7 +46,7 @@
                 {% block box_title %}Shakespeare's Works and Characters{% endblock %}
                 {% block box_body %}
                     <div class="callout callout-info">
-                        {{ 'bard.intro'|trans|markdown }}
+                        {{ 'bard.intro'|trans }}
                     </div>
                 {% endblock %}
                 {% block box_footer %}
@@ -74,7 +74,7 @@
                 {% block box_title %}Toolkit{% endblock %}
                 {% block box_body %}
                     <div class="callout callout-warning">
-                            {{ 'site.intro'|trans|u.replaceMatches('/^ +/ims', '')|markdown }}
+                            {{ 'site.intro'|trans|u.replaceMatches('/^ +/ims', '') }}
                     </div>
                 {% endblock %}
                 {% block box_footer %}

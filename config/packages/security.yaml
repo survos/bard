@@ -1,8 +1,4 @@
 security:
-    encoders:
-        App\Entity\User:
-            algorithm: auto
-
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         # used to reload user from session & other features (e.g. switch_user)
@@ -36,10 +32,6 @@ security:
 #                target: umbrella_admin_login
 
         main:
-            guard:
-                provider: app_user_provider
-                authenticators:
-                    - App\Security\AppAuthenticator
             logout:
                 path: app_logout
                 # where to redirect after logout

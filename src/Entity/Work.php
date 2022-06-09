@@ -31,7 +31,7 @@ use App\Dto\WorkOutput;
  *          "pagination_client_items_per_page"=true
  *     },
  *
- *     normal   izationContext={"groups"={"read","fulltext"}},
+ *     normalizationContext={"groups"={"read","fulltext"}},
  *     denormalizationContext={"groups"={"write"}}
  * )
  * @ApiFilter(SearchFilter::class, properties={"longTitle": "partial"})
